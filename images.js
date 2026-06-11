@@ -58,7 +58,7 @@
             cases:      'images/backgrounds/bg-cases.jpg',
             cv:         'images/backgrounds/bg-cv.jpg',
             contact:    'images/backgrounds/bg-contact.jpg',
-            cover:      'images/coverpage.png'
+            cover:      'images/backgrounds/bg-cover.jpg'
         },
 
         /* ── A2  CONTENT IMAGES ──────────────────────────
