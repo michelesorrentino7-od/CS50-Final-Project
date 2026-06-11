@@ -14,8 +14,11 @@
     <!-- Custom stylesheet — design tokens + §38 cover page styles -->
     <link href="styles.css" rel="stylesheet">
     <title>Sorrentino Consultancy — Advisory GRC</title>
-    <!-- model-viewer (pinned version) — renders the interactive GLB capitol -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+    <!-- model-viewer (pinned version) — renders the interactive GLB capitol.
+         Served from jsdelivr (same CDN as Bootstrap on the other pages).
+         NOTE: ES-module scripts and GLB files do not load over file:// —
+         the page must be served over http (see README). -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
     <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 <body class="page-cover">
@@ -51,7 +54,7 @@
                       environment-image="neutral"
                       camera-orbit="0deg 78deg auto"
                       interpolation-decay="160">
-            <div class="model-fallback">3D model not supported.</div>
+            <div class="model-fallback">3D model unavailable — open this page via a local server (see README), not by double-clicking the file.</div>
         </model-viewer>
 
         <div class="cover-body">
