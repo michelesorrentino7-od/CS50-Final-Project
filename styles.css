@@ -2192,8 +2192,8 @@ body.page-contact footer {
    gradient overlay via body::after. */
 body.page-cover {
     --page-bg: var(--bg-cover);
-    --page-bg-opacity: 0.34;
-    --page-overlay-opacity: 1;
+    --page-bg-opacity: 0.55;
+    --page-overlay-opacity: 0.6;
 }
 
 /* ── Screen 1: cover ── */
@@ -2212,15 +2212,15 @@ body.page-cover {
     background-color: transparent;
 }
 
-/* 3D model viewer — horizontally centred in the upper area of the
-   cover, above the title block (bottom-left). */
+/* 3D model viewer — vertically centred on the right half of the cover,
+   facing the title block on the left. */
 .page-cover .cover-foreground-model {
     position: absolute;
-    top: 5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(62vw, 54rem);
-    height: min(64vh, 36rem);
+    top: 50%;
+    right: 4vw;
+    transform: translateY(-50%);
+    width: min(48vw, 46rem);
+    height: min(74vh, 42rem);
     z-index: 0;
     --poster-color: transparent;
     background: transparent;
@@ -2309,23 +2309,21 @@ body.page-cover {
 }
 
 .page-cover .cover-overline {
-    position: absolute;
-    top: 10rem;
-    left: 5vw;
-    width: min(30rem, 50vw);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--stone-accent);
-    margin-bottom: 1.5rem;
+    margin: 0 0 1rem;
 }
 
+/* Title block — vertically centred on the left half */
 .page-cover .cover-main {
     position: absolute;
     left: 6.5vw;
-    bottom: 9.25rem;
-    width: min(100%, 30rem);
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(100%, 32rem);
     margin: 0;
     padding: 0;
     background: transparent;
@@ -2434,9 +2432,10 @@ body.page-cover {
     50% { transform: scaleY(0.5); opacity: 0.15; }
 }
 
-/* ── Screen 1.5: word reveal ── */
+/* ── Screen 1.5: word reveal — transparent so the fixed pencil-sketch
+   background shows through while scrolling ── */
 .page-cover .reveal-screen {
-    background: var(--stone-base);
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2499,9 +2498,9 @@ body.page-cover {
     transform: translateY(0);
 }
 
-/* ── Screen 2: mission ── */
+/* ── Screen 2: mission — transparent like the reveal screen ── */
 .page-cover .mission-screen {
-    background: var(--stone-base);
+    background: transparent;
     border-top: 1px solid var(--stone-rule);
     padding: 5.5rem 5vw 9rem;
 }
@@ -2621,23 +2620,21 @@ body.page-cover {
         padding: 2rem 1.5rem 2rem;
     }
 
+    /* Small screens: model in the upper half, title block below */
     .page-cover .cover-foreground-model {
         top: 4.5rem;
-        width: 80vw;
+        right: 50%;
+        transform: translateX(50%);
+        width: 88vw;
         height: 38vh;
     }
 
     .page-cover .cover-main {
-        width: min(100%, 14.75rem);
-        left: 3rem;
-        bottom: 8.5rem;
-    }
-
-    .page-cover .cover-overline {
-        top: 6.5rem;
+        width: min(100%, 21rem);
         left: 1.5rem;
-        width: min(14.75rem, calc(100vw - 3rem));
-        margin-bottom: 0.55rem;
+        top: auto;
+        bottom: 8.5rem;
+        transform: none;
     }
 
     .page-cover .cover-full-rule {
@@ -2686,28 +2683,15 @@ body.page-cover {
 }
 
 @media (min-width: 521px) and (max-width: 768px) {
-    .page-cover .cover-overline {
-        left: 1.5rem;
-        width: min(18rem, calc(100vw - 3rem));
-    }
-
     .page-cover .cover-main {
-        width: min(100%, 18rem);
+        width: min(100%, 24rem);
         left: 3rem;
-        bottom: 8.5rem;
     }
 }
 
 @media (min-width: 1024px) {
-    .page-cover .cover-overline {
-        top: 9.5rem;
-        left: 5vw;
-        width: 30rem;
-    }
-
     .page-cover .cover-main {
-        width: min(34vw, 34rem);
+        width: min(38vw, 34rem);
         left: 6.5vw;
-        bottom: 9.25rem;
     }
 }
