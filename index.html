@@ -169,17 +169,30 @@
             if (!pillarsEl || pillars.length === 0) return;
 
             let inView = false, ready = false, played = false, fallback = null;
+            let timers = [];
             function play() {
                 if (played) return;
                 played = true;
-                pillars.forEach((p, i) => setTimeout(() => p.classList.add('visible'), i * 320));
+                timers = pillars.map((p, i) =>
+                    setTimeout(() => p.classList.add('visible'), i * 320));
+            }
+            function reset() {
+                timers.forEach(clearTimeout); timers = [];
+                if (fallback) { clearTimeout(fallback); fallback = null; }
+                pillars.forEach(p => p.classList.remove('visible'));
+                played = false; ready = false;
             }
             function maybe() { if (ready && inView) play(); }
 
             const obs = new IntersectionObserver(([entry]) => {
                 inView = entry.isIntersecting && entry.intersectionRatio >= 0.25;
-                if (inView && !fallback) fallback = setTimeout(() => { ready = true; maybe(); }, 2500);
-                maybe();
+                if (entry.isIntersecting) {
+                    if (inView && !fallback) fallback = setTimeout(() => { ready = true; maybe(); }, 2500);
+                    maybe();
+                } else {
+                    /* out of view: rewind so the sequence replays next time */
+                    reset();
+                }
             }, { threshold: [0, 0.25] });
             obs.observe(pillarsEl);
 
