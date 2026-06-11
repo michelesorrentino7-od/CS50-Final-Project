@@ -158,17 +158,38 @@
         );
         document.querySelectorAll('.mission-inner').forEach(el => missionObserver.observe(el));
 
-        /* ── Pillar staggered entrance ── */
-        const pillarObserver = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) {
-                pillarObserver.disconnect();
-                document.querySelectorAll('.pillar').forEach((pillar, i) => {
-                    setTimeout(() => pillar.classList.add('visible'), i * 180);
-                });
+        /* ── Pillar entrance, chained to the cryptex ──
+           The principles wait for the cryptex spin to finish, pause
+           half a second, then appear one at a time (requires the
+           pillars to be on screen). Fallback: if the cryptex never
+           ran, the pillars show after 2.5s in view anyway. */
+        (function () {
+            const pillars = Array.from(document.querySelectorAll('.pillar'));
+            const pillarsEl = document.querySelector('.pillars');
+            if (!pillarsEl || pillars.length === 0) return;
+
+            let inView = false, ready = false, played = false, fallback = null;
+            function play() {
+                if (played) return;
+                played = true;
+                pillars.forEach((p, i) => setTimeout(() => p.classList.add('visible'), i * 320));
             }
-        }, { threshold: 0.3 });
-        const pillarsEl = document.querySelector('.pillars');
-        if (pillarsEl) pillarObserver.observe(pillarsEl);
+            function maybe() { if (ready && inView) play(); }
+
+            const obs = new IntersectionObserver(([entry]) => {
+                inView = entry.isIntersecting && entry.intersectionRatio >= 0.25;
+                if (inView && !fallback) fallback = setTimeout(() => { ready = true; maybe(); }, 2500);
+                maybe();
+            }, { threshold: [0, 0.25] });
+            obs.observe(pillarsEl);
+
+            window.addEventListener('cryptexdone', () => {
+                setTimeout(() => { ready = true; maybe(); }, 500);
+            });
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                ready = true; maybe();
+            }
+        })();
 
         /* ── Scroll-linked clip reveal ── */
         const sentence = [
@@ -195,56 +216,72 @@
         });
 
         /* ── Cryptex reveal ──
-           Each word is a dial that spins on a horizontal axis and clicks
-           into place, driven by scroll position (works in both
-           directions). Progress is measured by how far the reveal
-           section has travelled into the viewport; each word gets a
-           staggered window of that progress. */
+           When the section enters the viewport, every word-dial SPINS
+           fast on its horizontal axis (multiple full turns, motion-
+           blurred) for about a second, decelerates and clicks into
+           place on the right word — like the rings of a cryptex.
+           Replays if you scroll away and come back. */
         (function () {
             const words = Array.from(container.querySelectorAll('.reveal-word'));
             const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (reduced || words.length === 0) {
+                words.forEach(w => { w.style.opacity = 1; w.style.transform = 'none'; });
                 if (revealBody) revealBody.classList.add('visible');
+                window.dispatchEvent(new Event('cryptexdone'));
                 return;
             }
 
-            const STAGGER = 0.09;   // delay between dials (progress units)
-            const WINDOW  = 0.42;   // how much progress one dial needs
+            const SPIN_MS  = 1100;  /* how long one dial spins */
+            const STAGGER  = 130;   /* ms between dials starting */
+            const TURNS    = 3;     /* full revolutions before settling */
             const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
-            /* easeOutBack: slight overshoot = the dial "clicks" into place */
-            const easeOutBack = t => {
-                const c1 = 1.20158, c3 = c1 + 1;
-                return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
-            };
+            /* fast at the start, decelerating into the stop */
+            const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
 
-            let raf = null;
-            function render() {
-                raf = null;
-                const rect = section.getBoundingClientRect();
-                const vh = window.innerHeight;
-                /* 0 when the section top enters from below,
-                   1 when the section is well into view */
-                const p = clamp((vh - rect.top) / (vh * 0.85), 0, 2);
+            let playing = false, done = false, rafId = null, t0 = 0;
 
+            function frame(now) {
+                const total = SPIN_MS + STAGGER * (words.length - 1);
+                const elapsed = now - t0;
                 words.forEach((word, i) => {
-                    const t = clamp((p - i * STAGGER) / WINDOW, 0, 1);
-                    const e = easeOutBack(t);
-                    const ang = -100 * (1 - e);          /* -100° → 0° */
-                    word.style.transform = 'rotateX(' + ang.toFixed(2) + 'deg)';
-                    word.style.opacity = clamp(t * 1.6, 0, 1).toFixed(3);
+                    const t = clamp((elapsed - i * STAGGER) / SPIN_MS, 0, 1);
+                    if (t <= 0) { word.style.opacity = 0; return; }
+                    const e = easeOutQuart(t);
+                    const ang = (1 - e) * 360 * TURNS;        /* spins down to 0° */
+                    const speed = (1 - t);                     /* 1 → 0 */
+                    word.style.transform = 'rotateX(' + ang.toFixed(1) + 'deg)';
+                    word.style.opacity = clamp(t * 4, 0, 1).toFixed(3);
+                    /* motion blur while the dial is whirling */
+                    word.style.filter = speed > 0.18 ? 'blur(' + (speed * 3).toFixed(2) + 'px)' : 'none';
                 });
-
-                const lastT = clamp((p - words.length * STAGGER) / WINDOW, 0, 1);
-                if (revealBody) {
-                    if (lastT >= 1) revealBody.classList.add('visible');
-                    else if (lastT <= 0.05) revealBody.classList.remove('visible');
+                if (elapsed < total) {
+                    rafId = requestAnimationFrame(frame);
+                } else {
+                    rafId = null; playing = false; done = true;
+                    words.forEach(w => { w.style.transform = 'rotateX(0deg)'; w.style.opacity = 1; w.style.filter = 'none'; });
+                    if (revealBody) revealBody.classList.add('visible');
+                    window.dispatchEvent(new Event('cryptexdone'));
                 }
             }
-            function schedule() { if (!raf) raf = requestAnimationFrame(render); }
 
-            window.addEventListener('scroll', schedule, { passive: true });
-            window.addEventListener('resize', schedule, { passive: true });
-            render();
+            function start() {
+                if (playing || done) return;
+                playing = true;
+                t0 = performance.now();
+                rafId = requestAnimationFrame(frame);
+            }
+            function reset() {
+                if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+                playing = false; done = false;
+                words.forEach(w => { w.style.opacity = 0; w.style.filter = 'none'; });
+                if (revealBody) revealBody.classList.remove('visible');
+            }
+
+            const spinObserver = new IntersectionObserver(([entry]) => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.3) start();
+                else if (!entry.isIntersecting) reset();
+            }, { threshold: [0, 0.3] });
+            spinObserver.observe(section);
         })();
 
         /* ── Hover + scroll rotation for the capitol model ──
