@@ -2465,24 +2465,33 @@ body.page-cover {
     align-items: flex-end;
     gap: 0 0.28em;
     margin-bottom: 0;
+    /* cryptex: 3D stage for the rotating word-dials */
+    perspective: 750px;
 }
 
+/* Each word is a dial of the cryptex: it spins on a horizontal axis
+   set slightly behind the glyphs (cylinder feel) and clicks into
+   place. The rotation is driven by scroll (see index.html script). */
 .page-cover .reveal-word {
     display: inline-block;
     margin-right: 0.28em;
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 1.05s ease, transform 1.05s ease;
-}
-
-.page-cover .reveal-word.visible {
-    opacity: 1;
-    transform: translateY(0);
+    transform: rotateX(-100deg);
+    transform-origin: 50% 50% -0.55em;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
 }
 
 .page-cover .reveal-word.accent {
     font-style: italic;
     color: var(--stone-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-cover .reveal-word {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 .page-cover .reveal-body {
