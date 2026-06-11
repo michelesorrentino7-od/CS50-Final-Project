@@ -2230,13 +2230,6 @@ body.page-cover {
     .page-cover .cover-foreground-model { display: none; }
 }
 
-.page-cover .model-fallback {
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
-    font-size: 0.72rem;
-    color: var(--stone-deep);
-}
 
 /* Text layer sits above the model; pointer-events pass through to the
    model except on interactive elements (links, buttons). */
