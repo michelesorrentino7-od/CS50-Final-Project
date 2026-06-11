@@ -35,21 +35,22 @@
                  python3 -m http.server 8000
                  open http://localhost:8000/index.html
         -->
+        <!-- The camera stays fixed (no drag, no zoom, no pan): rotation is
+             driven entirely by mouse position and page scroll — see the
+             "Hover + scroll rotation" script at the bottom of this file. -->
         <model-viewer id="capitolModel"
                       class="cover-foreground-model"
                       src="images/animation/textured_mesh.glb"
-                      alt="Interactive classical capitol"
-                      camera-controls
-                      auto-rotate
-                      auto-rotate-delay="1000"
-                      rotation-per-second="18deg"
+                      alt="Classical capitol that rotates as you move the mouse or scroll"
+                      disable-zoom
+                      disable-pan
+                      disable-tap
+                      interaction-prompt="none"
                       shadow-intensity="0.35"
                       exposure="1"
                       environment-image="neutral"
-                      interaction-prompt="auto"
-                      ar
-                      ar-modes="webxr scene-viewer quick-look"
-                      style="touch-action: none;">
+                      camera-orbit="0deg 78deg auto"
+                      interpolation-decay="160">
             <div class="model-fallback">3D model not supported.</div>
         </model-viewer>
 
@@ -207,6 +208,40 @@
         }
 
         window.addEventListener('scroll', startReveal, { passive: true });
+
+        /* ── Hover + scroll rotation for the capitol model ──
+           The camera position is fixed (no drag/zoom/pan); only the
+           horizontal orbit angle changes:
+           • mouse  — sweeping the cursor across the viewport turns the
+                      model through a full 360°
+           • scroll — scrolling the page adds continuous rotation
+           model-viewer's interpolation-decay smooths every update. */
+        (function () {
+            const model = document.getElementById('capitolModel');
+            if (!model) return;
+
+            let mouseDeg = 0;   // -180° … +180° from horizontal cursor position
+            let scrollDeg = 0;  // grows with page scroll
+            let raf = null;
+
+            function apply() {
+                raf = null;
+                model.cameraOrbit = (mouseDeg + scrollDeg).toFixed(1) + 'deg 78deg auto';
+            }
+            function schedule() {
+                if (!raf) raf = requestAnimationFrame(apply);
+            }
+
+            window.addEventListener('mousemove', e => {
+                mouseDeg = (e.clientX / window.innerWidth - 0.5) * 360;
+                schedule();
+            }, { passive: true });
+
+            window.addEventListener('scroll', () => {
+                scrollDeg = window.scrollY * 0.3;
+                schedule();
+            }, { passive: true });
+        })();
     </script>
     <script src="images.js"></script>
     <script src="i18n.js"></script>
