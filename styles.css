@@ -2212,15 +2212,15 @@ body.page-cover {
     background-color: transparent;
 }
 
-/* 3D model viewer — anchored to the upper-right of the cover so it
-   stays clear of the title block (bottom-left) and the header strip.
-   Slightly smaller than full screen. */
+/* 3D model viewer — horizontally centred in the upper area of the
+   cover, above the title block (bottom-left). */
 .page-cover .cover-foreground-model {
     position: absolute;
-    top: 6rem;
-    right: 4vw;
-    width: min(48vw, 42rem);
-    height: min(56vh, 30rem);
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(62vw, 54rem);
+    height: min(64vh, 36rem);
     z-index: 0;
     --poster-color: transparent;
     background: transparent;
@@ -2630,9 +2630,8 @@ body.page-cover {
 
     .page-cover .cover-foreground-model {
         top: 4.5rem;
-        right: 2vw;
-        width: 62vw;
-        height: 34vh;
+        width: 80vw;
+        height: 38vh;
     }
 
     .page-cover .cover-main {
