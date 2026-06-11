@@ -2709,3 +2709,181 @@ body.page-cover {
         left: 6.5vw;
     }
 }
+
+/* ══════════════════════════════════════════════════════════
+   §39 MICRO-INTERACTIONS & NAV REFINEMENT (site-wide)
+   Restrained, luxury-paced motion: one shared easing curve,
+   soft card lifts, growing underlines, gentle scroll fades.
+   ══════════════════════════════════════════════════════════ */
+:root {
+    --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Navbar: calm links, accent underline instead of beige block ── */
+.navbar .nav-link {
+    position: relative;
+    color: #57534e;
+    transition: color 0.3s var(--ease-lux);
+}
+
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0.9rem;
+    right: 0.9rem;
+    bottom: 0.35rem;
+    height: 2px;
+    background: var(--stone-accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s var(--ease-lux);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+    color: var(--stone-ink);
+    background: transparent;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+    transform: scaleX(1);
+}
+
+/* Logo blends onto the warm navbar — no white card */
+.brand-logo {
+    background: transparent;
+    padding: 0;
+    mix-blend-mode: multiply;
+}
+
+/* ── Section-nav: quieter, accent state ── */
+.section-nav-link {
+    position: relative;
+    min-height: 3.4rem;
+    color: #57534e;
+    opacity: 0.85;
+    transition: color 0.3s var(--ease-lux), opacity 0.3s var(--ease-lux);
+}
+
+.section-nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0.7rem;
+    right: 0.7rem;
+    bottom: 0;
+    height: 2px;
+    background: var(--stone-accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s var(--ease-lux);
+}
+
+.section-nav-link:hover,
+.section-nav-link.active {
+    color: var(--stone-ink);
+    opacity: 1;
+}
+
+.section-nav-link:hover::after,
+.section-nav-link.active::after {
+    transform: scaleX(1);
+}
+
+/* ── Cards: soft lift on hover ── */
+.card,
+.principle-card,
+.expertise-item,
+.case-card {
+    transition: transform 0.45s var(--ease-lux), box-shadow 0.45s var(--ease-lux);
+}
+
+.card:hover,
+.principle-card:hover,
+.expertise-item:hover,
+.case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(26, 24, 20, 0.10);
+}
+
+/* ── Editorial links: smooth color + underline ── */
+.area-link {
+    transition: color 0.3s var(--ease-lux), border-bottom-color 0.3s var(--ease-lux);
+}
+
+/* ── Buttons: gentle lift ── */
+.btn-primary,
+.btn-outline-primary,
+.cover-enter,
+.btn-enter-site {
+    transition: transform 0.35s var(--ease-lux), box-shadow 0.35s var(--ease-lux),
+                background-color 0.3s var(--ease-lux), color 0.3s var(--ease-lux);
+}
+
+.btn-primary:hover,
+.btn-outline-primary:hover,
+.page-cover .cover-enter:hover,
+.btn-enter-site:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(26, 24, 20, 0.14);
+}
+
+/* ── Image frames: slow zoom on hover ── */
+.image-kicker,
+.visual-frame,
+.contact-image-frame,
+.area-media-frame {
+    overflow: hidden;
+}
+
+.image-kicker img,
+.visual-frame img,
+.contact-image-frame img,
+.area-media-frame img {
+    transition: transform 0.8s var(--ease-lux);
+}
+
+.image-kicker:hover img,
+.visual-frame:hover img,
+.contact-image-frame:hover img,
+.area-media-frame:hover img {
+    transform: scale(1.04);
+}
+
+/* ── Scroll-driven entrance fade (CSS-only, progressive) ──
+   Supported browsers gently fade content blocks in as they enter
+   the viewport; others simply show them. Opacity only, so it never
+   fights the hover lift transforms. */
+@supports (animation-timeline: view()) {
+    .expertise-item,
+    .principle-card,
+    .case-card,
+    .area-row,
+    .visual-row {
+        animation: fadeInView linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 35%;
+    }
+}
+
+@keyframes fadeInView {
+    from { opacity: 0.001; }
+    to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card, .principle-card, .expertise-item, .case-card,
+    .btn-primary, .btn-outline-primary, .cover-enter, .btn-enter-site,
+    .image-kicker img, .visual-frame img,
+    .contact-image-frame img, .area-media-frame img,
+    .navbar .nav-link::after, .section-nav-link::after {
+        transition: none;
+        animation: none;
+    }
+
+    .expertise-item, .principle-card, .case-card, .area-row, .visual-row {
+        animation: none;
+        opacity: 1;
+    }
+}
