@@ -1,0 +1,211 @@
+<!--
+  ============================================================
+  SERVICE DETAIL — services/assurance-security.html
+  ============================================================
+  Supplier audit programmes, loss prevention and security governance.
+  Linked from: services.html #assurance-security "Read more →"
+               home.html §2 expertise grid card 3
+
+  PAGE STRUCTURE:
+  ┌─────────────────────────────────────────────────┐
+  │  NAVBAR / SECTION-NAV                            │
+  ├─────────────────────────────────────────────────┤
+  │  §1 HERO              — headline + CTA           │
+  │  §2 HERITAGE          — two-col: narrative + list│
+  │  §3 SUPPLIER AUDIT    — Design→Execute→Govern    │
+  │  §4 SECURITY GOV      — loss prevention block    │
+  │  §5 OUTCOMES          — 6-item outcomes-grid     │
+  │  §6 CTA               — call-to-action band      │
+  │  BACK LINK            — ← Back to all services   │
+  ├─────────────────────────────────────────────────┤
+  │  FOOTER                                          │
+  └─────────────────────────────────────────────────┘
+
+  BODY CLASS: page-services | i18n prefix: as.*
+  ============================================================
+-->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Third-Party Assurance &amp; Security advisory. Sorrentino Consultancy brings operational security heritage to supplier audit programmes, loss prevention and security governance." name="description"/>
+<meta content="Assurance &amp; Security | Sorrentino Consultancy" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="../images/logo.png" property="og:image"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link rel="icon" href="../images/logo.png" type="image/png"/>
+<title>Assurance &amp; Security | Sorrentino Consultancy</title>
+</head>
+<body class="page-services">
+<nav aria-label="Main navigation" class="navbar navbar-expand-lg navbar-light sticky-top">
+<div class="container">
+<a aria-label="Sorrentino Consultancy home" class="navbar-brand d-inline-flex align-items-center" href="../home.html">
+<img alt="Sorrentino Consultancy" class="brand-logo" height="56" data-img="logo" width="86"/>
+</a>
+<button aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navMenu" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<li class="nav-item"><a class="nav-link" data-i18n="nav.home" href="../home.html">Home</a></li>
+<li class="nav-item"><a aria-current="page" class="nav-link active" data-i18n="nav.services" href="../services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.casestudies" href="../case-studies.html">Case Studies</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.cv" href="../cv.html">CV</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.contact" href="../contact.html">Contact</a></li>
+</ul>
+<button aria-label="Switch language" class="btn btn-outline-primary btn-sm ms-lg-3 language-toggle" id="languageToggle" onclick="this.dataset.i18nInlineHandled='1'; window.toggleLanguage && window.toggleLanguage()" type="button">IT</button>
+</div>
+</div>
+</nav>
+<nav aria-label="Page sections" class="section-nav">
+<div class="container">
+<a class="section-nav-link active" href="#heritage">Our Heritage</a>
+<a class="section-nav-link" href="#supplier-audit">Supplier Audit</a>
+<a class="section-nav-link" href="#security-governance">Security Governance</a>
+<a class="section-nav-link" href="#outcomes">Outcomes</a>
+<a class="section-nav-link" href="../contact.html">Get in Touch</a>
+</div>
+</nav>
+<main>
+<!-- HERO -->
+<section class="service-hero py-5">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="as.kicker">Services</p>
+<h1 class="service-hero-title" data-i18n-html="as.hero.title">Your contracts say<br/>your suppliers meet<br/>your standards. Do they?</h1>
+<p class="service-hero-lead" data-i18n="as.hero.lead">Third-party assurance is not about paperwork. It is about knowing what actually happens when your name is attached to an operation you do not directly control. We build the audit models, governance routines and security oversight structures that give you genuine visibility — drawn from operational experience, not frameworks read in a textbook.</p>
+<a class="btn btn-primary btn-sm px-4 mt-3" data-i18n="as.hero.cta" href="../contact.html">Talk about your supplier risk →</a>
+</div>
+</div>
+</div>
+</section>
+<!-- HERITAGE -->
+<section class="service-band py-5" id="heritage">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="as.her.kicker">Where This Comes From</p>
+<h2 class="service-section-heading" data-i18n="as.her.title">Security is not theoretical for us. It is where we started.</h2>
+<div class="row align-items-start g-5 mt-1">
+<div class="col-md-7">
+<p class="homepage-lead" data-i18n="as.her.p1">Sorrentino Consultancy is built on seventy years of operational security history. Vigilanza Turris — the family business founded in 1953 — protected banks, institutions and private clients across the territory through the discipline of clear procedures, visible accountability and the daily commitment to earning trust.</p>
+<p class="homepage-lead" data-i18n="as.her.p2">When we design an audit programme for a logistics network, we are not applying a generic framework. We are drawing on direct experience of what security operations look like from the inside: where controls break down, what good looks like in practice and how accountability disappears when no one is watching closely.</p>
+<p class="homepage-lead" data-i18n="as.her.p3">That is something no certification replaces.</p>
+</div>
+<div class="col-md-5">
+<div class="heritage-story" style="font-size:0.92rem;">
+<p><strong>What we bring to third-party assurance:</strong></p>
+<ul class="mt-2" style="padding-left:1.25rem; color:#334155; line-height:1.8;">
+<li data-i18n="as.her.li1">Operational security heritage across banking, institutions and logistics</li>
+<li data-i18n="as.her.li2">Direct experience designing and running supplier audit programmes across 30+ providers</li>
+<li data-i18n="as.her.li3">Loss prevention governance in outsourced and complex multi-site environments</li>
+<li data-i18n="as.her.li4">Incident review and corrective-action discipline from operational practice, not theory</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SUPPLIER AUDIT -->
+<section class="service-outcomes py-5" id="supplier-audit">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="as.aud.kicker">Supplier Audit Programmes</p>
+<h2 class="service-section-heading" data-i18n="as.aud.title">Audit that produces accountability, not paper.</h2>
+<p class="homepage-lead mt-3" data-i18n="as.aud.p1">Most organisations audit their suppliers on a schedule. Few have a programme that genuinely drives improvement. The difference is in the design: clear audit standards, scorecards that measure what matters, corrective-action governance with teeth and a cadence that keeps suppliers accountable between visits.</p>
+<div class="method-row mt-4">
+<div class="method-block">
+<h3 class="method-name" data-i18n="as.aud.1.name">Design</h3>
+<p data-i18n="as.aud.1.body">Risk-based supplier segmentation. Audit standards and scorecards calibrated to what you actually need to know. Evidence requirements that are proportionate and consistent across your supplier base.</p>
+</div>
+<div class="method-block">
+<h3 class="method-name" data-i18n="as.aud.2.name">Execute</h3>
+<p data-i18n="as.aud.2.body">Audit model that your internal team can run, with the right questions and the right documentation. Support for complex or high-risk supplier audits where an experienced external perspective is needed.</p>
+</div>
+<div class="method-block">
+<h3 class="method-name" data-i18n="as.aud.3.name">Govern</h3>
+<p data-i18n="as.aud.3.body">Corrective-action tracking, escalation paths, closure evidence and management reporting that keeps findings moving — from identified to resolved, not from identified to forgotten.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECURITY GOVERNANCE -->
+<section class="service-proof py-5" id="security-governance">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="as.sec.kicker">Security Governance</p>
+<h2 class="service-section-heading" data-i18n="as.sec.title">Loss prevention and security operations — governed, not just reported.</h2>
+<div class="proof-block mt-4">
+<p class="proof-context" data-i18n="as.sec.ctx">Assurance &amp; Security · Operational security governance</p>
+<p data-i18n="as.sec.p1">Security operations produce data — incident reports, patrol logs, access records, response times. Most organisations collect this data and do very little with it. Security governance means turning that data into visibility: identifying patterns, setting performance expectations, reviewing incidents for systemic cause and holding providers accountable for outcomes, not just activity.</p>
+<p data-i18n="as.sec.p2">We design security performance frameworks and loss prevention governance models that connect what your security providers do with what your business cares about. This includes KPI design, incident classification, management reporting templates and the governance cadence that keeps security performance on leadership's agenda.</p>
+<p class="proof-outcome" data-i18n="as.sec.out">Case in point: a Third-Party Audit Programme we redesigned for 30+ logistics providers produced measurable improvement in audit closure discipline and surfaced operational patterns that a monthly scorecard had missed for two years.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- OUTCOMES -->
+<section class="service-method py-5" id="outcomes">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="as.out.kicker">What You Get</p>
+<h2 class="service-section-heading" data-i18n="as.out.title">Visibility you can act on.</h2>
+<div class="outcomes-grid mt-4">
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="as.out.1">A risk-based supplier segmentation model that prioritises audit effort where exposure is highest.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="as.out.2">Audit standards, scoring templates and evidence requirements your team can apply consistently.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="as.out.3">Corrective-action governance — tracking, escalation, closure evidence and management reporting.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="as.out.4">Security KPI framework and incident review routines that produce actionable management information.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="as.out.5">Loss prevention governance model for outsourced or multi-site security operations.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="as.out.6">A programme your team can maintain independently — not one that requires our ongoing involvement to function.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="container my-5">
+<div class="cta-band d-md-flex justify-content-between align-items-center">
+<div>
+<h2 class="h3 fw-bold mb-1" data-i18n="as.cta.title">Do you know what your suppliers actually do?</h2>
+<p class="mb-0 opacity-75 cta-subtext" data-i18n="as.cta.sub">Not what the contract says. What happens.</p>
+</div>
+<a class="btn btn-primary btn-lg mt-3 mt-md-0 flex-shrink-0" data-i18n="btn.getintouch" href="../contact.html">Get in Touch</a>
+</div>
+</section>
+<div class="container mb-5"><a class="area-link" data-i18n="btn.back" href="../services.html">← Back to all services</a></div>
+</main>
+<footer class="text-center py-4"><p class="mb-0">© 2026 Sorrentino Consultancy · Napoli, Italy</p></footer>
+<script src="../images.js"></script>
+<script src="../i18n.js"></script>
+<script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

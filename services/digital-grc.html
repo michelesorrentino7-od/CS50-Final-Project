@@ -1,0 +1,208 @@
+<!--
+  ============================================================
+  SERVICE DETAIL — services/digital-grc.html
+  ============================================================
+  Lean digital workflows for risk, compliance and evidence.
+  Linked from: services.html #digital-grc "Read more →"
+
+  PAGE STRUCTURE:
+  ┌─────────────────────────────────────────────────┐
+  │  NAVBAR / SECTION-NAV                            │
+  ├─────────────────────────────────────────────────┤
+  │  §1 HERO              — headline + CTA           │
+  │  §2 THE TOOL MYTH     — narrative + observations │
+  │  §3 WHAT WE DO        — Map→Design→Automate     │
+  │  §4 AI & DATA         — AI proof-block           │
+  │  §5 OUTCOMES          — 6-item outcomes-grid     │
+  │  §6 CTA               — call-to-action band      │
+  │  BACK LINK            — ← Back to all services   │
+  ├─────────────────────────────────────────────────┤
+  │  FOOTER                                          │
+  └─────────────────────────────────────────────────┘
+
+  BODY CLASS: page-services | i18n prefix: dg.*
+  ============================================================
+-->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Digital GRC &amp; Evidence Management. Sorrentino Consultancy helps you make your existing tools work properly — without buying a platform you do not need." name="description"/>
+<meta content="Digital GRC &amp; Evidence Management | Sorrentino Consultancy" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="../images/logo.png" property="og:image"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link rel="icon" href="../images/logo.png" type="image/png"/>
+<title>Digital GRC &amp; Evidence Management | Sorrentino Consultancy</title>
+</head>
+<body class="page-services">
+<nav aria-label="Main navigation" class="navbar navbar-expand-lg navbar-light sticky-top">
+<div class="container">
+<a aria-label="Sorrentino Consultancy home" class="navbar-brand d-inline-flex align-items-center" href="../home.html">
+<img alt="Sorrentino Consultancy" class="brand-logo" height="56" data-img="logo" width="86"/>
+</a>
+<button aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navMenu" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<li class="nav-item"><a class="nav-link" data-i18n="nav.home" href="../home.html">Home</a></li>
+<li class="nav-item"><a aria-current="page" class="nav-link active" data-i18n="nav.services" href="../services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.casestudies" href="../case-studies.html">Case Studies</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.cv" href="../cv.html">CV</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.contact" href="../contact.html">Contact</a></li>
+</ul>
+<button aria-label="Switch language" class="btn btn-outline-primary btn-sm ms-lg-3 language-toggle" id="languageToggle" onclick="this.dataset.i18nInlineHandled='1'; window.toggleLanguage && window.toggleLanguage()" type="button">IT</button>
+</div>
+</div>
+</nav>
+<nav aria-label="Page sections" class="section-nav">
+<div class="container">
+<a class="section-nav-link active" href="#the-myth">The Tool Myth</a>
+<a class="section-nav-link" href="#what-we-do">What We Do</a>
+<a class="section-nav-link" href="#ai-data">AI &amp; Data</a>
+<a class="section-nav-link" href="#outcomes">Outcomes</a>
+<a class="section-nav-link" href="../contact.html">Get in Touch</a>
+</div>
+</nav>
+<main>
+<!-- HERO -->
+<section class="service-hero py-5">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="dg.kicker">Services</p>
+<h1 class="service-hero-title" data-i18n-html="dg.hero.title">You do not need<br/>a GRC platform.<br/>You need your data organised.</h1>
+<p class="service-hero-lead" data-i18n="dg.hero.lead">Large consulting firms earn significant fees implementing enterprise GRC software. Most of their mid-market clients do not need it — they need their existing spreadsheets, databases and document systems connected logically, with clear ownership and an audit trail. We help you get there, and we add AI-assisted monitoring and data analysis where it genuinely adds value, not where it sounds impressive.</p>
+<a class="btn btn-primary btn-sm px-4 mt-3" data-i18n="dg.hero.cta" href="../contact.html">Talk about your GRC data →</a>
+</div>
+</div>
+</div>
+</section>
+<!-- THE MYTH -->
+<section class="service-band py-5" id="the-myth">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="dg.myt.kicker">The Tool Myth</p>
+<h2 class="service-section-heading" data-i18n="dg.myt.title">Your Excel is not the problem. Your process is.</h2>
+<div class="row g-0 mt-4">
+<div class="col-md-6 pe-md-4">
+<p class="homepage-lead" data-i18n="dg.myt.p1">Organisations invest in GRC platforms and six months later are maintaining the same data in the platform and in parallel spreadsheets, because the platform does not reflect how they actually work. The tool was designed around an ideal process that the organisation was never going to adopt.</p>
+<p class="homepage-lead" data-i18n="dg.myt.p2">The right sequence is: design the governance process first, then choose the technology that supports it. Not the other way around. We work with your actual environment — Microsoft 365, SharePoint, Notion, Google Workspace, or sector-specific tools — and build GRC workflows that people will use because they make the job easier, not harder.</p>
+</div>
+<div class="col-md-6 ps-md-4" style="border-left: 1px solid var(--stone-rule);">
+<p class="section-kicker mb-3" data-i18n="dg.myt.obs.kicker">Signs your digital GRC needs work</p>
+<ul class="service-observation-list">
+<li data-i18n="dg.myt.obs.1">Risk registers that are updated once a year for the audit</li>
+<li data-i18n="dg.myt.obs.2">Control evidence scattered across email threads and shared drives</li>
+<li data-i18n="dg.myt.obs.3">Action tracking done in meeting notes, not a system</li>
+<li data-i18n="dg.myt.obs.4">Management reporting built manually every quarter from multiple sources</li>
+<li data-i18n="dg.myt.obs.5">An expensive platform that four people use and twenty ignore</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- WHAT WE DO -->
+<section class="service-outcomes py-5" id="what-we-do">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="dg.wdo.kicker">What We Do</p>
+<h2 class="service-section-heading" data-i18n="dg.wdo.title">Lean digital workflows for risk, compliance and evidence.</h2>
+<div class="method-row mt-4">
+<div class="method-block">
+<h3 class="method-name" data-i18n="dg.wdo.1.name">Map</h3>
+<p data-i18n="dg.wdo.1.body">Understand your current data flows: where GRC information lives, who updates it, how it gets to management and where the gaps and duplications are. Most organisations are surprised by what they already have.</p>
+</div>
+<div class="method-block">
+<h3 class="method-name" data-i18n="dg.wdo.2.name">Design</h3>
+<p data-i18n="dg.wdo.2.body">Define the workflow: control register structure, evidence library logic, action tracking model, reporting cadence and dashboard design. Built around your tools, your team and your actual governance cadence.</p>
+</div>
+<div class="method-block">
+<h3 class="method-name" data-i18n="dg.wdo.3.name">Automate</h3>
+<p data-i18n="dg.wdo.3.body">Where repetitive tasks can be automated — evidence collection, monitoring alerts, status updates, report generation — we apply the right level of automation: enough to reduce manual work, not so much that the process breaks when someone changes a cell.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI & DATA -->
+<section class="service-proof py-5" id="ai-data">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="dg.ai.kicker">AI &amp; Data Analysis</p>
+<h2 class="service-section-heading" data-i18n="dg.ai.title">Applied carefully. Not demonstrated.</h2>
+<div class="proof-block mt-4">
+<p class="proof-context" data-i18n="dg.ai.ctx">Digital GRC · AI-assisted monitoring and analysis</p>
+<p data-i18n="dg.ai.p1">AI has genuine applications in GRC — anomaly detection in transaction data, automated classification of compliance evidence, pattern recognition in incident logs, contract review for risk language, and monitoring of regulatory change feeds. We use these tools where they reduce effort and improve accuracy.</p>
+<p data-i18n="dg.ai.p2">What we do not do: recommend AI solutions to clients who have not yet solved the underlying data and process problems. AI applied to disorganised data produces disorganised outputs faster. The governance process has to work first.</p>
+<p data-i18n="dg.ai.p3">We bring hands-on experience with data analysis, GRC platform configuration and AI-assisted workflows. We apply them in proportion to the problem — and we explain clearly what each tool does and does not do before recommending it.</p>
+<p class="proof-outcome" data-i18n="dg.ai.out">Our standard: if the tool cannot be maintained by your team without our involvement six months after the engagement ends, it is the wrong tool.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- OUTCOMES -->
+<section class="service-method py-5" id="outcomes">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="dg.out.kicker">What You Get</p>
+<h2 class="service-section-heading" data-i18n="dg.out.title">GRC data your team will actually maintain.</h2>
+<div class="outcomes-grid mt-4">
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="dg.out.1">A control register design your team can update without a consultant in the room.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="dg.out.2">An evidence library structure with clear ownership, naming conventions and retention logic.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="dg.out.3">Action tracking workflows integrated into the tools your team already uses daily.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="dg.out.4">Management dashboards built from live data — not manually assembled before each meeting.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="dg.out.5">Automation of repeatable evidence collection and monitoring tasks where it reduces real effort.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="dg.out.6">An honest assessment of whether a GRC platform would help you — and if so, which one and why.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="container my-5">
+<div class="cta-band d-md-flex justify-content-between align-items-center">
+<div>
+<h2 class="h3 fw-bold mb-1" data-i18n="dg.cta.title">Is your GRC data where it needs to be?</h2>
+<p class="mb-0 opacity-75 cta-subtext" data-i18n="dg.cta.sub">We will tell you honestly what you need — and what you do not.</p>
+</div>
+<a class="btn btn-primary btn-lg mt-3 mt-md-0 flex-shrink-0" data-i18n="btn.getintouch" href="../contact.html">Get in Touch</a>
+</div>
+</section>
+<div class="container mb-5"><a class="area-link" data-i18n="btn.back" href="../services.html">← Back to all services</a></div>
+</main>
+<footer class="text-center py-4"><p class="mb-0">© 2026 Sorrentino Consultancy · Napoli, Italy</p></footer>
+<script src="../images.js"></script>
+<script src="../i18n.js"></script>
+<script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!--
+  ============================================================
+  SERVICE DETAIL — services/esg-governance.html
+  ============================================================
+  Building the governance system that makes ESG reporting defensible.
+  Linked from: services.html #esg "Read more →"
+
+  PAGE STRUCTURE:
+  ┌─────────────────────────────────────────────────┐
+  │  NAVBAR / SECTION-NAV                            │
+  ├─────────────────────────────────────────────────┤
+  │  §1 HERO              — headline + CTA           │
+  │  §2 GOV VS REPORTING  — two-col comparison       │
+  │  §3 WHO IT'S FOR      — 3 audience-cards         │
+  │  §4 WHAT WE BUILD     — 3 methods + 6 outcomes  │
+  │  §5 ESG & RISK        — ERM integration block    │
+  │  §6 CTA               — call-to-action band      │
+  │  BACK LINK            — ← Back to all services   │
+  ├─────────────────────────────────────────────────┤
+  │  FOOTER                                          │
+  └─────────────────────────────────────────────────┘
+
+  BODY CLASS: page-services | i18n prefix: eg.*
+  ============================================================
+-->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="ESG Governance advisory. Sorrentino Consultancy builds the governance system that makes ESG credible — accountability structures, data ownership, risk integration and internal controls over sustainability information." name="description"/>
+<meta content="ESG Governance | Sorrentino Consultancy" property="og:title"/>
+<meta content="ESG governance is not the report. It is the system that makes the report defensible." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="../images/logo.png" property="og:image"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link rel="icon" href="../images/logo.png" type="image/png"/>
+<title>ESG Governance | Sorrentino Consultancy</title>
+</head>
+<body class="page-services">
+<nav aria-label="Main navigation" class="navbar navbar-expand-lg navbar-light sticky-top">
+<div class="container">
+<a aria-label="Sorrentino Consultancy home" class="navbar-brand d-inline-flex align-items-center" href="../home.html">
+<img alt="Sorrentino Consultancy" class="brand-logo" height="56" data-img="logo" width="86"/>
+</a>
+<button aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navMenu" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<li class="nav-item"><a class="nav-link" data-i18n="nav.home" href="../home.html">Home</a></li>
+<li class="nav-item"><a aria-current="page" class="nav-link active" data-i18n="nav.services" href="../services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.casestudies" href="../case-studies.html">Case Studies</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.cv" href="../cv.html">CV</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.contact" href="../contact.html">Contact</a></li>
+</ul>
+<button aria-label="Switch language" class="btn btn-outline-primary btn-sm ms-lg-3 language-toggle" id="languageToggle" onclick="this.dataset.i18nInlineHandled='1'; window.toggleLanguage && window.toggleLanguage()" type="button">IT</button>
+</div>
+</div>
+</nav>
+<nav aria-label="Page sections" class="section-nav">
+<div class="container">
+<a class="section-nav-link active" href="#governance-vs-reporting">Governance vs Reporting</a>
+<a class="section-nav-link" href="#who-its-for">Who It's For</a>
+<a class="section-nav-link" href="#what-we-build">What We Build</a>
+<a class="section-nav-link" href="#esg-risk">ESG &amp; Risk</a>
+<a class="section-nav-link" href="../contact.html">Get in Touch</a>
+</div>
+</nav>
+<main>
+<!-- HERO -->
+<section class="service-hero py-5">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="eg.kicker">Services</p>
+<h1 class="service-hero-title" data-i18n-html="eg.hero.title">The ESG report<br/>is downstream.<br/>The governance comes first.</h1>
+<p class="service-hero-lead" data-i18n="eg.hero.lead">Most organisations are building their ESG reporting before they have built the governance system that makes the report credible. Data collected without ownership, sustainability commitments without control evidence, board-level ESG statements without any mechanism to verify them — these create disclosure risk, not sustainability progress. We build the governance infrastructure first.</p>
+<a class="btn btn-primary btn-sm px-4 mt-3" data-i18n="eg.hero.cta" href="../contact.html">Talk about your ESG governance →</a>
+</div>
+</div>
+</div>
+</section>
+<!-- GOVERNANCE VS REPORTING -->
+<section class="service-band py-5" id="governance-vs-reporting">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="eg.dis.kicker">The Distinction That Matters</p>
+<h2 class="service-section-heading" data-i18n="eg.dis.title">ESG governance and ESG reporting are not the same thing.</h2>
+<div class="row g-0 mt-4">
+<div class="col-md-6 pe-md-4">
+<p class="section-kicker mb-2" data-i18n="eg.dis.rep.kicker" style="color: var(--stone-shadow);">ESG Reporting</p>
+<p class="homepage-lead" data-i18n="eg.dis.rep.p1">Producing a sustainability report, a CSRD disclosure or an ESG questionnaire response. It describes what you have done and what you intend. It is backward-looking. Its credibility depends entirely on the quality of the governance beneath it.</p>
+<p class="homepage-lead" data-i18n="eg.dis.rep.p2">Without governance, reporting is storytelling. With assurance requirements now embedded in CSRD, storytelling is a legal exposure.</p>
+</div>
+<div class="col-md-6 ps-md-4" style="border-left: 1px solid var(--stone-rule);">
+<p class="section-kicker mb-2" data-i18n="eg.dis.gov.kicker">ESG Governance</p>
+<p class="homepage-lead" data-i18n="eg.dis.gov.p1">The system that decides who is accountable for each ESG topic, how data is collected and verified, how ESG risks are identified and managed, and how sustainability commitments are connected to operational decisions.</p>
+<p class="homepage-lead" data-i18n="eg.dis.gov.p2">This is what makes the report defensible. This is what an assurance provider audits. This is what we build.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- WHO IT'S FOR -->
+<section class="service-outcomes py-5" id="who-its-for">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="eg.wif.kicker">Who It's For</p>
+<h2 class="service-section-heading" data-i18n="eg.wif.title">Organisations that want ESG to mean something internally.</h2>
+<div class="row g-4 mt-3">
+<div class="col-md-4">
+<div class="audience-card">
+<h3 data-i18n="eg.wif.c1.title">Companies preparing for CSRD assurance</h3>
+<p data-i18n="eg.wif.c1.body">Limited assurance on CSRD reporting is not a documentation exercise — it requires evidence that your ESG data has governance behind it. Named owners, defined collection processes, review and sign-off trails. If your governance is weak, your assurance opinion will say so.</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="audience-card">
+<h3 data-i18n="eg.wif.c2.title">Organisations embedding ESG into strategy</h3>
+<p data-i18n="eg.wif.c2.body">Your leadership team has made ESG commitments — to investors, to regulators, to employees. Now they need a management system that tracks progress, surfaces risks and connects those commitments to what actually happens in operations. Governance is that system.</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="audience-card">
+<h3 data-i18n="eg.wif.c3.title">Companies responding to investor or lender ESG requirements</h3>
+<p data-i18n="eg.wif.c3.body">PE-backed companies, companies seeking green financing or sustainability-linked loans, or organisations subject to investor ESG due diligence need to demonstrate governance substance — not just a policy document and a reported KPI.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- WHAT WE BUILD -->
+<section class="service-method py-5" id="what-we-build">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="eg.bld.kicker">What We Build</p>
+<h2 class="service-section-heading" data-i18n="eg.bld.title">An ESG governance model your organisation can operate.</h2>
+<p class="service-method-intro" data-i18n="eg.bld.intro">Every element is designed to be maintained by your internal team — not to require quarterly external support to keep running.</p>
+<div class="method-row mt-4">
+<div class="method-block">
+<h3 class="method-name" data-i18n="eg.bld.1.name">Accountability</h3>
+<p data-i18n="eg.bld.1.body">Who is responsible for each ESG topic — at board level, at management level and operationally. A governance map that makes ESG ownership explicit rather than assumed, and connects it to existing roles rather than creating new ones.</p>
+</div>
+<div class="method-block">
+<h3 class="method-name" data-i18n="eg.bld.2.name">Data</h3>
+<p data-i18n="eg.bld.2.body">Where each ESG data point comes from, who collects it, how it is verified and how it flows into reporting. Data ownership, collection procedures, quality checks and a clear audit trail from source to disclosure.</p>
+</div>
+<div class="method-block">
+<h3 class="method-name" data-i18n="eg.bld.3.name">Controls</h3>
+<p data-i18n="eg.bld.3.body">Internal controls over sustainability information — the review, sign-off and challenge mechanisms that give assurance providers confidence that your reported figures are reliable and your commitments are being monitored.</p>
+</div>
+</div>
+<div class="outcomes-grid mt-5">
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="eg.bld.out.1">An ESG governance map: topics, owners, accountability at each organisational level.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="eg.bld.out.2">A data ownership register: collection source, responsible owner, verification method, cadence.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="eg.bld.out.3">Internal controls over sustainability reporting — designed to satisfy limited assurance requirements.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="eg.bld.out.4">An ESG management cadence: how topics are reviewed, how risks are escalated, how progress is tracked.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="eg.bld.out.5">Policy-to-process alignment: sustainability policies connected to the operational procedures that implement them.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="eg.bld.out.6">A governance narrative for your assurance provider, investor or lender that explains the system, not just the numbers.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ESG & RISK INTEGRATION -->
+<section class="service-proof py-5" id="esg-risk">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="eg.esr.kicker">ESG &amp; Enterprise Risk</p>
+<h2 class="service-section-heading" data-i18n="eg.esr.title">ESG risks belong in your risk register — not in a separate sustainability framework.</h2>
+<div class="proof-block mt-4">
+<p class="proof-context" data-i18n="eg.esr.ctx">ESG Governance · Risk integration</p>
+<p data-i18n="eg.esr.p1">The organisations that manage ESG most effectively are those that treat it as a risk and control question, not a communications exercise. Climate transition risk, social licence risk, supply-chain human rights exposure, governance failures — these are business risks that belong in your enterprise risk framework alongside operational, financial and compliance risks.</p>
+<p data-i18n="eg.esr.p2">We integrate ESG risk identification into your existing risk governance model. That means ESG topics assessed using the same methodology, owned by named individuals, reviewed on the same cadence and escalated through the same channels. One risk framework. One risk language. No parallel universe.</p>
+<p data-i18n="eg.esr.p3">This integration is also what CSRD and lenders are looking for. When your ESG governance is embedded in your enterprise risk management, it demonstrates maturity — not box-ticking.</p>
+<p class="proof-outcome" data-i18n="eg.esr.out">If you already have a risk framework, we extend it to cover ESG. If you are building both at the same time, we design them together.</p>
+<a class="area-link mt-3 d-inline-block" href="governance-risk.html">See our Governance &amp; Risk service →</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="container my-5">
+<div class="cta-band d-md-flex justify-content-between align-items-center">
+<div>
+<h2 class="h3 fw-bold mb-1" data-i18n="eg.cta.title">Is your ESG governance audit-ready?</h2>
+<p class="mb-0 opacity-75 cta-subtext" data-i18n="eg.cta.sub">The report is only as credible as the governance behind it.</p>
+</div>
+<a class="btn btn-primary btn-lg mt-3 mt-md-0 flex-shrink-0" data-i18n="btn.getintouch" href="../contact.html">Get in Touch</a>
+</div>
+</section>
+<div class="container mb-5"><a class="area-link" data-i18n="btn.back" href="../services.html">← Back to all services</a></div>
+</main>
+<footer class="text-center py-4"><p class="mb-0">© 2026 Sorrentino Consultancy · Napoli, Italy</p></footer>
+<script src="../images.js"></script>
+<script src="../i18n.js"></script>
+<script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

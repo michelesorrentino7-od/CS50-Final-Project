@@ -1,0 +1,194 @@
+<!--
+  ============================================================
+  SERVICE DETAIL — services/privacy.html
+  ============================================================
+  GDPR translated into operational routines, not legal abstractions.
+  Linked from: services.html #privacy "Read more →"
+
+  PAGE STRUCTURE:
+  ┌─────────────────────────────────────────────────┐
+  │  NAVBAR / SECTION-NAV                            │
+  ├─────────────────────────────────────────────────┤
+  │  §1 HERO              — headline + CTA           │
+  │  §2 THE REALITY       — Italian Garante context  │
+  │  §3 OPERATIONAL       — Map→Assign→Embed methods │
+  │  §4 DPO SUPPORT       — DPO function proof-block │
+  │  §5 OUTCOMES          — 6-item outcomes-grid     │
+  │  §6 CTA               — call-to-action band      │
+  │  BACK LINK            — ← Back to all services   │
+  ├─────────────────────────────────────────────────┤
+  │  FOOTER                                          │
+  └─────────────────────────────────────────────────┘
+
+  BODY CLASS: page-services | i18n prefix: pr.*
+  ============================================================
+-->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Privacy &amp; Data Protection advisory. Sorrentino Consultancy translates GDPR into operational routines your team can actually follow — without creating unnecessary bureaucracy." name="description"/>
+<meta content="Privacy &amp; Data Protection | Sorrentino Consultancy" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="../images/logo.png" property="og:image"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link rel="icon" href="../images/logo.png" type="image/png"/>
+<title>Privacy &amp; Data Protection | Sorrentino Consultancy</title>
+</head>
+<body class="page-services">
+<nav aria-label="Main navigation" class="navbar navbar-expand-lg navbar-light sticky-top">
+<div class="container">
+<a aria-label="Sorrentino Consultancy home" class="navbar-brand d-inline-flex align-items-center" href="../home.html">
+<img alt="Sorrentino Consultancy" class="brand-logo" height="56" data-img="logo" width="86"/>
+</a>
+<button aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navMenu" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<li class="nav-item"><a class="nav-link" data-i18n="nav.home" href="../home.html">Home</a></li>
+<li class="nav-item"><a aria-current="page" class="nav-link active" data-i18n="nav.services" href="../services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.casestudies" href="../case-studies.html">Case Studies</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.cv" href="../cv.html">CV</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.contact" href="../contact.html">Contact</a></li>
+</ul>
+<button aria-label="Switch language" class="btn btn-outline-primary btn-sm ms-lg-3 language-toggle" id="languageToggle" onclick="this.dataset.i18nInlineHandled='1'; window.toggleLanguage && window.toggleLanguage()" type="button">IT</button>
+</div>
+</div>
+</nav>
+<nav aria-label="Page sections" class="section-nav">
+<div class="container">
+<a class="section-nav-link active" href="#reality">The Reality</a>
+<a class="section-nav-link" href="#operational">Operational Privacy</a>
+<a class="section-nav-link" href="#dpo">DPO Support</a>
+<a class="section-nav-link" href="#outcomes">Outcomes</a>
+<a class="section-nav-link" href="../contact.html">Get in Touch</a>
+</div>
+</nav>
+<main>
+<!-- HERO -->
+<section class="service-hero py-5">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="pr.kicker">Services</p>
+<h1 class="service-hero-title" data-i18n-html="pr.hero.title">A cookie banner<br/>is not a privacy programme.</h1>
+<p class="service-hero-lead" data-i18n="pr.hero.lead">GDPR compliance is not a legal exercise you complete once and file away. It is a set of daily decisions your team makes about how they collect, share and store information about real people. We help you translate the regulation into routines that hold up — without burying your organisation in paperwork it will never maintain.</p>
+<a class="btn btn-primary btn-sm px-4 mt-3" data-i18n="pr.hero.cta" href="../contact.html">Talk about your data practices →</a>
+</div>
+</div>
+</div>
+</section>
+<!-- THE REALITY -->
+<section class="service-band py-5" id="reality">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="pr.rea.kicker">The Reality</p>
+<h2 class="service-section-heading" data-i18n="pr.rea.title">Privacy obligations fail when they stay legal abstractions.</h2>
+<p class="homepage-lead mt-3" data-i18n="pr.rea.p1">Most organisations had a lawyer draft their privacy policy and a web agency add a consent banner. That covers perhaps 10% of what GDPR actually requires. The remaining 90% is operational: which data your HR, sales and operations teams handle every day, which vendors receive it, who is responsible when something goes wrong, and how you would demonstrate all of this to a regulator tomorrow morning.</p>
+<p class="homepage-lead" data-i18n="pr.rea.p2">The Italian Garante is one of the most active data protection authorities in Europe. Enforcement is real, and the investigations we have seen most frequently start not with a data breach but with an employee complaint or a routine audit that finds no evidence of accountability.</p>
+<p class="homepage-lead" data-i18n="pr.rea.p3">We work from the inside out — from the data to the documentation, not the other way around.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- OPERATIONAL PRIVACY -->
+<section class="service-outcomes py-5" id="operational">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="pr.ops.kicker">Operational Privacy</p>
+<h2 class="service-section-heading" data-i18n="pr.ops.title">Privacy that lives in how your team works, not in a folder.</h2>
+<div class="method-row mt-4">
+<div class="method-block">
+<h3 class="method-name" data-i18n="pr.ops.1.name">Map</h3>
+<p data-i18n="pr.ops.1.body">Understand what personal data you process, where it comes from, who has access, how long you keep it and which vendors receive it. A data map is the foundation of every other privacy decision.</p>
+</div>
+<div class="method-block">
+<h3 class="method-name" data-i18n="pr.ops.2.name">Assign</h3>
+<p data-i18n="pr.ops.2.body">Give each processing activity a named owner. GDPR accountability means someone in the organisation must be able to answer: why do we have this data, and what would we do if a regulator asked about it?</p>
+</div>
+<div class="method-block">
+<h3 class="method-name" data-i18n="pr.ops.3.name">Embed</h3>
+<p data-i18n="pr.ops.3.body">Turn the framework into operational routines — incident escalation, data subject request handling, vendor review, retention enforcement — so privacy becomes part of how decisions are made, not a separate compliance exercise.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- DPO SUPPORT -->
+<section class="service-proof py-5" id="dpo">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="pr.dpo.kicker">DPO Support</p>
+<h2 class="service-section-heading" data-i18n="pr.dpo.title">Data Protection Officer — designated or supported.</h2>
+<div class="proof-block mt-4">
+<p class="proof-context" data-i18n="pr.dpo.ctx">Privacy &amp; Data Protection · DPO function</p>
+<p data-i18n="pr.dpo.p1">Not every organisation is required to appoint a DPO — but many should, and most that do appoint one underinvest in giving the function real substance. A DPO without access to operational data processing information, without a channel to management and without time to do proactive work is a liability, not an asset.</p>
+<p data-i18n="pr.dpo.p2">We support DPOs who are already in post but need practical governance infrastructure — data maps, RoPA, DPIA templates, incident logs, vendor review checklists. We also support organisations that need to designate a DPO and want that function set up properly from the start.</p>
+<p class="proof-outcome" data-i18n="pr.dpo.out">We do not act as your DPO — the independence requirement matters. We build the programme that makes your DPO effective.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- OUTCOMES -->
+<section class="service-method py-5" id="outcomes">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="pr.out.kicker">What You Get</p>
+<h2 class="service-section-heading" data-i18n="pr.out.title">Defensible, maintainable, proportionate.</h2>
+<div class="outcomes-grid mt-4">
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="pr.out.1">A data map and Register of Processing Activities (RoPA) that reflects your actual operations.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="pr.out.2">Vendor privacy reviews and data processing agreement standards for your key suppliers.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="pr.out.3">DPIA support for high-risk processing activities — structured, documented and signed off.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="pr.out.4">A data subject request handling process with response templates and escalation paths.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="pr.out.5">An incident response and breach notification procedure aligned to Italian Garante expectations.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="pr.out.6">Retention and deletion routines that your team can actually enforce — not just document.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="container my-5">
+<div class="cta-band d-md-flex justify-content-between align-items-center">
+<div>
+<h2 class="h3 fw-bold mb-1" data-i18n="pr.cta.title">Do you know where your data actually is?</h2>
+<p class="mb-0 opacity-75 cta-subtext" data-i18n="pr.cta.sub">That is almost always the right place to start.</p>
+</div>
+<a class="btn btn-primary btn-lg mt-3 mt-md-0 flex-shrink-0" data-i18n="btn.getintouch" href="../contact.html">Get in Touch</a>
+</div>
+</section>
+<div class="container mb-5"><a class="area-link" data-i18n="btn.back" href="../services.html">← Back to all services</a></div>
+</main>
+<footer class="text-center py-4"><p class="mb-0">© 2026 Sorrentino Consultancy · Napoli, Italy</p></footer>
+<script src="../images.js"></script>
+<script src="../i18n.js"></script>
+<script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

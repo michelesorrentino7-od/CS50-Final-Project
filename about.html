@@ -1,0 +1,257 @@
+<!--
+  ============================================================
+  ABOUT PAGE — about.html
+  ============================================================
+  Provenance / heritage page for Sorrentino Consultancy.
+  Linked from: navbar on all pages ("About" implied via story link)
+              home.html §3 "Read our story →" link
+
+  PAGE STRUCTURE:
+  ┌─────────────────────────────────────────────────┐
+  │  NAVBAR          — sticky top navigation         │
+  │  SECTION-NAV     — in-page anchors (Provenance,  │
+  │                    Story, Principles, Contact)    │
+  ├─────────────────────────────────────────────────┤
+  │  §1 HERO         — two-col: headline + logo panel│
+  │  §2 THE STORY    — 3-chapter timeline (01/02/03) │
+  │     ├ Ch.01 First Generation  — Turris heritage  │
+  │     ├ Ch.02 Second Generation — entrepreneurial  │
+  │     └ Ch.03 Third Generation  — modern GRC       │
+  │  §3 STATS BAR    — 1953 / 3 generations / 1,500 │
+  │  §4 PRINCIPLES   — 2-col: intro + 4 cards       │
+  │  §5 CTA BAND     — call-to-action                │
+  ├─────────────────────────────────────────────────┤
+  │  FOOTER                                          │
+  └─────────────────────────────────────────────────┘
+
+  BODY CLASS: page-about  →  background: bg-about.jpg + glassmorphism
+  CSS:   styles.css
+  JS:    i18n.js  — EN/IT translation engine
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ── Meta & SEO ── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Sorrentino Consultancy: a governance, risk and compliance advisory practice shaped by three generations of security operations and modern GRC experience.">
+    <meta property="og:title" content="About | Sorrentino Consultancy">
+    <meta property="og:description" content="From a family security legacy to independent GRC advisory: the provenance behind Sorrentino Consultancy.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/logo.png">
+
+    <!-- ── Stylesheets ── -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="styles.css" rel="stylesheet">
+    <title>About | Sorrentino Consultancy</title>
+
+    <!-- ── Fonts ── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+
+<!-- page-about class → activates bg-about.jpg background + glassmorphism -->
+<body class="page-about">
+
+    <!-- ══════════════════════════════════════════════
+         NAVBAR — shared site navigation
+         ══════════════════════════════════════════════ -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand d-inline-flex align-items-center" href="home.html" aria-label="Sorrentino Consultancy home">
+                <img data-img="logo" alt="Sorrentino Consultancy" class="brand-logo" width="86" height="56">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="home.html" data-i18n="nav.home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html" data-i18n="nav.services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="case-studies.html" data-i18n="nav.casestudies">Case Studies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html" data-i18n="nav.cv">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+                <button id="languageToggle" onclick="this.dataset.i18nInlineHandled='1'; window.toggleLanguage && window.toggleLanguage()" class="btn btn-outline-primary btn-sm ms-lg-3 language-toggle" type="button" aria-label="Switch language">IT</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════
+         SECTION-NAV — in-page anchor navigation
+         ══════════════════════════════════════════════ -->
+    <nav class="section-nav" aria-label="About subnavigation">
+        <div class="container">
+            <a class="section-nav-link active" href="about.html#hero">Provenance</a>
+            <a class="section-nav-link" href="about.html#about-story-title">The Story</a>
+            <a class="section-nav-link" href="about.html#about-principles-title">Principles</a>
+            <a class="section-nav-link" href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ══════════════════════════════════════════════
+             §1 HERO — two-column provenance hero
+             Left: headline text | Right: logo panel
+             CSS class: .about-hero .editorial-hero
+             i18n keys: heroOverline, heroTitle, heroLead
+             ══════════════════════════════════════════════ -->
+        <section id="hero" class="about-hero editorial-hero">
+            <div class="container py-5">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7 text-white">
+                        <p class="overline-text mb-2" data-i18n="heroOverline">Provenance</p>
+                        <h1 class="display-4 fw-bold" data-i18n="heroTitle">Three generations of trust, brought together for modern GRC advisory.</h1>
+                        <p class="lead mt-3" data-i18n="heroLead">Sorrentino Consultancy connects family security heritage, entrepreneurial expertise and contemporary international corporate experience into one advisory practice.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="about-hero-panel">
+                            <img data-img="logo" alt="Sorrentino Consultancy logo" class="about-hero-logo" width="455" height="320">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             §2 THE STORY — 3-chapter generational timeline
+             CSS class: .about-timeline → .about-chapter (×3)
+             Animated accent: floating dot (.animated-accent.dot)
+             i18n keys: storyTitle, chapterOne*, chapterTwo*, chapterThree*
+             ══════════════════════════════════════════════ -->
+        <section class="container my-5" aria-labelledby="about-story-title">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2 id="about-story-title" class="section-title text-center" data-i18n="storyTitle">The Story</h2>
+                    <hr class="title-line mx-auto">
+                    <div class="about-timeline">
+                        <span class="animated-accent dot about-accent" aria-hidden="true"></span>
+
+                        <!-- Chapter 01: First Generation — Turris security heritage (1953) -->
+                        <article class="about-chapter">
+                            <span class="about-chapter-marker">01</span>
+                            <div>
+                                <p class="overline-text text-accent mb-2" data-i18n="chapterOneLabel">First Generation</p>
+                                <h3 data-i18n="chapterOneTitle">A heritage built on trust and security</h3>
+                                <p data-i18n="chapterOneBodyOne">The story begins with Turris, a family security business founded in 1953 and rooted in a sector where reliability, discretion and discipline were not optional.</p>
+                                <p data-i18n="chapterOneBodyTwo">Serving banks, institutions and private clients created a culture of control in the most practical sense: clear procedures, visible accountability and the ability to protect trust through daily operations.</p>
+                            </div>
+                        </article>
+
+                        <!-- Chapter 02: Second Generation — entrepreneurial expansion -->
+                        <article class="about-chapter">
+                            <span class="about-chapter-marker">02</span>
+                            <div>
+                                <p class="overline-text text-accent mb-2" data-i18n="chapterTwoLabel">Second Generation</p>
+                                <h3 data-i18n="chapterTwoTitle">Entrepreneurial expertise, linked to the territory</h3>
+                                <p data-i18n="chapterTwoBodyOne">The second generation developed that legacy with an entrepreneurial approach: building relationships, expanding the client base and staying closely connected to the territory the business served.</p>
+                                <p data-i18n="chapterTwoBodyTwo">When Turris later transitioned into a major national company in the sector, it marked the close of one operating chapter and opened the space for a new project. The important inheritance was not the past itself, but the expertise, reputation and local credibility built through it.</p>
+                            </div>
+                        </article>
+
+                        <!-- Chapter 03: Third Generation — modern international GRC -->
+                        <article class="about-chapter">
+                            <span class="about-chapter-marker">03</span>
+                            <div>
+                                <p class="overline-text text-accent mb-2" data-i18n="chapterThreeLabel">Third Generation</p>
+                                <h3 data-i18n="chapterThreeTitle">A modern international corporate perspective</h3>
+                                <p data-i18n="chapterThreeBodyOne">The third generation adds a contemporary view shaped by international corporate experience in governance, risk, compliance, internal audit, third-party assurance and security operations.</p>
+                                <p data-i18n="chapterThreeBodyTwo">Sorrentino Consultancy brings these layers together: first-generation trust, second-generation entrepreneurial expertise and third-generation modern GRC practice. The mission is to turn that combined experience into clear, usable advisory work for organisations facing today's governance challenges.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             §3 STATS BAR — heritage highlights (3 stats)
+             CSS class: .stats-bar
+             i18n keys: statOne, statTwo, statThree
+             ══════════════════════════════════════════════ -->
+        <section class="stats-bar" aria-label="Heritage highlights">
+            <div class="container">
+                <div class="row text-center g-4 py-4">
+                    <div class="col-6 col-md-4"><h2 class="stat-number">1953</h2><p class="stat-label" data-i18n="statOne">Security heritage begins</p></div>
+                    <div class="col-6 col-md-4"><h2 class="stat-number">3</h2><p class="stat-label" data-i18n="statTwo">Generations of expertise</p></div>
+                    <div class="col-12 col-md-4"><h2 class="stat-number">1,500</h2><p class="stat-label" data-i18n="statThree">Clients served by Turris</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             §4 PRINCIPLES — "What This Means" section
+             Left column: intro text | Right column: 4 principle-cards in 2×2 grid
+             CSS class: .principle-card (glassmorphism card)
+             i18n keys: principlesTitle, principlesIntro, principleOne*, etc.
+             ══════════════════════════════════════════════ -->
+        <section class="container my-5" aria-labelledby="about-principles-title">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-4">
+                    <h2 id="about-principles-title" class="section-title" data-i18n="principlesTitle">What This Means</h2>
+                    <hr class="title-line">
+                    <p class="mb-0" data-i18n="principlesIntro">Sorrentino Consultancy exists to bring these three layers together and translate them into practical governance, risk and compliance work.</p>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <article class="principle-card">
+                                <h3 data-i18n="principleOneTitle">Heritage becomes discipline</h3>
+                                <p data-i18n="principleOneBody">The security tradition brings a practical respect for procedure, supervision, accountability and trust.</p>
+                            </article>
+                        </div>
+                        <div class="col-md-6">
+                            <article class="principle-card">
+                                <h3 data-i18n="principleTwoTitle">Territory becomes credibility</h3>
+                                <p data-i18n="principleTwoBody">The entrepreneurial chapter adds local understanding, relationship-building and the ability to operate close to clients.</p>
+                            </article>
+                        </div>
+                        <div class="col-md-6">
+                            <article class="principle-card">
+                                <h3 data-i18n="principleThreeTitle">Corporate experience becomes method</h3>
+                                <p data-i18n="principleThreeBody">International GRC experience brings structure, evidence standards and a modern view of enterprise risk.</p>
+                            </article>
+                        </div>
+                        <div class="col-md-6">
+                            <article class="principle-card">
+                                <h3 data-i18n="principleFourTitle">The mission is synthesis</h3>
+                                <p data-i18n="principleFourBody">The consultancy brings all of this together into advisory work that is grounded, contemporary and usable.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             §5 CTA BAND — call-to-action
+             ══════════════════════════════════════════════ -->
+        <section class="container my-5">
+            <div class="cta-band d-md-flex justify-content-between align-items-center">
+                <h2 class="h3 fw-bold mb-3 mb-md-0" data-i18n="ctaTitle">Bring proven heritage and modern GRC thinking into your organisation.</h2>
+                <a href="contact.html" class="btn btn-primary btn-lg" data-i18n="ctaButton">Start a Conversation</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ══════════════════════════════════════════════
+         FOOTER
+         ══════════════════════════════════════════════ -->
+    <footer class="text-center py-4">
+        <p class="mb-0">© 2026 Sorrentino Consultancy · Napoli, Italy</p>
+    </footer>
+
+    <!-- ══════════════════════════════════════════════
+         SCRIPTS
+         1. i18n.js     — EN/IT translation engine
+         2. Bootstrap   — navbar collapse
+         ══════════════════════════════════════════════ -->
+    <script src="images.js"></script>
+    <script src="i18n.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

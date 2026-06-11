@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Local archive of unused/experimental assets (kept out of the repo)
+_archive/
+
+# Editor
+*.code-workspace

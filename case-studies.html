@@ -1,0 +1,213 @@
+<!--
+  ============================================================
+  CASE STUDIES PAGE — case-studies.html
+  ============================================================
+  Portfolio of anonymised GRC engagements with category filtering.
+  Linked from: navbar on all pages
+
+  PAGE STRUCTURE:
+  ┌─────────────────────────────────────────────────┐
+  │  NAVBAR          — sticky top navigation         │
+  │  SECTION-NAV     — Portfolio, Engagements,       │
+  │                    + links to services pages      │
+  ├─────────────────────────────────────────────────┤
+  │  §1 MASTHEAD     — hero headline                 │
+  │  §2 PORTFOLIO    — filter buttons + case grid    │
+  │     ├ Filters: All | Governance | Compliance |   │
+  │     │           Security                         │
+  │     └ #caseGrid — 6 .case-card articles          │
+  │        ├ ERM Framework (governance)              │
+  │        ├ Third-Party Audit (security)            │
+  │        ├ Loss Prevention (security)              │
+  │        ├ GDPR Readiness (compliance)             │
+  │        ├ GRC Framework [coming soon] (governance)│
+  │        └ Mod. 231 [coming soon] (compliance)     │
+  ├─────────────────────────────────────────────────┤
+  │  FOOTER                                          │
+  └─────────────────────────────────────────────────┘
+
+  Filtering: data-filter on buttons, data-category on .case-item divs.
+  JS toggles .d-none (Bootstrap utility) to show/hide cards.
+
+  BODY CLASS: page-cases  →  background: bg-cases.jpg + glassmorphism
+  CSS:   styles.css  (.case-card at ~line 919)
+  JS:    Inline  — category filter via classList.toggle('d-none')
+         i18n.js — EN/IT translation engine
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ── Meta & SEO ── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Selected anonymised GRC, compliance and security governance case studies from Sorrentino Consultancy.">
+
+    <!-- ── Stylesheets ── -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="styles.css" rel="stylesheet">
+    <title>Case Studies | Sorrentino Consultancy</title>
+
+    <!-- ── Fonts ── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+
+<!-- page-cases class → activates bg-cases.jpg background + glassmorphism -->
+<body class="page-cases">
+
+    <!-- ══════════════════════════════════════════════
+         NAVBAR — shared site navigation
+         ══════════════════════════════════════════════ -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand d-inline-flex align-items-center" href="home.html" aria-label="Sorrentino Consultancy home">
+                <img data-img="logo" alt="Sorrentino Consultancy" class="brand-logo" width="86" height="56">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="home.html" data-i18n="nav.home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html" data-i18n="nav.services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="case-studies.html" aria-current="page" data-i18n="nav.casestudies">Case Studies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html" data-i18n="nav.cv">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+                <button id="languageToggle" onclick="this.dataset.i18nInlineHandled='1'; window.toggleLanguage && window.toggleLanguage()" class="btn btn-outline-primary btn-sm ms-lg-3 language-toggle" type="button" aria-label="Switch language">IT</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════
+         SECTION-NAV
+         ══════════════════════════════════════════════ -->
+    <nav class="section-nav" aria-label="Case studies subnavigation"><div class="container"><a class="section-nav-link active" href="case-studies.html#cases-title">Portfolio</a><a class="section-nav-link" href="case-studies.html#caseGrid">Engagements</a><a class="section-nav-link" href="services.html#governance-risk">Governance</a><a class="section-nav-link" href="services.html#compliance-regulation">Compliance</a><a class="section-nav-link" href="services.html#assurance-security">Security</a></div></nav>
+
+    <main>
+
+        <!-- ══════════════════════════════════════════════
+             §1 MASTHEAD — hero section
+             ══════════════════════════════════════════════ -->
+        <section id="masthead" class="homepage-masthead">
+            <div class="container masthead-container">
+                <div class="masthead-meta">
+                    <span class="overline-text">Selected Work</span>
+                </div>
+                <div class="cover-rule" aria-hidden="true"></div>
+                <h1 class="masthead-title">Case Studies</h1>
+                <div class="cover-rule" aria-hidden="true"></div>
+                <p class="masthead-lead">Anonymised examples of GRC, compliance and operational security work across complex logistics environments.</p>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             §2 PORTFOLIO — filter buttons + case card grid
+             Filter buttons use data-filter attribute.
+             Case items use data-category attribute.
+             JS toggles Bootstrap .d-none to show/hide cards.
+             ══════════════════════════════════════════════ -->
+        <section class="container my-5" aria-labelledby="cases-title">
+            <h2 id="cases-title" class="section-title text-center">Engagement Portfolio</h2>
+            <hr class="title-line mx-auto">
+
+            <!-- Filter button group -->
+            <div class="d-flex flex-wrap gap-2 mb-4 justify-content-center" role="group" aria-label="Case study filters">
+                <button class="btn btn-sm filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
+                <button class="btn btn-sm filter-btn" type="button" data-filter="governance" aria-pressed="false">Governance &amp; Risk</button>
+                <button class="btn btn-sm filter-btn" type="button" data-filter="compliance" aria-pressed="false">Compliance &amp; Regulation</button>
+                <button class="btn btn-sm filter-btn" type="button" data-filter="security" aria-pressed="false">Security &amp; Operations</button>
+            </div>
+
+            <!-- Case card grid — 2 columns on lg, each .case-item has data-category -->
+            <div class="row g-4" id="caseGrid">
+
+                <!-- Case 1: ERM Framework Expansion (governance) -->
+                <div class="col-lg-6 case-item" data-category="governance">
+                    <article class="case-card h-100">
+                        <figure class="case-image-strip">
+                            <img data-img="cases-erm" alt="Enterprise risk framework materials prepared for management review" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <div class="case-card-header"><span class="case-cluster-badge">Governance &amp; Risk</span><p class="small mb-1">E-commerce logistics, Southern Europe · 2023</p><h3 class="h4 mb-0">ERM Framework Expansion</h3></div>
+                        <div class="card-body"><p><strong>Context:</strong> A fast-moving logistics network needed better enterprise risk visibility.</p><p><strong>Challenge:</strong> Operational, QHSSE and strategic risks were tracked separately.</p><ul><li>Expanded the risk taxonomy and ownership model.</li><li>Introduced KRI routines and control expectations.</li><li>Aligned remediation tracking with management reporting.</li></ul><p><strong>Result:</strong> <strong>40% broader risk coverage</strong> and <strong>25% compliance gap closure</strong> within 18 months.</p><div class="d-flex flex-wrap gap-1"><span class="skill-badge">ERM</span><span class="skill-badge">KRI</span><span class="skill-badge">Control Governance</span></div></div>
+                    </article>
+                </div>
+
+                <!-- Case 2: Third-Party Audit Programme Redesign (security) -->
+                <div class="col-lg-6 case-item" data-category="security">
+                    <article class="case-card h-100">
+                        <figure class="case-image-strip">
+                            <img data-img="cases-audit" alt="Third-party audit programme evidence and supplier review documentation" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <div class="case-card-header"><span class="case-cluster-badge">Security &amp; Operations</span><p class="small mb-1">E-commerce logistics, Southern Europe · 2021</p><h3 class="h4 mb-0">Third-Party Audit Programme Redesign</h3></div>
+                        <div class="card-body"><p><strong>Context:</strong> A network of 30+ logistics providers required stronger assurance.</p><p><strong>Challenge:</strong> Findings closed slowly and audit cycles were too long.</p><ul><li>Redesigned audit standards and evidence requirements.</li><li>Built remediation governance with owner accountability.</li><li>Created clearer escalation and supplier performance routines.</li></ul><p><strong>Result:</strong> <strong>€1.2M savings</strong>, closure improvement from <strong>25% to 55%</strong>, and <strong>30% shorter</strong> audit cycles.</p><div class="d-flex flex-wrap gap-1"><span class="skill-badge">Third-Party Assurance</span><span class="skill-badge">CAPA</span><span class="skill-badge">Audit</span></div></div>
+                    </article>
+                </div>
+
+                <!-- Case 3: Loss Prevention Programme (security) -->
+                <div class="col-lg-6 case-item" data-category="security">
+                    <article class="case-card h-100">
+                        <figure class="case-image-strip">
+                            <img data-img="cases-loss-prevention" alt="Loss prevention programme controls and security governance materials" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <div class="case-card-header"><span class="case-cluster-badge">Security &amp; Operations</span><p class="small mb-1">Multi-site logistics network, 5 countries · 2019-2023</p><h3 class="h4 mb-0">Loss Prevention Programme</h3></div>
+                        <div class="card-body"><p><strong>Context:</strong> A distributed network needed consistent security governance.</p><p><strong>Challenge:</strong> Incident, shrinkage and supplier controls varied by site.</p><ul><li>Introduced performance governance for guarding providers.</li><li>Standardised incident and shrinkage review routines.</li><li>Aligned controls to operational and financial reporting.</li></ul><p><strong>Result:</strong> <strong>15% incident reduction</strong>, <strong>20% shrinkage reduction</strong> and around <strong>€2.3M annual losses prevented</strong>.</p><div class="d-flex flex-wrap gap-1"><span class="skill-badge">Loss Prevention</span><span class="skill-badge">Vendor Governance</span><span class="skill-badge">Security</span></div></div>
+                    </article>
+                </div>
+
+                <!-- Case 4: GDPR Readiness (compliance) -->
+                <div class="col-lg-6 case-item" data-category="compliance">
+                    <article class="case-card h-100">
+                        <figure class="case-image-strip">
+                            <img data-img="cases-gdpr" alt="GDPR readiness evidence and compliance control documentation" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <div class="case-card-header"><span class="case-cluster-badge">Compliance &amp; Regulation</span><p class="small mb-1">Multinational logistics operations · 2024</p><h3 class="h4 mb-0">GDPR Readiness</h3></div>
+                        <div class="card-body"><p><strong>Context:</strong> Operations needed readiness across data, sustainability and compliance evidence.</p><p><strong>Challenge:</strong> Evidence owners and operational controls were not consistently mapped.</p><ul><li>Mapped readiness gaps against operational processes.</li><li>Defined evidence expectations for internal owners.</li><li>Connected privacy and supplier assurance routines.</li></ul><p><strong>Result:</strong> Stronger readiness view, clearer evidence ownership and reusable compliance routines.</p><div class="d-flex flex-wrap gap-1"><span class="skill-badge">CSRD</span><span class="skill-badge">GDPR</span><span class="skill-badge">Evidence</span></div></div>
+                    </article>
+                </div>
+
+                <!-- Case 5: GRC Framework Design [coming soon] (governance) -->
+                <div class="col-lg-6 case-item" data-category="governance"><article class="case-card coming-soon-overlay h-100"><div class="case-card-header"><span class="case-cluster-badge">Governance &amp; Risk</span><p class="small mb-1">Mid-size manufacturing · Upcoming</p><h3 class="h4 mb-0">GRC Framework Design</h3></div><div class="card-body"><p>Placeholder for a future engagement covering governance structure, risk ownership and control documentation.</p><p><strong>Interested in this type of engagement?</strong> <a href="contact.html" class="text-accent fw-semibold">Get in touch.</a></p><div class="d-flex flex-wrap gap-1"><span class="skill-badge">GRC</span><span class="skill-badge">Risk Framework</span></div></div></article></div>
+
+                <!-- Case 6: Mod. 231 Implementation [coming soon] (compliance) -->
+                <div class="col-lg-6 case-item" data-category="compliance"><article class="case-card coming-soon-overlay h-100"><div class="case-card-header"><span class="case-cluster-badge">Compliance &amp; Regulation</span><p class="small mb-1">Italian SME · Upcoming</p><h3 class="h4 mb-0">Mod. 231 Implementation</h3></div><div class="card-body"><p>Placeholder for a future engagement covering risk areas, procedures, monitoring and control evidence.</p><p><strong>Interested in this type of engagement?</strong> <a href="contact.html" class="text-accent fw-semibold">Get in touch.</a></p><div class="d-flex flex-wrap gap-1"><span class="skill-badge">Mod. 231</span><span class="skill-badge">Compliance</span></div></div></article></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ══════════════════════════════════════════════
+         FOOTER
+         ══════════════════════════════════════════════ -->
+    <footer class="text-center py-4"><p class="mb-0">© 2026 Sorrentino Consultancy · Napoli, Italy</p></footer>
+
+    <!-- ══════════════════════════════════════════════
+         SCRIPTS
+         1. Inline  — Category filter: click handler on .filter-btn
+                      toggles .d-none on .case-item elements based on
+                      data-filter vs data-category match
+         2. i18n.js — EN/IT translation engine
+         3. Bootstrap JS — navbar collapse
+         ══════════════════════════════════════════════ -->
+    <script>
+        /* Category filter: active button style + show/hide case cards.
+           data-filter="all" shows everything; otherwise matches data-category. */
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const caseItems = document.querySelectorAll('.case-item');
+        filterButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const selectedCategory = button.dataset.filter;
+                filterButtons.forEach((btn) => { btn.classList.remove('active'); btn.setAttribute('aria-pressed', 'false'); });
+                button.classList.add('active');
+                button.setAttribute('aria-pressed', 'true');
+                caseItems.forEach((item) => item.classList.toggle('d-none', selectedCategory !== 'all' && item.dataset.category !== selectedCategory));
+            });
+        });
+    </script>
+    <script src="images.js"></script>
+    <script src="i18n.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

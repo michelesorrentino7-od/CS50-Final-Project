@@ -1,0 +1,337 @@
+<!--
+  ============================================================
+  SERVICES HUB PAGE — services.html
+  ============================================================
+  Overview of all 8 advisory areas with expandable overviews.
+  Linked from: navbar on all pages, home.html "Explore Areas" CTA
+
+  PAGE STRUCTURE:
+  ┌─────────────────────────────────────────────────┐
+  │  NAVBAR          — sticky top navigation         │
+  │  SECTION-NAV     — anchor links to each area     │
+  ├─────────────────────────────────────────────────┤
+  │  §1 MASTHEAD     — hero headline                 │
+  │  §2 AREAS INDEX  — 8 alternating area-row articles│
+  │     ├ #governance-risk     → services/governance-risk.html
+  │     ├ #privacy        (R)  → services/privacy.html
+  │     ├ #esg                 → services/esg-governance.html
+  │     ├ #csrd-csddd     (R)  → services/esg-governance.html
+  │     ├ #compliance          → services/compliance-regulation.html
+  │     ├ #assurance      (R)  → services/assurance-security.html
+  │     ├ #digital-grc         → services/digital-grc.html
+  │     └ #fractional-grc (R)  → services/fractional-grc.html
+  │     (R) = .reverse layout (image on right)       │
+  ├─────────────────────────────────────────────────┤
+  │  FOOTER                                          │
+  └─────────────────────────────────────────────────┘
+
+  Each area-row has:
+  - Image figure (.area-media-frame)
+  - Content panel (.area-content) with h2, description, bullets, links
+  - "Overview" toggle button → hidden expandable .area-overview div
+
+  BODY CLASS: page-services  →  background: bg-services.jpg + glassmorphism
+  CSS:   styles.css  (area-row grid at ~line 1090)
+  JS:    Inline  — Overview toggle (aria-expanded + hidden attribute)
+         i18n.js — EN/IT translation engine
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ── Meta & SEO ── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Areas of interest for Sorrentino Consultancy: governance, risk, privacy, ESG, CSRD, CSDDD, supply-chain due diligence, assurance and security operations.">
+
+    <!-- ── Stylesheets ── -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="styles.css" rel="stylesheet">
+    <title>Services | Sorrentino Consultancy</title>
+
+    <!-- ── Fonts ── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+
+<!-- page-services class → activates bg-services.jpg background + glassmorphism -->
+<body class="page-services">
+
+    <!-- ══════════════════════════════════════════════
+         NAVBAR — shared site navigation
+         ══════════════════════════════════════════════ -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand d-inline-flex align-items-center" href="home.html" aria-label="Sorrentino Consultancy home">
+                <img data-img="logo" alt="Sorrentino Consultancy" class="brand-logo" width="86" height="56">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation menu"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="home.html" data-i18n="nav.home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html" aria-current="page" data-i18n="nav.services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="case-studies.html" data-i18n="nav.casestudies">Case Studies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html" data-i18n="nav.cv">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+                <button id="languageToggle" onclick="this.dataset.i18nInlineHandled='1'; window.toggleLanguage && window.toggleLanguage()" class="btn btn-outline-primary btn-sm ms-lg-3 language-toggle" type="button" aria-label="Switch language">IT</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════
+         SECTION-NAV — quick-jump anchors for each service area
+         ══════════════════════════════════════════════ -->
+    <nav class="section-nav" aria-label="Areas of interest subnavigation">
+        <div class="container">
+            <a class="section-nav-link active" href="services.html#governance-risk">Governance &amp; Risk</a>
+            <a class="section-nav-link" href="services.html#privacy">Privacy</a>
+            <a class="section-nav-link" href="services.html#esg">ESG</a>
+            <a class="section-nav-link" href="services.html#csrd-csddd-supply-chain">CSRD / CSDDD</a>
+            <a class="section-nav-link" href="services.html#compliance-regulation">Compliance</a>
+            <a class="section-nav-link" href="services.html#assurance-security">Assurance &amp; Security</a>
+            <a class="section-nav-link" href="services.html#digital-grc">Digital GRC</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ══════════════════════════════════════════════
+             §1 MASTHEAD — hero section
+             Animated accent line (.animated-accent.line.service-accent)
+             CSS class: .homepage-masthead
+             ══════════════════════════════════════════════ -->
+        <section id="masthead" class="homepage-masthead">
+            <span class="animated-accent line service-accent" aria-hidden="true"></span>
+            <div class="container masthead-container">
+                <div class="masthead-meta">
+                    <span class="overline-text">Advisory Focus</span>
+                </div>
+                <div class="cover-rule" aria-hidden="true"></div>
+                <h1 class="masthead-title">Services</h1>
+                <div class="cover-rule" aria-hidden="true"></div>
+                <p class="masthead-lead">Focused advisory for organisations that need practical governance, clear accountability and evidence that stands up to scrutiny without unnecessary complexity.</p>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             §2 AREAS INDEX — 8 service area articles
+             CSS class: .areas-index → .area-row (alternating with .reverse)
+             Each article: .area-media-frame (image) + .area-content (text + toggle)
+             ══════════════════════════════════════════════ -->
+        <section class="areas-index">
+            <div class="container">
+
+                <!-- ── Area 1: Governance & Risk ── -->
+                <article id="governance-risk" class="area-row">
+                    <figure class="area-media-frame">
+                        <img data-img="services-governance" alt="Governance and risk advisory materials prepared for leadership review" loading="lazy" decoding="async" onerror="this.closest('.area-media-frame').classList.add('is-missing');this.remove();">
+                    </figure>
+                    <div class="area-content">
+                        <h2>Governance &amp; Risk</h2>
+                        <p>The framework of roles, responsibilities, controls and reporting used to identify, assess and manage organisational risk.</p>
+                        <ul>
+                            <li>Enterprise risk frameworks, taxonomies and ownership models</li>
+                            <li>KRI routines, escalation paths and reporting cadence</li>
+                            <li>Control mapping, remediation discipline and board-ready evidence</li>
+                        </ul>
+                        <a href="services/governance-risk.html" class="area-link d-inline-block mt-2">Read more →</a>
+                        <button class="area-link area-toggle ms-3" type="button" aria-expanded="false" aria-controls="governance-risk-overview">Overview</button>
+                        <div id="governance-risk-overview" class="area-overview" hidden>
+                            <p>The objective is to create governance that is proportionate, visible and usable. Work in this area can include reviewing existing reporting lines, clarifying ownership of key risks, mapping controls to accountable functions and defining a management rhythm for reviewing exposure and remediation. The emphasis is on producing a framework that leadership can use to make decisions, rather than a document that sits outside operations.</p>
+                            <p>Typical engagements may involve risk taxonomy design, control ownership workshops, KRI selection, audit committee materials, remediation trackers and management dashboards. The output is a clearer view of who owns what, which risks require attention and how progress is evidenced over time.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── Area 2: Privacy & Data Protection (reversed layout) ── -->
+                <article id="privacy" class="area-row reverse">
+                    <figure class="area-media-frame">
+                        <img data-img="services-privacy" alt="Privacy and data protection evidence organised for accountability review" loading="lazy" decoding="async" onerror="this.closest('.area-media-frame').classList.add('is-missing');this.remove();">
+                    </figure>
+                    <div class="area-content">
+                        <h2>Privacy &amp; Data Protection</h2>
+                        <p>The governance of personal data processing, accountability, rights, safeguards and evidence required under data protection law.</p>
+                        <ul>
+                            <li>GDPR accountability, data mapping and records of processing</li>
+                            <li>Vendor privacy checks, DPIA support and control evidence</li>
+                            <li>Operational privacy routines for teams handling sensitive data</li>
+                        </ul>
+                        <a href="services/privacy.html" class="area-link d-inline-block mt-2">Read more →</a>
+                        <button class="area-link area-toggle ms-3" type="button" aria-expanded="false" aria-controls="privacy-overview">Overview</button>
+                        <div id="privacy-overview" class="area-overview" hidden>
+                            <p>Privacy obligations often fail when they remain legal abstractions. This area translates GDPR requirements into operational routines: knowing which data is processed, who is responsible, which vendors are involved, how incidents are escalated and where evidence is stored. The aim is to make privacy defensible without creating unnecessary bureaucracy.</p>
+                            <p>Support may include data mapping, review of records of processing, DPIA facilitation, vendor privacy checks, retention routines, access-control evidence and practical guidance for teams that handle personal or sensitive information in daily workflows.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── Area 3: ESG Governance ── -->
+                <article id="esg" class="area-row">
+                    <figure class="area-media-frame">
+                        <img data-img="services-esg" alt="ESG governance evidence and sustainability control materials" loading="lazy" decoding="async" onerror="this.closest('.area-media-frame').classList.add('is-missing');this.remove();">
+                    </figure>
+                    <div class="area-content">
+                        <h2>ESG Governance</h2>
+                        <p>The system for managing environmental, social and governance responsibilities, risks, controls and reliable internal evidence.</p>
+                        <ul>
+                            <li>ESG governance model, ownership and evidence responsibilities</li>
+                            <li>Operational control mapping for sustainability-related processes</li>
+                            <li>Internal routines that connect ESG data, risk and accountability</li>
+                        </ul>
+                        <a href="services/esg-governance.html" class="area-link d-inline-block mt-2">Read more →</a>
+                        <button class="area-link area-toggle ms-3" type="button" aria-expanded="false" aria-controls="esg-overview">Overview</button>
+                        <div id="esg-overview" class="area-overview" hidden>
+                            <p>ESG governance is strongest when it is connected to risk, controls and operational ownership. This area helps organisations define who is accountable for ESG topics, how information is collected, what evidence is reliable and how sustainability-related risks are escalated and reviewed.</p>
+                            <p>The work can include ESG governance mapping, control identification, evidence-owner assignment, policy-to-process alignment and preparation of internal routines that support future reporting, assurance or management review. The focus is practical readiness rather than generic sustainability positioning.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── Area 4: CSRD, CSDDD & Supply-Chain (reversed layout) ── -->
+                <article id="csrd-csddd-supply-chain" class="area-row reverse">
+                    <figure class="area-media-frame">
+                        <img data-img="services-supply-chain" alt="Supply-chain due diligence documentation and risk review materials" loading="lazy" decoding="async" onerror="this.closest('.area-media-frame').classList.add('is-missing');this.remove();">
+                    </figure>
+                    <div class="area-content">
+                        <h2>CSRD, CSDDD &amp; Supply-Chain Due Diligence</h2>
+                        <p>The structured assessment, monitoring and evidence of sustainability and human-rights impacts across operations and supply chains.</p>
+                        <ul>
+                            <li>CSRD and CSDDD readiness, gap analysis and evidence planning</li>
+                            <li>Supplier due-diligence frameworks, questionnaires and escalation logic</li>
+                            <li>Risk-based monitoring routines across outsourced and supply-chain environments</li>
+                        </ul>
+                        <a href="services/esg-governance.html" class="area-link d-inline-block mt-2">Read more →</a>
+                        <button class="area-link area-toggle ms-3" type="button" aria-expanded="false" aria-controls="csrd-csddd-supply-chain-overview">Overview</button>
+                        <div id="csrd-csddd-supply-chain-overview" class="area-overview" hidden>
+                            <p>CSRD, CSDDD and supply-chain due diligence place pressure on organisations to demonstrate how risks are identified, assessed, mitigated and monitored across their value chain. This area supports the creation of traceable processes that connect supplier information, risk classification, decision-making and follow-up actions.</p>
+                            <p>Work may include readiness assessments, gap analysis, supplier segmentation, due-diligence questionnaires, evidence plans, escalation models and control routines for outsourced or higher-risk third parties. The goal is to create a due-diligence model that can be operated consistently and explained clearly to management, auditors or stakeholders.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── Area 5: Compliance & Internal Controls ── -->
+                <article id="compliance-regulation" class="area-row">
+                    <figure class="area-media-frame">
+                        <img data-img="services-compliance" alt="Compliance and internal control records prepared for audit scrutiny" loading="lazy" decoding="async" onerror="this.closest('.area-media-frame').classList.add('is-missing');this.remove();">
+                    </figure>
+                    <div class="area-content">
+                        <h2>Compliance &amp; Internal Controls</h2>
+                        <p>The translation of legal and regulatory obligations into internal procedures, controls, monitoring routines and documented evidence.</p>
+                        <ul>
+                            <li>Mod. 231 risk-control mapping and procedure review</li>
+                            <li>Compliance responsibilities, monitoring routines and evidence standards</li>
+                            <li>Internal control reviews linked to risk and remediation ownership</li>
+                        </ul>
+                        <a href="services/compliance-regulation.html" class="area-link d-inline-block mt-2">Read more →</a>
+                        <button class="area-link area-toggle ms-3" type="button" aria-expanded="false" aria-controls="compliance-regulation-overview">Overview</button>
+                        <div id="compliance-regulation-overview" class="area-overview" hidden>
+                            <p>This area focuses on turning regulatory expectations into manageable internal controls. It is particularly relevant where organisations need to clarify responsibilities, align procedures with risk areas and demonstrate that controls are monitored rather than merely documented.</p>
+                            <p>Support can include Mod. 231 risk-control mapping, compliance procedure reviews, monitoring plans, internal-control testing, evidence standards and remediation governance. The output is a clearer compliance operating model that connects obligations to people, processes and proof.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── Area 6: Third-Party Assurance & Security (reversed layout) ── -->
+                <article id="assurance-security" class="area-row reverse">
+                    <figure class="area-media-frame">
+                        <img data-img="services-assurance" alt="Third-party assurance and security oversight materials" loading="lazy" decoding="async" onerror="this.closest('.area-media-frame').classList.add('is-missing');this.remove();">
+                    </figure>
+                    <div class="area-content">
+                        <h2>Third-Party Assurance &amp; Security</h2>
+                        <p>The verification of supplier, outsourced-service and security controls to confirm performance, accountability and risk exposure.</p>
+                        <ul>
+                            <li>Supplier audit standards, scorecards and evidence requirements</li>
+                            <li>Corrective-action governance, escalation and closure tracking</li>
+                            <li>Security operations, loss prevention and incident review routines</li>
+                        </ul>
+                        <a href="services/assurance-security.html" class="area-link d-inline-block mt-2">Read more →</a>
+                        <button class="area-link area-toggle ms-3" type="button" aria-expanded="false" aria-controls="assurance-security-overview">Overview</button>
+                        <div id="assurance-security-overview" class="area-overview" hidden>
+                            <p>Third-party environments require assurance that goes beyond contract language. This area builds audit and monitoring models that make supplier performance, security controls, incidents and corrective actions visible to the organisation relying on those services.</p>
+                            <p>Typical work can include supplier audit standards, scorecards, evidence requirements, corrective-action tracking, escalation routines, guarding oversight, loss-prevention governance and incident review models. The aim is to strengthen accountability across outsourced operations and reduce blind spots in service delivery.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── Area 7: Digital GRC & Evidence Management ── -->
+                <article id="digital-grc" class="area-row">
+                    <figure class="area-media-frame">
+                        <img data-img="services-digital" alt="Digital GRC evidence management dashboard and control documentation" loading="lazy" decoding="async" onerror="this.closest('.area-media-frame').classList.add('is-missing');this.remove();">
+                    </figure>
+                    <div class="area-content">
+                        <h2>Digital GRC &amp; Evidence Management</h2>
+                        <p>The use of digital workflows, registers, dashboards and evidence libraries to operate governance, risk and compliance processes.</p>
+                        <ul>
+                            <li>Control registers, workflow mapping and evidence libraries</li>
+                            <li>Dashboard logic, management reporting and action tracking</li>
+                            <li>Audit-ready evidence standards for recurring reviews</li>
+                        </ul>
+                        <a href="services/digital-grc.html" class="area-link d-inline-block mt-2">Read more →</a>
+                        <button class="area-link area-toggle ms-3" type="button" aria-expanded="false" aria-controls="digital-grc-overview">Overview</button>
+                        <div id="digital-grc-overview" class="area-overview" hidden>
+                            <p>Digital GRC work should make governance easier to operate. This area helps organisations translate manual controls, audit actions, risk registers and compliance evidence into lean digital workflows that can be maintained without excessive administration.</p>
+                            <p>Support may include control register design, evidence-library structure, dashboard logic, workflow mapping, action tracking and reporting routines. The emphasis is on clear data ownership, repeatable evidence collection and practical visibility for management review.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── Area 8: Fractional GRC Officer (reversed layout) ── -->
+                <article id="fractional-grc" class="area-row reverse">
+                    <figure class="area-media-frame">
+                        <img data-img="services-fractional" alt="Fractional GRC officer advisory workspace with governance planning materials" loading="lazy" decoding="async" onerror="this.closest('.area-media-frame').classList.add('is-missing');this.remove();">
+                    </figure>
+                    <div class="area-content">
+                        <h2>Fractional GRC Officer</h2>
+                        <p>A part-time senior governance, risk and compliance role that provides ongoing advisory support without a full-time appointment.</p>
+                        <ul>
+                            <li>Monthly governance rhythm and internal advisory</li>
+                            <li>Prioritisation of risks, controls and remediation actions</li>
+                            <li>Practical bridge between management, operations and evidence owners</li>
+                        </ul>
+                        <a href="services/fractional-grc.html" class="area-link d-inline-block mt-2">Read more →</a>
+                        <button class="area-link area-toggle ms-3" type="button" aria-expanded="false" aria-controls="fractional-grc-overview">Overview</button>
+                        <div id="fractional-grc-overview" class="area-overview" hidden>
+                            <p>A fractional GRC role gives management access to senior governance and compliance judgement without immediately building a full internal department. The focus is on helping the organisation prioritise, structure and maintain the routines that matter most.</p>
+                            <p>This can include a monthly governance cadence, risk and control prioritisation, support to internal owners, review of remediation progress, preparation of management materials and coordination between operational teams, leadership and external stakeholders. The value is continuity: a trusted reference point that keeps governance work moving.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- ══════════════════════════════════════════════
+         FOOTER
+         ══════════════════════════════════════════════ -->
+    <footer class="text-center py-4"><p class="mb-0">© 2026 Sorrentino Consultancy · Napoli, Italy</p></footer>
+
+    <!-- ══════════════════════════════════════════════
+         SCRIPTS
+         1. Inline  — Overview toggle: toggles aria-expanded and hidden
+                      attribute on each .area-overview div
+         2. i18n.js — EN/IT translation engine
+         3. Bootstrap JS — navbar collapse
+         ══════════════════════════════════════════════ -->
+    <script>
+        /* Overview toggle: each .area-toggle button toggles its associated
+           .area-overview panel via aria-controls. Button text switches
+           between "Overview" and "Close"/"Chiudi" based on language. */
+        document.querySelectorAll('.area-toggle').forEach((button) => {
+            button.addEventListener('click', () => {
+                const overview = document.getElementById(button.getAttribute('aria-controls'));
+                const isOpen = button.getAttribute('aria-expanded') === 'true';
+                button.setAttribute('aria-expanded', String(!isOpen));
+                const isItalian = localStorage.getItem('language') === 'it';
+                button.textContent = isOpen ? 'Overview' : (isItalian ? 'Chiudi' : 'Close');
+                if (overview) overview.hidden = isOpen;
+            });
+        });
+    </script>
+    <script src="images.js"></script>
+    <script src="i18n.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

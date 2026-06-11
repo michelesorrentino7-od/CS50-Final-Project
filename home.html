@@ -1,0 +1,341 @@
+<!--
+  ============================================================
+  HOME PAGE — home.html
+  ============================================================
+  Landing page for Sorrentino Consultancy.
+  Linked from: all pages via navbar ("Home" link)
+
+  PAGE STRUCTURE:
+  ┌─────────────────────────────────────────────────┐
+  │  NAVBAR          — sticky top, shared across site│
+  │  SECTION-NAV     — in-page anchor links          │
+  ├─────────────────────────────────────────────────┤
+  │  §1 MASTHEAD     — hero headline + two CTAs      │
+  │  §2 WHAT WE DO   — 4-column expertise grid       │
+  │     ├ Governance & Risk    → services/governance-risk.html
+  │     ├ Compliance & Reg.    → services/compliance-regulation.html
+  │     ├ Security & Assurance → services/assurance-security.html
+  │     └ ESG & Sustainability → services/esg-governance.html
+  │  §3 WHO WE ARE   — editorial two-col with image  │
+  │  §4 HOW WE WORK  — 3 audience cards (SMEs/Startups/Foreign)
+  │  §5 CTA STRIP    — call-to-action band           │
+  ├─────────────────────────────────────────────────┤
+  │  FOOTER                                          │
+  └─────────────────────────────────────────────────┘
+
+  BODY CLASS: page-home  →  background: bg-home.jpg + glassmorphism
+  CSS:   styles.css
+  JS:    i18n.js  — EN/IT translation engine
+         Inline   — IntersectionObserver for section-nav active state
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ── Meta & SEO ── -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sorrentino Consultancy provides independent GRC, risk, compliance, audit and security governance advisory from Napoli, Italy.">
+    <meta name="author" content="Sorrentino Consultancy">
+    <meta property="og:title" content="Sorrentino Consultancy">
+    <meta property="og:description" content="Independent GRC advisory connecting three generations of security heritage with contemporary governance practice.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/logo.png">
+
+    <!-- ── Stylesheets ── -->
+    <!-- Bootstrap 5.3.8 — layout grid, navbar, buttons, utilities -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Custom stylesheet — design tokens, glassmorphism, all component styles -->
+    <link href="styles.css" rel="stylesheet">
+    <title>Sorrentino Consultancy</title>
+
+    <!-- ── Fonts ── -->
+    <!-- Cormorant Garamond: serif display headings | DM Sans: body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+
+<!-- page-home class → activates bg-home.jpg background + glassmorphism overlay in styles.css -->
+<body class="page-home">
+
+    <!-- ══════════════════════════════════════════════
+         NAVBAR — sticky top navigation (shared component)
+         Present on every page; "active" class marks current page.
+         Language toggle button calls window.toggleLanguage() from i18n.js
+         ══════════════════════════════════════════════ -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand d-inline-flex align-items-center" href="home.html" aria-label="Sorrentino Consultancy home">
+                <img data-img="logo" alt="Sorrentino Consultancy" class="brand-logo" width="86" height="56">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="home.html" aria-current="page" data-i18n="nav.home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html" data-i18n="nav.services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="case-studies.html" data-i18n="nav.casestudies">Case Studies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html" data-i18n="nav.cv">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+                <!-- EN/IT toggle — i18n.js stores preference in localStorage -->
+                <button id="languageToggle" onclick="this.dataset.i18nInlineHandled='1'; window.toggleLanguage && window.toggleLanguage()" class="btn btn-outline-primary btn-sm ms-lg-3 language-toggle" type="button" aria-label="Switch language">IT</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════
+         SECTION-NAV — in-page anchor navigation (home only)
+         Sticks below navbar. Active state driven by IntersectionObserver (see inline JS at bottom).
+         ══════════════════════════════════════════════ -->
+    <nav class="section-nav" aria-label="Homepage sections">
+        <div class="container">
+            <a class="section-nav-link" href="#what-we-do">What We Do</a>
+            <a class="section-nav-link" href="#who-we-are">Who We Are</a>
+            <a class="section-nav-link" href="#how-we-work">How We Work</a>
+            <a class="section-nav-link" href="contact.html" data-i18n="nav.contact">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ══════════════════════════════════════════════
+             §1 MASTHEAD — hero section
+             Full-width hero with company name, tagline, and two CTA buttons.
+             CSS class: .homepage-masthead (glassmorphism background)
+             i18n keys: home.masthead.*
+             ══════════════════════════════════════════════ -->
+        <section id="masthead" class="homepage-masthead">
+            <div class="container masthead-container">
+                <div class="masthead-meta">
+                    <span class="overline-text" data-i18n="home.meta.location">Napoli, Italy · International</span>
+                    <span class="overline-text" data-i18n="home.meta.est">Est. 1953</span>
+                </div>
+                <div class="cover-rule" aria-hidden="true"></div>
+                <h1 class="masthead-title">Sorrentino<br>Consultancy</h1>
+                <div class="cover-rule" aria-hidden="true"></div>
+                <p class="masthead-lead" data-i18n="home.masthead.lead">Three generations of trust. Contemporary GRC advisory for organisations facing complex governance challenges.</p>
+                <div class="masthead-cta">
+                    <a href="services.html" class="btn btn-primary btn-sm px-4" data-i18n="home.masthead.cta1">Explore Areas</a>
+                    <a href="contact.html" class="btn btn-outline-primary btn-sm px-4" data-i18n="home.masthead.cta2">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             §2 WHAT WE DO — 4-column expertise grid
+             Four advisory areas, each with image, description, bullet list, and link
+             to the corresponding service detail page in services/.
+             CSS class: .expertise-band → .expertise-grid-4 → .expertise-item
+             i18n keys: home.what.*
+             Images: images/middle/home-governance.jpg, home-compliance.jpg, etc.
+             onerror: if image missing, adds .is-missing class for CSS fallback
+             ══════════════════════════════════════════════ -->
+        <section id="what-we-do" class="expertise-band" aria-label="Core advisory areas">
+            <div class="container">
+                <p class="section-kicker text-center mb-1" data-i18n="home.what.kicker">Advisory Focus</p>
+                <h2 class="section-title text-center mb-1" data-i18n="home.what.title">What We Do</h2>
+                <hr class="title-line mx-auto mb-5">
+                <div class="expertise-grid-4">
+
+                    <!-- Card 1: Governance & Risk → services/governance-risk.html -->
+                    <article class="expertise-item">
+                        <figure class="image-kicker">
+                            <img data-img="home-governance" alt="Governance documents prepared for risk review" loading="lazy" decoding="async" onerror="this.closest('.image-kicker').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <h3>Governance<br>&amp; Risk</h3>
+                        <p>Risk framework design, ERM routines and internal audit built around how the organisation actually operates.</p>
+                        <ul>
+                            <li>Risk taxonomy and ownership model</li>
+                            <li>KRI and reporting cadence</li>
+                            <li>Internal audit planning</li>
+                        </ul>
+                        <a href="services/governance-risk.html" class="area-link mt-3 d-inline-block" data-i18n="btn.explore">Explore →</a>
+                    </article>
+
+                    <!-- Card 2: Compliance & Regulation → services/compliance-regulation.html -->
+                    <article class="expertise-item">
+                        <figure class="image-kicker">
+                            <img data-img="home-compliance" alt="Compliance records organised for regulatory evidence" loading="lazy" decoding="async" onerror="this.closest('.image-kicker').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <h3>Compliance<br>&amp; Regulation</h3>
+                        <p>Practical compliance support for organisations that need clear accountability and defensible evidence.</p>
+                        <ul>
+                            <li>GDPR accountability routines</li>
+                            <li>Mod. 231 risk-control mapping</li>
+                            <li>Regulatory gap analysis</li>
+                        </ul>
+                        <a href="services/compliance-regulation.html" class="area-link mt-3 d-inline-block" data-i18n="btn.explore">Explore →</a>
+                    </article>
+
+                    <!-- Card 3: Security & Assurance → services/assurance-security.html -->
+                    <article class="expertise-item">
+                        <figure class="image-kicker">
+                            <img data-img="home-security" alt="Security assurance review materials in a professional workspace" loading="lazy" decoding="async" onerror="this.closest('.image-kicker').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <h3>Security<br>&amp; Assurance</h3>
+                        <p>Security governance and third-party assurance shaped by operational experience across complex environments.</p>
+                        <ul>
+                            <li>Supplier audit programmes</li>
+                            <li>Loss prevention governance</li>
+                            <li>Security performance review</li>
+                        </ul>
+                        <a href="services/assurance-security.html" class="area-link mt-3 d-inline-block" data-i18n="btn.explore">Explore →</a>
+                    </article>
+
+                    <!-- Card 4: ESG & Sustainability → services/esg-governance.html -->
+                    <article class="expertise-item">
+                        <figure class="image-kicker">
+                            <img data-img="home-esg" alt="ESG governance notes and sustainability evidence" loading="lazy" decoding="async" onerror="this.closest('.image-kicker').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <h3>ESG &amp;<br>Sustainability</h3>
+                        <p>CSRD and CSDDD readiness, double materiality and supply-chain due diligence for the sustainability reporting era.</p>
+                        <ul>
+                            <li>CSRD / CSDDD gap assessment</li>
+                            <li>Double materiality analysis</li>
+                            <li>Supply-chain due diligence</li>
+                        </ul>
+                        <a href="services/esg-governance.html" class="area-link mt-3 d-inline-block" data-i18n="btn.explore">Explore →</a>
+                    </article>
+                </div>
+                <div class="text-center mt-5">
+                    <a href="services.html" class="btn btn-outline-primary btn-sm" data-i18n="home.what.viewall">View all areas →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             §3 WHO WE ARE — editorial heritage section
+             Two-column layout: text panel (left) + image frame (right).
+             Animated CSS accents: floating dot + pulsing arrow (decorative).
+             CSS class: .homepage-who → .visual-row → .text-panel / .visual-frame
+             i18n keys: home.who.*
+             Links to: about.html
+             ══════════════════════════════════════════════ -->
+        <section id="who-we-are" class="homepage-who py-5">
+            <!-- Decorative animated accents (CSS keyframes: accentFloat, accentArrowNudge) -->
+            <span class="animated-accent dot accent-one" aria-hidden="true"></span>
+            <span class="animated-accent arrow accent-two" aria-hidden="true"></span>
+            <div class="container">
+                <div class="visual-row">
+                    <div class="visual-copy text-panel">
+                        <p class="section-kicker" data-i18n="home.who.kicker">Our Heritage</p>
+                        <h2 class="editorial-heading" data-i18n-html="home.who.title">Three generations.<br>One mission.</h2>
+                        <div class="cover-rule mt-4 mb-4" aria-hidden="true"></div>
+                        <p class="homepage-lead" data-i18n="home.who.p1">Sorrentino Consultancy connects seventy years of family security heritage, deep entrepreneurial roots in the territory, and over a decade of international corporate GRC experience into one advisory practice.</p>
+                        <p class="homepage-lead" data-i18n="home.who.p2">We work with organisations that need governance that holds up: clear accountability, defensible evidence and practical frameworks built around how the business actually operates — not around how we wish it did.</p>
+                        <p class="homepage-lead mb-4" data-i18n="home.who.p3">From banks and institutions to logistics operators and multinationals across five countries, the thread is constant: reliability, discretion, accountability.</p>
+                        <a href="about.html" class="area-link" data-i18n="home.who.link">Read our story →</a>
+                    </div>
+                    <figure class="visual-frame">
+                        <img data-img="home-heritage" alt="Historic Italian architectural detail representing Sorrentino Consultancy heritage" loading="lazy" decoding="async" onerror="this.closest('.visual-frame').classList.add('is-missing');this.remove();">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             §4 HOW WE WORK — audience approach cards
+             Three Bootstrap columns, each with a .principle-card targeting a different audience.
+             CSS class: .homepage-approach → row → .principle-card
+             i18n keys: home.how.*
+             ══════════════════════════════════════════════ -->
+        <section id="how-we-work" class="homepage-approach py-5">
+            <div class="container">
+                <p class="section-kicker text-center mb-1" data-i18n="home.how.kicker">Our Approach</p>
+                <h2 class="section-title text-center mb-2" data-i18n="home.how.title">How We Build Your Governance System</h2>
+                <p class="approach-intro text-center mx-auto mb-5" data-i18n="home.how.intro">A practical method for teams without a compliance department — shaped by a decade inside complex European matrix organisations.</p>
+                <div class="row g-4 mb-4">
+                    <!-- Card 1: SMEs -->
+                    <div class="col-md-4">
+                        <article class="principle-card h-100">
+                            <p class="principle-tag" data-i18n="home.how.c1.tag">For SMEs</p>
+                            <h3 data-i18n="home.how.c1.title">Make sense of your risks</h3>
+                            <p data-i18n="home.how.c1.body">We map your real-world operations — customers, suppliers, people, systems — then translate regulations and best practice into a simple risk and control framework that fits your size.</p>
+                            <p class="principle-aside" data-i18n="home.how.c1.aside">Designed for small and mid-sized companies that want structure without bureaucracy.</p>
+                        </article>
+                    </div>
+                    <!-- Card 2: Start-ups -->
+                    <div class="col-md-4">
+                        <article class="principle-card h-100">
+                            <p class="principle-tag" data-i18n="home.how.c2.tag">For Start-ups</p>
+                            <h3 data-i18n="home.how.c2.title">Lightweight frameworks for fast teams</h3>
+                            <p data-i18n="home.how.c2.body">We help founders put in place just-enough policies, decision forums and reporting so investors, boards and regulators trust the numbers — without slowing product and growth.</p>
+                            <p class="principle-aside" data-i18n="home.how.c2.aside">Built on matrix-organisation experience, simplified for early-stage teams.</p>
+                        </article>
+                    </div>
+                    <!-- Card 3: Foreign Entrants -->
+                    <div class="col-md-4">
+                        <article class="principle-card h-100">
+                            <p class="principle-tag" data-i18n="home.how.c3.tag">For Foreign Entrants</p>
+                            <h3 data-i18n="home.how.c3.title">Local rules, global consistency</h3>
+                            <p data-i18n="home.how.c3.body">We plug your existing governance into local legal, tax, employment and sector requirements, so your new entity respects local rules while staying aligned with head office.</p>
+                            <p class="principle-aside" data-i18n="home.how.c3.aside">From entity set-up to ongoing compliance routines and reporting.</p>
+                        </article>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="contact.html" class="area-link" data-i18n="home.how.link">Talk to us about your situation →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+             §5 CTA STRIP — final call-to-action band
+             CSS class: .cta-band
+             i18n keys: home.cta.*
+             ══════════════════════════════════════════════ -->
+        <section class="container my-5">
+            <div class="cta-band d-md-flex justify-content-between align-items-center">
+                <div>
+                    <h2 class="h3 fw-bold mb-1" data-i18n="home.cta.title">Ready to strengthen your governance?</h2>
+                    <p class="mb-0 opacity-75 cta-subtext" data-i18n="home.cta.sub">Independent advisory. No retainers unless you want one.</p>
+                </div>
+                <a href="contact.html" class="btn btn-primary btn-lg mt-3 mt-md-0 flex-shrink-0" data-i18n="home.cta.btn">Get In Touch</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════════════════
+         FOOTER — shared across all pages
+         ══════════════════════════════════════════════ -->
+    <footer class="text-center py-4">
+        <p class="mb-0">© 2026 Sorrentino Consultancy · Napoli, Italy</p>
+    </footer>
+
+    <!-- ══════════════════════════════════════════════
+         SCRIPTS
+         1. i18n.js        — EN/IT translation engine (loads on every page)
+         2. Bootstrap JS   — navbar collapse, accordions, tooltips
+         3. Inline script  — IntersectionObserver highlights active section-nav link
+                             based on which section is currently in the viewport
+         ══════════════════════════════════════════════ -->
+    <script src="images.js"></script>
+    <script src="i18n.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+    /* Section-nav active state: IntersectionObserver watches each section
+       and toggles .active on the matching section-nav-link when it enters
+       the viewport (rootMargin crops top 30% and bottom 60% to trigger
+       near the middle of the screen). */
+    (function () {
+        const links = document.querySelectorAll('.section-nav-link[href^="#"]');
+        const sections = Array.from(links).map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    links.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector(`.section-nav-link[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-30% 0px -60% 0px' });
+        sections.forEach(s => observer.observe(s));
+    })();
+    </script>
+</body>
+</html>

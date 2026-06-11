@@ -1,0 +1,216 @@
+<!--
+  ============================================================
+  SERVICE DETAIL — services/compliance-regulation.html
+  ============================================================
+  Translating regulatory obligations into controls people follow.
+  Linked from: services.html #compliance-regulation "Read more →"
+               home.html §2 expertise grid card 2
+
+  PAGE STRUCTURE:
+  ┌─────────────────────────────────────────────────┐
+  │  NAVBAR / SECTION-NAV                            │
+  ├─────────────────────────────────────────────────┤
+  │  §1 HERO              — headline + CTA           │
+  │  §2 THE GAP           — narrative + observations │
+  │  §3 WHO IT'S FOR      — 3 audience-cards         │
+  │  §4 WHAT WE BUILD     — 6-item outcomes-grid     │
+  │  §5 MOD 231 SPOTLIGHT — Italian Mod. 231 deep dive│
+  │  §6 CTA               — call-to-action band      │
+  │  BACK LINK            — ← Back to all services   │
+  ├─────────────────────────────────────────────────┤
+  │  FOOTER                                          │
+  └─────────────────────────────────────────────────┘
+
+  BODY CLASS: page-services | i18n prefix: co.*
+  ============================================================
+-->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Compliance &amp; Internal Controls advisory for SMEs and scaling organisations. Sorrentino Consultancy translates regulatory obligations into controls that people actually follow." name="description"/>
+<meta content="Compliance &amp; Internal Controls | Sorrentino Consultancy" property="og:title"/>
+<meta content="website" property="og:type"/>
+<meta content="../images/logo.png" property="og:image"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link rel="icon" href="../images/logo.png" type="image/png"/>
+<title>Compliance &amp; Internal Controls | Sorrentino Consultancy</title>
+</head>
+<body class="page-services">
+<nav aria-label="Main navigation" class="navbar navbar-expand-lg navbar-light sticky-top">
+<div class="container">
+<a aria-label="Sorrentino Consultancy home" class="navbar-brand d-inline-flex align-items-center" href="../home.html">
+<img alt="Sorrentino Consultancy" class="brand-logo" height="56" data-img="logo" width="86"/>
+</a>
+<button aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navMenu" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<li class="nav-item"><a class="nav-link" data-i18n="nav.home" href="../home.html">Home</a></li>
+<li class="nav-item"><a aria-current="page" class="nav-link active" data-i18n="nav.services" href="../services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.casestudies" href="../case-studies.html">Case Studies</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.cv" href="../cv.html">CV</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.contact" href="../contact.html">Contact</a></li>
+</ul>
+<button aria-label="Switch language" class="btn btn-outline-primary btn-sm ms-lg-3 language-toggle" id="languageToggle" onclick="this.dataset.i18nInlineHandled='1'; window.toggleLanguage && window.toggleLanguage()" type="button">IT</button>
+</div>
+</div>
+</nav>
+<nav aria-label="Page sections" class="section-nav">
+<div class="container">
+<a class="section-nav-link active" href="#the-gap">The Gap</a>
+<a class="section-nav-link" href="#who-its-for">Who It's For</a>
+<a class="section-nav-link" href="#what-we-build">What We Build</a>
+<a class="section-nav-link" href="#mod231">Mod. 231</a>
+<a class="section-nav-link" href="../contact.html">Get in Touch</a>
+</div>
+</nav>
+<main>
+<!-- HERO -->
+<section class="service-hero py-5">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="co.kicker">Services</p>
+<h1 class="service-hero-title" data-i18n-html="co.hero.title">Having the policy<br/>is not the same as<br/>following it.</h1>
+<p class="service-hero-lead" data-i18n="co.hero.lead">Most organisations have written their compliance obligations down somewhere. The problem is the gap between the document and the daily decision. We close that gap — turning regulatory requirements into internal controls that are owned, monitored and evidenced by people who understand why they matter.</p>
+<a class="btn btn-primary btn-sm px-4 mt-3" data-i18n="co.hero.cta" href="../contact.html">Discuss your compliance situation →</a>
+</div>
+</div>
+</div>
+</section>
+<!-- THE GAP -->
+<section class="service-band py-5" id="the-gap">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="co.gap.kicker">The Gap</p>
+<h2 class="service-section-heading" data-i18n="co.gap.title">Big firms write compliance programmes. We build compliance into how you work.</h2>
+<div class="row g-0 mt-4">
+<div class="col-md-6 pe-md-4">
+<p class="homepage-lead" data-i18n="co.gap.p1">Large consultancies design frameworks that look impressive in a board presentation. They hand over a manual, run a training session and move on. Twelve months later the manual is out of date, the training is forgotten and the control is not being run.</p>
+<p class="homepage-lead" data-i18n="co.gap.p2">We work differently. Compliance that holds up is compliance that lives inside your operations — assigned to real people, tied to real processes and checked on a regular cadence. That is what we build.</p>
+</div>
+<div class="col-md-6 ps-md-4" style="border-left: 1px solid var(--stone-rule);">
+<p class="section-kicker mb-3" data-i18n="co.gap.obs.kicker">What we see too often</p>
+<ul class="service-observation-list">
+<li data-i18n="co.gap.obs.1">Policies written by lawyers, ignored by operations</li>
+<li data-i18n="co.gap.obs.2">Compliance responsibilities assigned to functions, not people</li>
+<li data-i18n="co.gap.obs.3">Controls documented but never tested</li>
+<li data-i18n="co.gap.obs.4">Regulatory changes missed because no one owns the monitoring</li>
+<li data-i18n="co.gap.obs.5">Evidence that exists somewhere but cannot be found when needed</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- WHO IT'S FOR -->
+<section class="service-outcomes py-5" id="who-its-for">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="co.wif.kicker">Who It's For</p>
+<h2 class="service-section-heading" data-i18n="co.wif.title">Organisations at a compliance inflection point.</h2>
+<div class="row g-4 mt-3">
+<div class="col-md-4">
+<div class="audience-card">
+<h3 data-i18n="co.wif.c1.title">Growing SMEs</h3>
+<p data-i18n="co.wif.c1.body">You have reached the size where informal compliance no longer works — regulators, insurers or enterprise clients are asking questions you cannot yet answer confidently. You need a compliance model that fits where you are, not where a big firm assumes you are.</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="audience-card">
+<h3 data-i18n="co.wif.c2.title">Italian companies under Mod. 231</h3>
+<p data-i18n="co.wif.c2.body">Legislative Decree 231/2001 creates real criminal liability for the organisation if the right controls are not in place. We help you build a Mod. 231 compliance model that is defensible in front of an examining magistrate, not just a supervisor.</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="audience-card">
+<h3 data-i18n="co.wif.c3.title">Foreign companies operating in Italy</h3>
+<p data-i18n="co.wif.c3.body">The Italian regulatory environment has specific requirements — Mod. 231, Autorità Garante, sector-specific obligations — that do not translate directly from other European frameworks. We bridge that gap without rebuilding your entire compliance architecture.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- WHAT WE BUILD -->
+<section class="service-method py-5" id="what-we-build">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="co.bld.kicker">What We Build</p>
+<h2 class="service-section-heading" data-i18n="co.bld.title">A compliance operating model — not a document library.</h2>
+<p class="service-method-intro" data-i18n="co.bld.intro">Every engagement produces something the team can run, not something they have to translate before using.</p>
+<div class="outcomes-grid mt-4">
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="co.bld.1">An obligation inventory — what regulations apply, what they require, who owns each one.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="co.bld.2">A control map linking each obligation to the internal procedure or process that addresses it.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="co.bld.3">Monitoring routines — regular checks that controls are being followed, with named reviewers.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="co.bld.4">Evidence standards — what proof is required for each control, and where it is stored.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="co.bld.5">A remediation governance model — how gaps are tracked, escalated and closed.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="co.bld.6">A regulatory watch routine — so changes to laws and guidance do not arrive as surprises.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- MOD 231 SPOTLIGHT -->
+<section class="service-proof py-5" id="mod231">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="co.231.kicker">Italian Specifics</p>
+<h2 class="service-section-heading" data-i18n="co.231.title">Legislative Decree 231 / 2001</h2>
+<div class="proof-block mt-4">
+<p class="proof-context" data-i18n="co.231.ctx">Compliance &amp; Internal Controls · Italian regulatory framework</p>
+<p data-i18n="co.231.p1">Mod. 231 creates organisational criminal liability for a defined list of predicate offences — corruption, fraud, environmental violations, workplace safety breaches and others. The defence requires demonstrating that the company had an appropriate compliance programme (Modello Organizzativo e di Gestione) and a functioning Supervisory Body (Organismo di Vigilanza) that actively monitored it.</p>
+<p data-i18n="co.231.p2">A Mod. 231 model that exists only on paper is not a defence. We help companies design models that are proportionate to their structure, genuinely implemented in operations and maintained with documented evidence of monitoring. We also support the Organismo di Vigilanza in its oversight function.</p>
+<p class="proof-outcome" data-i18n="co.231.out">We have built and reviewed Mod. 231 compliance models across logistics, security services and multi-entity corporate groups. The standard we apply: it must be defensible in front of an examining magistrate.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="container my-5">
+<div class="cta-band d-md-flex justify-content-between align-items-center">
+<div>
+<h2 class="h3 fw-bold mb-1" data-i18n="co.cta.title">Know where your compliance gaps are?</h2>
+<p class="mb-0 opacity-75 cta-subtext" data-i18n="co.cta.sub">If not, that is usually the first thing we find out together.</p>
+</div>
+<a class="btn btn-primary btn-lg mt-3 mt-md-0 flex-shrink-0" data-i18n="btn.getintouch" href="../contact.html">Get in Touch</a>
+</div>
+</section>
+<div class="container mb-5"><a class="area-link" data-i18n="btn.back" href="../services.html">← Back to all services</a></div>
+</main>
+<footer class="text-center py-4"><p class="mb-0">© 2026 Sorrentino Consultancy · Napoli, Italy</p></footer>
+<script src="../images.js"></script>
+<script src="../i18n.js"></script>
+<script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

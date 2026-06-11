@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sorrentino Consultancy — Independent GRC advisory shaped by three generations of trust.">
+    <meta property="og:title" content="Sorrentino Consultancy">
+    <meta property="og:description" content="Independent GRC advisory shaped by three generations of trust.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <!-- Custom stylesheet — design tokens + §38 cover page styles -->
+    <link href="styles.css" rel="stylesheet">
+    <title>Sorrentino Consultancy — Advisory GRC</title>
+    <!-- model-viewer (pinned version) — renders the interactive GLB capitol -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body class="page-cover">
+
+    <!-- ═══════════════════════════════════════
+         SCREEN 1 — COVER
+    ═══════════════════════════════════════ -->
+    <section class="cover-screen" aria-label="Cover">
+
+        <div class="cover-bg" aria-hidden="true"></div>
+
+        <!-- 3D model viewer (GLB).
+             Developer note: 3D assets must be served over http://localhost or https://,
+             not opened directly via file:// — browsers block GLB loading due to CORS.
+             To run locally:
+                 cd ~/Documents/"CS50 Final Project"
+                 python3 -m http.server 8000
+                 open http://localhost:8000/index.html
+        -->
+        <model-viewer id="capitolModel"
+                      class="cover-foreground-model"
+                      src="images/animation/textured_mesh.glb"
+                      alt="Interactive classical capitol"
+                      camera-controls
+                      auto-rotate
+                      auto-rotate-delay="1000"
+                      rotation-per-second="18deg"
+                      shadow-intensity="0.35"
+                      exposure="1"
+                      environment-image="neutral"
+                      interaction-prompt="auto"
+                      ar
+                      ar-modes="webxr scene-viewer quick-look"
+                      style="touch-action: none;">
+            <div class="model-fallback">3D model not supported.</div>
+        </model-viewer>
+
+        <div class="cover-body">
+
+            <header class="cover-header">
+                <div class="cover-logo">
+                    <img data-img="logo"
+                         alt="Sorrentino Consultancy"
+                         width="86" height="56"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="cover-logo-placeholder" style="display:none" aria-hidden="true">Logo</div>
+                </div>
+                <div class="cover-header-actions">
+                    <p class="cover-location">Napoli, Italy · Est. 1953</p>
+                    <button id="languageToggle" onclick="this.dataset.i18nInlineHandled='1'; window.toggleLanguage && window.toggleLanguage()" class="cover-language-toggle" type="button" aria-label="Switch language">IT</button>
+                </div>
+            </header>
+
+            <p class="cover-overline">Independent GRC Advisory</p>
+
+            <main class="cover-main">
+                <div class="cover-full-rule" aria-hidden="true"></div>
+                <h1 class="cover-title">Sorrentino<br>Consultancy</h1>
+                <p class="cover-descriptor">
+                    Governance, Risk &amp; Compliance advisory for organisations that need
+                    clear accountability, defensible evidence and proportionate governance —
+                    built on three generations of trust.
+                </p>
+            </main>
+
+            <footer class="cover-footer-strip">
+                <a href="home.html" class="cover-enter">
+                    Enter the site <span class="arrow" aria-hidden="true">→</span>
+                </a>
+                <button type="button" class="scroll-hint" onclick="document.getElementById('mission').scrollIntoView({behavior:'smooth'})" aria-label="Scroll to mission">
+                    <span>Scroll</span>
+                    <span class="scroll-line" aria-hidden="true"></span>
+                </button>
+            </footer>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SCREEN 1.5 — WORD REVEAL
+    ═══════════════════════════════════════ -->
+    <section class="reveal-screen" id="reveal" aria-label="Statement">
+        <div class="reveal-inner">
+            <p class="mission-kicker" style="margin-bottom:1.75rem;">Our Mission</p>
+            <h2 class="reveal-text" id="revealText" aria-label="To make governance work — not just exist.">
+            </h2>
+            <p class="reveal-body" id="revealBody">
+                We believe the best governance is proportionate, visible and usable — built from operational experience across five countries to create frameworks organisations can own, operate and stand behind.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SCREEN 2 — MISSION
+    ═══════════════════════════════════════ -->
+    <section class="mission-screen" id="mission" aria-label="Mission">
+        <div class="mission-inner">
+
+            <p class="mission-kicker">Our Principles</p>
+
+            <div class="pillars" role="list">
+
+                <article class="pillar" role="listitem">
+                    <p class="pillar-index">01</p>
+                    <h3>Trust &amp; Accountability</h3>
+                    <p>Seven decades of client relationships built on discretion, reliability and the discipline to protect what matters.</p>
+                </article>
+
+                <article class="pillar" role="listitem">
+                    <p class="pillar-index">02</p>
+                    <h3>Practical Governance</h3>
+                    <p>Frameworks designed around how organisations actually operate — not idealised models that sit unused.</p>
+                </article>
+
+                <article class="pillar" role="listitem">
+                    <p class="pillar-index">03</p>
+                    <h3>Evidence That Stands</h3>
+                    <p>Controls, routines and documentation built to survive scrutiny — from auditors, regulators and management alike.</p>
+                </article>
+
+            </div>
+
+            <div class="mission-cta">
+                <a href="home.html" class="btn-enter-site">
+                    Explore the practice <span class="arrow" aria-hidden="true">→</span>
+                </a>
+                <span class="cover-copyright">© 2026 Sorrentino Consultancy</span>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        /* ── Mission fade-in ── */
+        const missionObserver = new IntersectionObserver(
+            ([entry]) => { if (entry.isIntersecting) entry.target.classList.add('visible'); },
+            { threshold: 0.15 }
+        );
+        document.querySelectorAll('.mission-inner').forEach(el => missionObserver.observe(el));
+
+        /* ── Pillar staggered entrance ── */
+        const pillarObserver = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                pillarObserver.disconnect();
+                document.querySelectorAll('.pillar').forEach((pillar, i) => {
+                    setTimeout(() => pillar.classList.add('visible'), i * 180);
+                });
+            }
+        }, { threshold: 0.3 });
+        const pillarsEl = document.querySelector('.pillars');
+        if (pillarsEl) pillarObserver.observe(pillarsEl);
+
+        /* ── Scroll-linked clip reveal ── */
+        const sentence = [
+            { text: 'To',           accent: false },
+            { text: 'make',         accent: false },
+            { text: 'governance',   accent: false },
+            { text: 'work',         accent: false },
+            { text: '—',            accent: false },
+            { text: 'not',          accent: false },
+            { text: 'just',         accent: false },
+            { text: 'exist.',       accent: true  },
+        ];
+
+        const container = document.getElementById('revealText');
+        const revealBody = document.getElementById('revealBody');
+        const section = document.getElementById('reveal');
+
+        /* Build word spans */
+        sentence.forEach(({ text, accent }) => {
+            const span = document.createElement('span');
+            span.className = 'reveal-word' + (accent ? ' accent' : '');
+            span.textContent = text;
+            container.appendChild(span);
+        });
+
+        /* Trigger once on first scroll — fire and forget */
+        function startReveal() {
+            window.removeEventListener('scroll', startReveal);
+            const words = container.querySelectorAll('.reveal-word');
+            words.forEach((word, i) => {
+                setTimeout(() => {
+                    word.classList.add('visible');
+                    if (i === words.length - 1) {
+                        setTimeout(() => revealBody.classList.add('visible'), 1100);
+                    }
+                }, i * 100);
+            });
+        }
+
+        window.addEventListener('scroll', startReveal, { passive: true });
+    </script>
+    <script src="images.js"></script>
+    <script src="i18n.js"></script>
+
+</body>
+</html>
