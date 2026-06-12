@@ -441,10 +441,21 @@ footer {
    §10 TYPOGRAPHY — section titles, kickers, editorial headings
    ══════════════════════════════════════════════════════════ */
 .section-title {
-    font-size: 1.85rem;
-    font-weight: 700;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.9rem, 3vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.12;
     color: var(--stone-ink);
     margin-bottom: 0.25rem;
+}
+
+/* Hero headline on the glass-tinted page heroes (about, contact) —
+   same serif voice as .masthead-title, scaled for a sentence-length h1 */
+.hero-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 600;
+    line-height: 1.08;
 }
 
 .editorial-heading {
@@ -476,7 +487,12 @@ footer {
     font-size: var(--fs-xs);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    opacity: 0.75;
+    color: var(--text-muted);
+}
+
+/* Comfortable measure for lead paragraphs (replaces inline max-width) */
+.measure-wide {
+    max-width: 47.5rem;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -1221,6 +1237,13 @@ textarea:focus {
     color: var(--paper);
     border-radius: 0;
     padding: 2.5rem;
+}
+
+.cta-band h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: var(--fs-2xl);
+    font-weight: 600;
+    line-height: 1.15;
 }
 
 /* ══════════════════════════════════════════════════════════
