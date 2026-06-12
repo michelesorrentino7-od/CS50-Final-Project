@@ -22,7 +22,7 @@ The HTTP server is required: the cover page's 3D model (GLB) and ES-module scrip
 |---|---|
 | `index.html` | Cover: interactive 3D capitol (hover/scroll-driven rotation), cryptex word reveal, principles |
 | `home.html` | Main homepage; canonical "Home" target |
-| `services.html` | Hub with 8 service rows → `services/*.html` (7 detail pages) |
+| `services.html` | Hub with 8 service rows → `services/*.html` (8 detail pages) |
 | `about.html` | Three-generation story (linked from home heritage section) |
 | `case-studies.html` | Anonymised engagement cards |
 | `cv.html`, `contact.html` | CV; contact info + mailto form |

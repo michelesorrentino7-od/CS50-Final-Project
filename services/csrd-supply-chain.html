@@ -1,0 +1,228 @@
+<!--
+  ============================================================
+  SERVICE DETAIL — services/csrd-supply-chain.html
+  ============================================================
+  CSRD, CSDDD & supply-chain due diligence — readiness, supplier
+  frameworks and monitoring you can evidence.
+  Linked from: services.html #csrd-csddd-supply-chain "Read more →"
+
+  PAGE STRUCTURE:
+  ┌─────────────────────────────────────────────────┐
+  │  NAVBAR / SECTION-NAV                            │
+  ├─────────────────────────────────────────────────┤
+  │  §1 HERO              — headline + CTA           │
+  │  §2 THE LANDSCAPE     — CSRD vs CSDDD two-col    │
+  │  §3 WHAT APPLIES      — 3 audience-cards         │
+  │  §4 WHAT WE BUILD     — 3 methods + 6 outcomes  │
+  │  §5 SUPPLY CHAIN      — due-diligence model      │
+  │  §6 CTA               — call-to-action band      │
+  │  BACK LINK            — ← Back to all services   │
+  ├─────────────────────────────────────────────────┤
+  │  FOOTER                                          │
+  └─────────────────────────────────────────────────┘
+
+  BODY CLASS: page-services | i18n prefix: sc.*
+  ============================================================
+-->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="CSRD, CSDDD and supply-chain due diligence advisory. Sorrentino Consultancy builds readiness assessments, supplier due-diligence frameworks and risk-based monitoring routines that can be evidenced to management, auditors and stakeholders." name="description"/>
+<meta content="CSRD, CSDDD &amp; Supply-Chain Due Diligence | Sorrentino Consultancy" property="og:title"/>
+<meta content="Due diligence is not a questionnaire. It is a process you can evidence — from supplier data to decision to follow-up." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="../images/logo.png" property="og:image"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link rel="icon" href="../images/logo.png" type="image/png"/>
+<title>CSRD, CSDDD &amp; Supply-Chain Due Diligence | Sorrentino Consultancy</title>
+</head>
+<body class="page-services">
+<nav aria-label="Main navigation" class="navbar navbar-expand-lg navbar-light sticky-top">
+<div class="container">
+<a aria-label="Sorrentino Consultancy home" class="navbar-brand d-inline-flex align-items-center" href="../home.html">
+<img alt="Sorrentino Consultancy" class="brand-logo" height="56" data-img="logo" width="86"/>
+</a>
+<button aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navMenu" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<li class="nav-item"><a class="nav-link" data-i18n="nav.home" href="../home.html">Home</a></li>
+<li class="nav-item"><a aria-current="page" class="nav-link active" data-i18n="nav.services" href="../services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.casestudies" href="../case-studies.html">Case Studies</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.cv" href="../cv.html">CV</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav.contact" href="../contact.html">Contact</a></li>
+</ul>
+<button aria-label="Switch language" class="btn btn-outline-primary btn-sm ms-lg-3 language-toggle" id="languageToggle" onclick="this.dataset.i18nInlineHandled='1'; window.toggleLanguage && window.toggleLanguage()" type="button">IT</button>
+</div>
+</div>
+</nav>
+<nav aria-label="Page sections" class="section-nav">
+<div class="container">
+<a class="section-nav-link active" href="#landscape">The Landscape</a>
+<a class="section-nav-link" href="#what-applies">What Applies to You</a>
+<a class="section-nav-link" href="#what-we-build">What We Build</a>
+<a class="section-nav-link" href="#supply-chain">Supply Chain</a>
+<a class="section-nav-link" href="../contact.html">Get in Touch</a>
+</div>
+</nav>
+<main>
+<!-- HERO -->
+<section class="service-hero py-5">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="sc.kicker">Services</p>
+<h1 class="service-hero-title" data-i18n-html="sc.hero.title">Due diligence<br/>is not a questionnaire.<br/>It is a process you can evidence.</h1>
+<p class="service-hero-lead" data-i18n="sc.hero.lead">CSRD, CSDDD and supply-chain due diligence all ask the same underlying question: can you demonstrate how sustainability and human-rights risks are identified, assessed, mitigated and monitored across your value chain? A stack of signed supplier declarations does not answer it. A traceable process — from supplier information to risk classification to decision to follow-up — does. We build that process.</p>
+<a class="btn btn-primary btn-sm px-4 mt-3" data-i18n="sc.hero.cta" href="../contact.html">Talk about your readiness →</a>
+</div>
+</div>
+</div>
+</section>
+<!-- THE LANDSCAPE -->
+<section class="service-band py-5" id="landscape">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="sc.lnd.kicker">The Landscape</p>
+<h2 class="service-section-heading" data-i18n="sc.lnd.title">CSRD asks you to report. CSDDD asks you to act. Both ask you to prove it.</h2>
+<div class="row g-0 mt-4">
+<div class="col-md-6 pe-md-4">
+<p class="section-kicker mb-2" data-i18n="sc.lnd.csrd.kicker" style="color: var(--stone-shadow);">CSRD</p>
+<p class="homepage-lead" data-i18n="sc.lnd.csrd.p1">The Corporate Sustainability Reporting Directive is a disclosure obligation. It requires companies to report sustainability information — including value-chain impacts — under the ESRS standards, with double materiality as the entry point and limited assurance on the result.</p>
+<p class="homepage-lead" data-i18n="sc.lnd.csrd.p2">Its reach extends well beyond the companies directly in scope: every in-scope reporter must collect data from its suppliers, which is why SMEs far below the thresholds are already receiving CSRD-driven questionnaires.</p>
+</div>
+<div class="col-md-6 ps-md-4" style="border-left: 1px solid var(--stone-rule);">
+<p class="section-kicker mb-2" data-i18n="sc.lnd.csddd.kicker">CSDDD</p>
+<p class="homepage-lead" data-i18n="sc.lnd.csddd.p1">The Corporate Sustainability Due Diligence Directive is a conduct obligation. It requires companies to operate a due-diligence process: identify adverse human-rights and environmental impacts in their chain of activities, prevent or mitigate them, monitor effectiveness and provide remediation.</p>
+<p class="homepage-lead" data-i18n="sc.lnd.csddd.p2">Reporting describes the process; the directive requires the process itself to exist and to work. That is an operating-model question — ownership, procedures, escalation — not a drafting exercise.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- WHAT APPLIES TO YOU -->
+<section class="service-outcomes py-5" id="what-applies">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="sc.wat.kicker">What Applies to You</p>
+<h2 class="service-section-heading" data-i18n="sc.wat.title">Scope is the first question. Proportionality is the second.</h2>
+<div class="row g-4 mt-3">
+<div class="col-md-4">
+<div class="audience-card">
+<h3 data-i18n="sc.wat.c1.title">Companies in or approaching CSRD scope</h3>
+<p data-i18n="sc.wat.c1.body">You need a readiness position you can defend: which ESRS topics are material, where the data gaps are, what evidence assurance will expect and a realistic plan to close the distance. A gap analysis only has value if it ends in an evidence plan with owners and dates.</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="audience-card">
+<h3 data-i18n="sc.wat.c2.title">SMEs inside someone else's value chain</h3>
+<p data-i18n="sc.wat.c2.body">Your enterprise customers are in scope, so their obligations arrive at your door as questionnaires, codes of conduct and contract clauses. You need a proportionate response: one set of reliable answers and evidence, reusable across every customer request, instead of improvising each time.</p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="audience-card">
+<h3 data-i18n="sc.wat.c3.title">Organisations that depend on suppliers they don't control</h3>
+<p data-i18n="sc.wat.c3.body">Outsourced operations, logistics networks, subcontractor chains. Whether or not a directive formally applies to you, your name is attached to what happens there — and investors, lenders and customers increasingly ask how you know. You need a due-diligence model sized to your real exposure.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- WHAT WE BUILD -->
+<section class="service-method py-5" id="what-we-build">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="sc.bld.kicker">What We Build</p>
+<h2 class="service-section-heading" data-i18n="sc.bld.title">A due-diligence model your team can operate — and explain.</h2>
+<p class="service-method-intro" data-i18n="sc.bld.intro">Every element is designed to be run by your internal team with the tools you already have, and to be explained clearly to management, auditors or stakeholders when they ask how it works.</p>
+<div class="method-row mt-4">
+<div class="method-block">
+<h3 class="method-name" data-i18n="sc.bld.1.name">Readiness</h3>
+<p data-i18n="sc.bld.1.body">Where you stand against CSRD and CSDDD: scoping and timeline, double-materiality groundwork, gap analysis against the requirements that actually apply to you, and an evidence plan that turns each gap into an owned, dated action rather than a finding in a slide deck.</p>
+</div>
+<div class="method-block">
+<h3 class="method-name" data-i18n="sc.bld.2.name">Suppliers</h3>
+<p data-i18n="sc.bld.2.body">A supplier due-diligence framework proportionate to risk: segmentation by exposure, questionnaires that ask only what you will actually use, risk classification criteria and the escalation logic that decides what happens when a supplier's answers — or silence — raise a flag.</p>
+</div>
+<div class="method-block">
+<h3 class="method-name" data-i18n="sc.bld.3.name">Monitoring</h3>
+<p data-i18n="sc.bld.3.body">Risk-based monitoring routines across outsourced and supply-chain environments: review cadence by supplier tier, corrective-action follow-up, trigger events that prompt reassessment, and the documentation trail that shows the process operating over time — not just existing on paper.</p>
+</div>
+</div>
+<div class="outcomes-grid mt-5">
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="sc.bld.out.1">A CSRD / CSDDD readiness assessment: scope, applicable requirements, gaps and an evidence plan with owners.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="sc.bld.out.2">A supplier segmentation model: which third parties matter most, by risk and by dependence — not by spend alone.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="sc.bld.out.3">Due-diligence questionnaires and supplier-facing requirements designed to produce usable, comparable answers.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="sc.bld.out.4">An escalation model: classification criteria, decision rights and documented follow-up for red-flag findings.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="sc.bld.out.5">Monitoring routines by supplier tier: review cadence, corrective-action tracking and reassessment triggers.</p>
+</div>
+<div class="outcome-item">
+<span aria-hidden="true" class="outcome-rule"></span>
+<p data-i18n="sc.bld.out.6">A due-diligence narrative for management, auditors and customers that explains the process end to end.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SUPPLY-CHAIN DUE DILIGENCE -->
+<section class="service-proof py-5" id="supply-chain">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-9">
+<p class="section-kicker" data-i18n="sc.sdd.kicker">Supply Chain</p>
+<h2 class="service-section-heading" data-i18n="sc.sdd.title">The questionnaire is the easiest part. What happens after the answers come back is the due diligence.</h2>
+<div class="proof-block mt-4">
+<p class="proof-context" data-i18n="sc.sdd.ctx">Supply-Chain Due Diligence · Operating model</p>
+<p data-i18n="sc.sdd.p1">Most supplier due-diligence programmes stall at data collection: hundreds of questionnaires sent, a fraction returned, answers filed and never read again. Nothing in that exercise identifies a risk, mitigates an impact or survives a serious question from an auditor or customer.</p>
+<p data-i18n="sc.sdd.p2">A working model is narrower and deeper. Segment the supplier base so effort follows risk. Ask fewer questions and define what each answer changes. Classify, decide, document. Follow up on corrective actions until they close. Reassess when something material changes — a new country, a new subcontractor, an incident.</p>
+<p data-i18n="sc.sdd.p3">This is the same discipline as any third-party risk process — applied to human-rights and environmental exposure instead of only financial or operational risk. If you already audit your suppliers, due diligence extends that machinery; it does not require a parallel one.</p>
+<p class="proof-outcome" data-i18n="sc.sdd.out">If you already run supplier audits or third-party assurance, we build on it. If you are starting from zero, we size the model to your real exposure — not to the largest version of the requirement.</p>
+<a class="area-link mt-3 d-inline-block" href="esg-governance.html">See our ESG Governance service →</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="container my-5">
+<div class="cta-band d-md-flex justify-content-between align-items-center">
+<div>
+<h2 class="h3 mb-1" data-i18n="sc.cta.title">Could you evidence your due diligence today?</h2>
+<p class="mb-0 opacity-75 cta-subtext" data-i18n="sc.cta.sub">If the answer lives in scattered questionnaires, the answer is no.</p>
+</div>
+<a class="btn btn-primary btn-lg mt-3 mt-md-0 flex-shrink-0" data-i18n="btn.getintouch" href="../contact.html">Get in Touch</a>
+</div>
+</section>
+<div class="container mb-5"><a class="area-link" data-i18n="btn.back" href="../services.html">← Back to all services</a></div>
+</main>
+<footer class="text-center py-4"><p class="mb-0">© 2026 Sorrentino Consultancy · Napoli, Italy</p></footer>
+<script src="../images.js"></script>
+<script src="../i18n.js"></script>
+<script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

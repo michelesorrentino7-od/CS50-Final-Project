@@ -26,6 +26,7 @@
   │     ├── co.*              — compliance-regulation.html     │  ~L205
   │     ├── pr.*              — privacy.html                   │  ~L252
   │     ├── eg.*              — esg-governance.html            │  ~L293
+  │     ├── sc.*              — csrd-supply-chain.html         │  ~L362
   │     ├── as.*              — assurance-security.html         │  ~L345
   │     ├── dg.*              — digital-grc.html               │  ~L435
   │     ├── fg.*              — fractional-grc.html            │  ~L484
@@ -85,6 +86,7 @@
         'co.kicker':        'Servizi',
         'pr.kicker':        'Servizi',
         'eg.kicker':        'Servizi',
+        'sc.kicker':        'Servizi',
         'as.kicker':        'Servizi',
         'dg.kicker':        'Servizi',
         'fg.kicker':        'Servizi',
@@ -358,6 +360,58 @@
 
         'eg.cta.title':  'La tua governance ESG è pronta per l\'assurance?',
         'eg.cta.sub':    'Il report è credibile solo quanto la governance che ci sta dietro.',
+
+        /* ══════════════════════════════════════
+           CSRD, CSDDD & SUPPLY-CHAIN DUE DILIGENCE
+        ══════════════════════════════════════ */
+        'sc.hero.title': 'La due diligence<br>non è un questionario.<br>È un processo che puoi dimostrare.',
+        'sc.hero.lead':  'CSRD, CSDDD e supply-chain due diligence pongono la stessa domanda di fondo: puoi dimostrare come i rischi di sostenibilità e diritti umani vengono identificati, valutati, mitigati e monitorati lungo la tua value chain? Una pila di dichiarazioni firmate dai supplier non risponde. Un processo tracciabile — dalle informazioni sui supplier alla classificazione del risk, alla decisione, al follow-up — sì. Costruiamo quel processo.',
+        'sc.hero.cta':   'Parliamo della tua readiness →',
+
+        'sc.lnd.kicker':   'Il quadro',
+        'sc.lnd.title':    'La CSRD chiede di rendicontare. La CSDDD chiede di agire. Entrambe chiedono di dimostrarlo.',
+        'sc.lnd.csrd.kicker': 'CSRD',
+        'sc.lnd.csrd.p1':  'La Corporate Sustainability Reporting Directive è un obbligo di disclosure. Richiede alle aziende di rendicontare le informazioni di sostenibilità — inclusi gli impatti lungo la value chain — secondo gli standard ESRS, con la double materiality come punto di partenza e la limited assurance sul risultato.',
+        'sc.lnd.csrd.p2':  'La sua portata va ben oltre le aziende direttamente in scope: ogni società obbligata a rendicontare deve raccogliere dati dai propri supplier — ed è per questo che PMI molto al di sotto delle soglie ricevono già questionari guidati dalla CSRD.',
+        'sc.lnd.csddd.kicker': 'CSDDD',
+        'sc.lnd.csddd.p1': 'La Corporate Sustainability Due Diligence Directive è un obbligo di condotta. Richiede alle aziende di operare un processo di due diligence: identificare gli impatti negativi su diritti umani e ambiente nella propria chain of activities, prevenirli o mitigarli, monitorarne l\'efficacia e fornire remediation.',
+        'sc.lnd.csddd.p2': 'Il reporting descrive il processo; la direttiva richiede che il processo esista e funzioni. È una questione di operating model — ownership, procedure, escalation — non un esercizio di drafting.',
+
+        'sc.wat.kicker':   'Cosa si applica',
+        'sc.wat.title':    'Lo scope è la prima domanda. La proporzionalità è la seconda.',
+        'sc.wat.c1.title': 'Aziende in scope CSRD o in avvicinamento',
+        'sc.wat.c1.body':  'Serve una posizione di readiness difendibile: quali temi ESRS sono materiali, dove sono i gap nei dati, quali evidenze si aspetterà l\'assurance e un piano realistico per colmare la distanza. Una gap analysis ha valore solo se si conclude con un evidence plan con owner e scadenze.',
+        'sc.wat.c2.title': 'PMI nella value chain di qualcun altro',
+        'sc.wat.c2.body':  'I tuoi clienti enterprise sono in scope, quindi i loro obblighi arrivano alla tua porta sotto forma di questionari, codici di condotta e clausole contrattuali. Serve una risposta proporzionata: un unico set di risposte ed evidenze affidabili, riutilizzabile per ogni richiesta dei clienti, invece di improvvisare ogni volta.',
+        'sc.wat.c3.title': 'Organizzazioni che dipendono da supplier che non controllano',
+        'sc.wat.c3.body':  'Operations in outsourcing, network logistici, catene di subappalto. Che una direttiva si applichi formalmente o meno, il tuo nome è legato a ciò che accade lì — e investitori, lender e clienti chiedono sempre più spesso come fai a saperlo. Serve un modello di due diligence dimensionato sulla tua esposizione reale.',
+
+        'sc.bld.kicker':   'Cosa costruiamo',
+        'sc.bld.title':    'Un modello di due diligence che il tuo team può gestire — e spiegare.',
+        'sc.bld.intro':    'Ogni elemento è progettato per essere gestito dal team interno con gli strumenti già disponibili, e per essere spiegato con chiarezza a management, auditor o stakeholder quando chiedono come funziona.',
+        'sc.bld.1.name':   'Readiness',
+        'sc.bld.1.body':   'Dove ti trovi rispetto a CSRD e CSDDD: scoping e timeline, basi di double materiality, gap analysis sui requisiti che si applicano davvero a te e un evidence plan che trasforma ogni gap in un\'azione con owner e scadenza — non in un finding dentro una slide deck.',
+        'sc.bld.2.name':   'Supplier',
+        'sc.bld.2.body':   'Un framework di supplier due diligence proporzionato al risk: segmentazione per esposizione, questionari che chiedono solo ciò che userai davvero, criteri di classificazione del risk e la logica di escalation che decide cosa succede quando le risposte di un supplier — o il suo silenzio — sollevano un red flag.',
+        'sc.bld.3.name':   'Monitoraggio',
+        'sc.bld.3.body':   'Routine di monitoraggio risk-based in ambienti outsourced e di supply chain: cadence di review per tier di supplier, follow-up delle corrective action, trigger event che attivano la rivalutazione e la traccia documentale che mostra il processo in funzione nel tempo — non solo la sua esistenza sulla carta.',
+        'sc.bld.out.1': 'Un readiness assessment CSRD / CSDDD: scope, requisiti applicabili, gap e un evidence plan con owner.',
+        'sc.bld.out.2': 'Un modello di segmentazione dei supplier: quali terze parti contano di più, per risk e per dipendenza — non solo per spesa.',
+        'sc.bld.out.3': 'Questionari di due diligence e requisiti verso i supplier progettati per produrre risposte utilizzabili e confrontabili.',
+        'sc.bld.out.4': 'Un modello di escalation: criteri di classificazione, decision rights e follow-up documentato per i red flag.',
+        'sc.bld.out.5': 'Routine di monitoraggio per tier di supplier: cadence di review, tracking delle corrective action e trigger di rivalutazione.',
+        'sc.bld.out.6': 'Una narrativa di due diligence per management, auditor e clienti che spiega il processo end-to-end.',
+
+        'sc.sdd.kicker':  'Supply Chain',
+        'sc.sdd.title':   'Il questionario è la parte più facile. Ciò che accade dopo le risposte è la due diligence.',
+        'sc.sdd.ctx':     'Supply-Chain Due Diligence · Operating model',
+        'sc.sdd.p1':      'La maggior parte dei programmi di supplier due diligence si ferma alla raccolta dati: centinaia di questionari inviati, una frazione restituita, risposte archiviate e mai più lette. Nulla di quell\'esercizio identifica un risk, mitiga un impatto o regge a una domanda seria di un auditor o di un cliente.',
+        'sc.sdd.p2':      'Un modello che funziona è più stretto e più profondo. Segmentare la supplier base perché l\'effort segua il risk. Fare meno domande e definire cosa cambia ogni risposta. Classificare, decidere, documentare. Seguire le corrective action fino alla chiusura. Rivalutare quando cambia qualcosa di materiale — un nuovo paese, un nuovo subappaltatore, un incidente.',
+        'sc.sdd.p3':      'È la stessa disciplina di qualsiasi processo di third-party risk — applicata all\'esposizione su diritti umani e ambiente invece che solo al risk finanziario od operativo. Se già fai audit ai tuoi supplier, la due diligence estende quella macchina; non ne richiede una parallela.',
+        'sc.sdd.out':     'Se già gestisci supplier audit o third-party assurance, costruiamo su quella base. Se parti da zero, dimensioniamo il modello sulla tua esposizione reale — non sulla versione più grande del requisito.',
+
+        'sc.cta.title':  'Potresti dimostrare la tua due diligence oggi?',
+        'sc.cta.sub':    'Se la risposta vive in questionari sparsi, la risposta è no.',
 
         /* ══════════════════════════════════════
            ASSURANCE & SECURITY
@@ -678,6 +732,7 @@
         'Not a Project': 'Non un progetto',
         'What we bring to third-party assurance:': 'Cosa portiamo alla third-party assurance:',
         'See our Governance & Risk service →': 'Vedi il servizio Governance & Risk →',
+        'See our ESG Governance service →': 'Vedi il servizio ESG Governance →',
         'Multidisciplinary: legal, finance and operations in one conversation.': 'Multidisciplinare: legal, finance e operations nella stessa conversazione.',
         'Hands-on with technology — from GRC tools to AI-driven risk and data analysis.': 'Approccio hands-on alla tecnologia — dagli strumenti GRC all\'AI-driven risk e data analysis.',
 
@@ -952,6 +1007,7 @@
         'Compliance & Internal Controls | Sorrentino Consultancy': 'Compliance & Internal Controls | Sorrentino Consultancy',
         'Privacy & Data Protection | Sorrentino Consultancy': 'Privacy & Data Protection | Sorrentino Consultancy',
         'ESG Governance | Sorrentino Consultancy': 'ESG Governance | Sorrentino Consultancy',
+        'CSRD, CSDDD & Supply-Chain Due Diligence | Sorrentino Consultancy': 'CSRD, CSDDD & Supply-Chain Due Diligence | Sorrentino Consultancy',
         'Third-Party Assurance & Security | Sorrentino Consultancy': 'Third-Party Assurance & Security | Sorrentino Consultancy',
         'Digital GRC & Evidence Management | Sorrentino Consultancy': 'Digital GRC & Evidence Management | Sorrentino Consultancy',
         'Fractional GRC Officer | Sorrentino Consultancy': 'Fractional GRC Officer | Sorrentino Consultancy'
