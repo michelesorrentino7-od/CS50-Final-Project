@@ -6,3 +6,6 @@ _archive/
 
 # Editor
 *.code-workspace
+
+# Local AI tooling state
+.claude/

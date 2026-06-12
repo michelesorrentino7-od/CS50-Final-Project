@@ -97,7 +97,7 @@ To add a *new* slot: add the key to `REGISTRY.images`, then place `<img data-img
 ### Gotchas
 
 - `_archive/` holds retired/heavy assets and is git-ignored — don't reference anything in it.
-- The cover background (`bg-cover.jpg`) is also the only background whose opacity/overlay differs (§38: 0.42 / 0.75) because the pencil sketch is light.
+- The cover background (`bg-cover.jpg` — cream colonnade photo) is also the only background whose opacity/overlay differs (§38: 0.42 / 0.75) because the image is light.
 - `window.IMAGE_REGISTRY` is exposed in the console for debugging.
 
 ---
