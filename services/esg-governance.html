@@ -20,7 +20,7 @@
   │  FOOTER                                          │
   └─────────────────────────────────────────────────┘
 
-  BODY CLASS: page-services | i18n prefix: eg.*
+  BODY CLASS: page-services service-detail | i18n prefix: eg.*
   ============================================================
 -->
 <!DOCTYPE html>
@@ -36,10 +36,13 @@
 <meta content="../images/logo.png" property="og:image"/>
 <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
 <link href="../styles.css" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet"/>
 <link rel="icon" href="../images/logo.png" type="image/png"/>
 <title>ESG Governance | Sorrentino Consultancy</title>
 </head>
-<body class="page-services">
+<body class="page-services service-detail service-bg-esg">
 <nav aria-label="Main navigation" class="navbar navbar-expand-lg navbar-light sticky-top">
 <div class="container">
 <a aria-label="Sorrentino Consultancy home" class="navbar-brand d-inline-flex align-items-center" href="../home.html">
@@ -72,14 +75,23 @@
 <main>
 <!-- HERO -->
 <section class="service-hero py-5">
+<span class="animated-accent line service-detail-accent-one" aria-hidden="true"></span>
+<span class="animated-accent dot service-detail-accent-two" aria-hidden="true"></span>
+<span class="animated-accent arrow service-detail-accent-three" aria-hidden="true"></span>
 <div class="container">
-<div class="row justify-content-center">
-<div class="col-lg-9">
+<div class="service-hero-grid">
+<div class="service-hero-copy">
 <p class="section-kicker" data-i18n="eg.kicker">Services</p>
 <h1 class="service-hero-title" data-i18n-html="eg.hero.title">The ESG report<br/>is downstream.<br/>The governance comes first.</h1>
 <p class="service-hero-lead" data-i18n="eg.hero.lead">Most organisations are building their ESG reporting before they have built the governance system that makes the report credible. Data collected without ownership, sustainability commitments without control evidence, board-level ESG statements without any mechanism to verify them — these create disclosure risk, not sustainability progress. We build the governance infrastructure first.</p>
-<a class="btn btn-primary btn-sm px-4 mt-3" data-i18n="eg.hero.cta" href="../contact.html">Talk about your ESG governance →</a>
+<div class="service-hero-actions">
+<a class="btn btn-primary btn-sm px-4" data-i18n="eg.hero.cta" href="../contact.html">Talk about your ESG governance →</a>
+<a class="btn btn-outline-primary btn-sm px-4" data-i18n="svc.hero.back" href="../services.html">Back to services</a>
 </div>
+</div>
+<figure class="area-media-frame service-hero-visual">
+<img src="../images/middle/services-esg.jpg" data-img="detail-esg" alt="Green growth framed by a stone opening representing ESG governance and sustainability controls" loading="eager" decoding="async" onerror="this.closest('.area-media-frame').classList.add('is-missing');this.remove();">
+</figure>
 </div>
 </div>
 </section>
@@ -92,11 +104,11 @@
 <h2 class="service-section-heading" data-i18n="eg.dis.title">ESG governance and ESG reporting are not the same thing.</h2>
 <div class="row g-0 mt-4">
 <div class="col-md-6 pe-md-4">
-<p class="section-kicker mb-2" data-i18n="eg.dis.rep.kicker" style="color: var(--stone-shadow);">ESG Reporting</p>
+<p class="section-kicker is-muted mb-2" data-i18n="eg.dis.rep.kicker">ESG Reporting</p>
 <p class="homepage-lead" data-i18n="eg.dis.rep.p1">Producing a sustainability report, a CSRD disclosure or an ESG questionnaire response. It describes what you have done and what you intend. It is backward-looking. Its credibility depends entirely on the quality of the governance beneath it.</p>
 <p class="homepage-lead" data-i18n="eg.dis.rep.p2">Without governance, reporting is storytelling. With assurance requirements now embedded in CSRD, storytelling is a legal exposure.</p>
 </div>
-<div class="col-md-6 ps-md-4" style="border-left: 1px solid var(--stone-rule);">
+<div class="col-md-6 ps-md-4 service-split-divider">
 <p class="section-kicker mb-2" data-i18n="eg.dis.gov.kicker">ESG Governance</p>
 <p class="homepage-lead" data-i18n="eg.dis.gov.p1">The system that decides who is accountable for each ESG topic, how data is collected and verified, how ESG risks are identified and managed, and how sustainability commitments are connected to operational decisions.</p>
 <p class="homepage-lead" data-i18n="eg.dis.gov.p2">This is what makes the report defensible. This is what an assurance provider audits. This is what we build.</p>
@@ -222,6 +234,7 @@
 <footer class="text-center py-4"><p class="mb-0">© 2026 Sorrentino Consultancy · Napoli, Italy</p></footer>
 <script src="../images.js"></script>
 <script src="../i18n.js"></script>
+<script src="../service-detail.js"></script>
 <script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

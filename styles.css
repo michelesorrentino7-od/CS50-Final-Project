@@ -1791,6 +1791,228 @@ textarea:focus {
     margin-top: 0.85rem;
 }
 
+/* ── Service detail integration layer ──
+   Scoped to individual /services/ pages so hub and main pages keep their
+   existing rhythm while details inherit the same glass/image language. */
+body.service-detail {
+    border-left: 0;
+}
+
+body.page-services.service-detail .service-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(2.75rem, 5vw, 4.25rem) 0 !important;
+}
+
+body.page-services.service-detail .service-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.82fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+}
+
+body.page-services.service-detail .service-hero-copy {
+    position: relative;
+    padding: clamp(1.75rem, 3.5vw, 2.75rem);
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(200, 192, 176, 0.82);
+    border-left: 2px solid var(--stone-accent);
+    box-shadow: 0 22px 54px rgba(26, 24, 20, 0.10);
+    backdrop-filter: blur(12px);
+}
+
+body.page-services.service-detail .service-hero-title {
+    max-width: 48rem;
+}
+
+body.page-services.service-detail .service-hero-lead {
+    max-width: 47rem;
+}
+
+body.page-services.service-detail .service-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.35rem;
+}
+
+body.page-services.service-detail .service-hero-visual {
+    width: 100%;
+    min-height: 25rem;
+    aspect-ratio: 4 / 5;
+    margin: 0;
+    box-shadow: 0 24px 58px rgba(26, 24, 20, 0.16);
+}
+
+body.page-services.service-detail .service-hero-visual::after {
+    content: '';
+    position: absolute;
+    inset: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    pointer-events: none;
+}
+
+body.page-services.service-detail .service-detail-accent-one {
+    top: 5rem;
+    left: min(8vw, 6rem);
+}
+
+body.page-services.service-detail .service-detail-accent-two {
+    right: min(9vw, 7rem);
+    top: 7rem;
+    animation-delay: 1.1s;
+}
+
+body.page-services.service-detail .service-detail-accent-three {
+    right: min(10vw, 8rem);
+    bottom: 3.4rem;
+    animation-delay: 0.45s;
+}
+
+body.page-services.service-detail .service-band,
+body.page-services.service-detail .service-outcomes,
+body.page-services.service-detail .service-method,
+body.page-services.service-detail .service-proof {
+    position: relative;
+    padding: var(--space-section) 0 !important;
+}
+
+body.page-services.service-detail .service-band > .container > .row > .col-lg-9,
+body.page-services.service-detail .service-outcomes > .container > .row > .col-lg-9,
+body.page-services.service-detail .service-method > .container > .row > .col-lg-9,
+body.page-services.service-detail .service-proof > .container > .row > .col-lg-9 {
+    padding: clamp(1.5rem, 3vw, 2.35rem);
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid rgba(200, 192, 176, 0.78);
+    border-left: 2px solid var(--stone-accent);
+    box-shadow: 0 18px 46px rgba(26, 24, 20, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+body.page-services.service-detail .audience-card,
+body.page-services.service-detail .outcome-item,
+body.page-services.service-detail .method-block,
+body.page-services.service-detail .proof-block {
+    transition: transform 0.45s var(--ease-lux), box-shadow 0.45s var(--ease-lux),
+                border-color 0.35s var(--ease-lux);
+}
+
+body.page-services.service-detail .outcome-item,
+body.page-services.service-detail .method-block {
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid rgba(200, 192, 176, 0.72);
+    border-top: 2px solid rgba(61, 107, 120, 0.82);
+    backdrop-filter: blur(8px);
+}
+
+body.page-services.service-detail .method-block {
+    border-top-color: var(--stone-accent);
+}
+
+body.page-services.service-detail .audience-card:hover,
+body.page-services.service-detail .outcome-item:hover,
+body.page-services.service-detail .method-block:hover,
+body.page-services.service-detail .proof-block:hover {
+    transform: translateY(-4px);
+    border-color: rgba(61, 107, 120, 0.55);
+    box-shadow: 0 16px 34px rgba(26, 24, 20, 0.10);
+}
+
+body.page-services.service-detail .service-observation-list li {
+    border-bottom-color: rgba(200, 192, 176, 0.72);
+}
+
+body.page-services.service-detail .section-kicker.is-muted {
+    color: var(--stone-shadow);
+}
+
+body.page-services.service-detail .service-split-divider {
+    border-left: 1px solid var(--stone-rule);
+}
+
+body.page-services.service-detail .service-heritage-note {
+    font-size: 0.92rem;
+}
+
+body.page-services.service-detail .service-heritage-list {
+    padding-left: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+body.page-services.service-detail .cta-band {
+    box-shadow: 0 20px 48px rgba(26, 24, 20, 0.14);
+}
+
+@supports (animation-timeline: view()) {
+    body.page-services.service-detail .audience-card,
+    body.page-services.service-detail .outcome-item,
+    body.page-services.service-detail .method-block,
+    body.page-services.service-detail .proof-block {
+        animation: fadeInView linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 35%;
+    }
+}
+
+@media (max-width: 992px) {
+    body.page-services.service-detail .service-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.page-services.service-detail .service-hero-visual {
+        min-height: auto;
+        aspect-ratio: 16 / 10;
+    }
+}
+
+@media (max-width: 768px) {
+    body.page-services.service-detail .service-hero,
+    body.page-services.service-detail .service-band,
+    body.page-services.service-detail .service-outcomes,
+    body.page-services.service-detail .service-method,
+    body.page-services.service-detail .service-proof {
+        padding: 3rem 0 !important;
+    }
+
+    body.page-services.service-detail .service-hero-copy,
+    body.page-services.service-detail .service-band > .container > .row > .col-lg-9,
+    body.page-services.service-detail .service-outcomes > .container > .row > .col-lg-9,
+    body.page-services.service-detail .service-method > .container > .row > .col-lg-9,
+    body.page-services.service-detail .service-proof > .container > .row > .col-lg-9 {
+        padding: 1.5rem;
+    }
+
+    body.page-services.service-detail .service-hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    body.page-services.service-detail .service-hero-actions .btn {
+        width: 100%;
+    }
+
+    body.page-services.service-detail .service-split-divider {
+        border-left: 0;
+        border-top: 1px solid var(--stone-rule);
+        margin-top: 1.25rem;
+        padding-top: 1.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.page-services.service-detail .audience-card,
+    body.page-services.service-detail .outcome-item,
+    body.page-services.service-detail .method-block,
+    body.page-services.service-detail .proof-block {
+        transition: none;
+        animation: none;
+    }
+}
+
 /* ══════════════════════════════════════════════════════════
    §32 GLASSMORPHISM LAYER — Layer 0 full-page transparency
    Applies to all body.page-* classes. Overrides section backgrounds,
@@ -2041,6 +2263,233 @@ body.page-cv footer,
 body.page-contact footer {
     background-color: rgba(219, 214, 204, 0.78);
     backdrop-filter: blur(8px);
+}
+
+/* ── Service detail background + overlay extension ──
+   Individual service pages use the same fixed background image and
+   ambient overlay model as the main pages, with lighter local section
+   veils instead of flat bands. */
+body.page-services.service-detail {
+    --page-bg: var(--bg-services);
+    --page-bg-opacity: 0.42;
+    --page-overlay-opacity: 1;
+}
+
+body.page-services.service-detail.service-bg-governance {
+    --page-bg: var(--bg-services);
+    --page-bg-opacity: 0.42;
+}
+
+body.page-services.service-detail.service-bg-privacy {
+    --page-bg: var(--bg-contact);
+    --page-bg-opacity: 0.30;
+}
+
+body.page-services.service-detail.service-bg-esg {
+    --page-bg: var(--bg-home);
+    --page-bg-opacity: 0.28;
+}
+
+body.page-services.service-detail.service-bg-csrd {
+    --page-bg: var(--bg-cases);
+    --page-bg-opacity: 0.28;
+}
+
+body.page-services.service-detail.service-bg-compliance {
+    --page-bg: var(--bg-cases);
+    --page-bg-opacity: 0.30;
+}
+
+body.page-services.service-detail.service-bg-assurance {
+    --page-bg: var(--bg-about);
+    --page-bg-opacity: 0.28;
+}
+
+body.page-services.service-detail.service-bg-digital {
+    --page-bg: var(--bg-cv);
+    --page-bg-opacity: 0.24;
+}
+
+body.page-services.service-detail.service-bg-fractional {
+    --page-bg: var(--bg-cover);
+    --page-bg-opacity: 0.22;
+}
+
+body.page-services.service-detail::before {
+    background-position: center center;
+    filter: saturate(0.82) contrast(0.94);
+}
+
+body.page-services.service-detail.service-bg-privacy::before {
+    background-position: center top;
+}
+
+body.page-services.service-detail.service-bg-esg::before {
+    background-position: center center;
+}
+
+body.page-services.service-detail.service-bg-csrd::before {
+    background-position: center bottom;
+}
+
+body.page-services.service-detail.service-bg-compliance::before,
+body.page-services.service-detail.service-bg-assurance::before {
+    background-position: center top;
+}
+
+body.page-services.service-detail.service-bg-digital::before {
+    background-position: center center;
+}
+
+body.page-services.service-detail.service-bg-fractional::before {
+    background-position: center center;
+    filter: saturate(0.62) contrast(0.86);
+}
+
+body.page-services.service-detail::after {
+    background:
+        radial-gradient(ellipse 82% 64% at 50% 8%,
+            rgba(255, 255, 255, 0.38) 0%,
+            rgba(255, 255, 255, 0.14) 52%,
+            rgba(244, 241, 235, 0.02) 100%),
+        linear-gradient(180deg,
+            rgba(244, 241, 235, 0.20) 0%,
+            rgba(244, 241, 235, 0.10) 40%,
+            rgba(232, 228, 220, 0.22) 100%),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 79px,
+            rgba(160, 152, 140, 0.024) 79px,
+            rgba(160, 152, 140, 0.024) 80px
+        );
+}
+
+body.page-services.service-detail main {
+    position: relative;
+    isolation: isolate;
+}
+
+body.page-services.service-detail .service-hero,
+body.page-services.service-detail .service-band,
+body.page-services.service-detail .service-outcomes,
+body.page-services.service-detail .service-method,
+body.page-services.service-detail .service-proof {
+    overflow: hidden;
+    background: transparent;
+    backdrop-filter: none;
+}
+
+body.page-services.service-detail .service-hero::before,
+body.page-services.service-detail .service-band::before,
+body.page-services.service-detail .service-outcomes::before,
+body.page-services.service-detail .service-method::before,
+body.page-services.service-detail .service-proof::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body.page-services.service-detail .service-hero::before {
+    background:
+        radial-gradient(ellipse 72% 86% at 50% 18%,
+            rgba(255, 255, 255, 0.34) 0%,
+            rgba(255, 255, 255, 0.12) 54%,
+            rgba(232, 228, 220, 0.00) 100%);
+}
+
+body.page-services.service-detail .service-band::before,
+body.page-services.service-detail .service-method::before {
+    background:
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0.14) 0%,
+            rgba(244, 241, 235, 0.04) 100%);
+}
+
+body.page-services.service-detail .service-outcomes::before,
+body.page-services.service-detail .service-proof::before {
+    background:
+        linear-gradient(180deg,
+            rgba(232, 228, 220, 0.18) 0%,
+            rgba(244, 241, 235, 0.06) 100%);
+}
+
+body.page-services.service-detail .service-hero > .container,
+body.page-services.service-detail .service-band > .container,
+body.page-services.service-detail .service-outcomes > .container,
+body.page-services.service-detail .service-method > .container,
+body.page-services.service-detail .service-proof > .container {
+    position: relative;
+    z-index: 1;
+}
+
+body.page-services.service-detail .service-hero-copy,
+body.page-services.service-detail .service-band > .container > .row > .col-lg-9,
+body.page-services.service-detail .service-outcomes > .container > .row > .col-lg-9,
+body.page-services.service-detail .service-method > .container > .row > .col-lg-9,
+body.page-services.service-detail .service-proof > .container > .row > .col-lg-9 {
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.68) 0%,
+            rgba(244, 241, 235, 0.52) 100%);
+    border-color: rgba(200, 192, 176, 0.70);
+    box-shadow: 0 22px 54px rgba(26, 24, 20, 0.09);
+    backdrop-filter: blur(14px);
+}
+
+body.page-services.service-detail .audience-card,
+body.page-services.service-detail .outcome-item,
+body.page-services.service-detail .method-block,
+body.page-services.service-detail .proof-block {
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.66),
+            rgba(244, 241, 235, 0.48));
+    backdrop-filter: blur(12px);
+}
+
+body.page-services.service-detail .service-hero-visual,
+body.page-services.service-detail .image-kicker,
+body.page-services.service-detail .area-media-frame {
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.24),
+            rgba(232, 228, 220, 0.34));
+    backdrop-filter: blur(8px);
+}
+
+/* ── Anchor offset: section-nav jumps land clear of the two sticky bars ── */
+body.page-services.service-detail .service-band,
+body.page-services.service-detail .service-outcomes,
+body.page-services.service-detail .service-method,
+body.page-services.service-detail .service-proof {
+    scroll-margin-top: 8.5rem;
+}
+
+/* ── Entrance fade for the glass section cards (progressive, opacity-only) ── */
+@supports (animation-timeline: view()) {
+    body.page-services.service-detail .service-hero-visual,
+    body.page-services.service-detail .service-band > .container > .row > .col-lg-9,
+    body.page-services.service-detail .service-outcomes > .container > .row > .col-lg-9,
+    body.page-services.service-detail .service-method > .container > .row > .col-lg-9,
+    body.page-services.service-detail .service-proof > .container > .row > .col-lg-9 {
+        animation: fadeInView linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 30%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.page-services.service-detail .service-hero-visual,
+    body.page-services.service-detail .service-band > .container > .row > .col-lg-9,
+    body.page-services.service-detail .service-outcomes > .container > .row > .col-lg-9,
+    body.page-services.service-detail .service-method > .container > .row > .col-lg-9,
+    body.page-services.service-detail .service-proof > .container > .row > .col-lg-9 {
+        animation: none;
+        opacity: 1;
+    }
 }
 
 /* ══════════════════════════════════════════════════════════

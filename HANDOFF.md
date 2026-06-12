@@ -27,7 +27,7 @@ The HTTP server is required: the cover page's 3D model (GLB) and ES-module scrip
 | `case-studies.html` | Anonymised engagement cards |
 | `cv.html`, `contact.html` | CV; contact info + mailto form |
 
-Shared assets: `styles.css` (single stylesheet, §1–§39), `i18n.js` (EN/IT runtime engine), `images.js` (image registry — see below).
+Shared assets: `styles.css` (single stylesheet, §1–§39), `i18n.js` (EN/IT runtime engine), `images.js` (image registry — see below), `service-detail.js` (services/* only: section-nav scrollspy — the same IntersectionObserver pattern home.html uses inline).
 
 ---
 
@@ -68,6 +68,7 @@ Shared assets: `styles.css` (single stylesheet, §1–§39), `i18n.js` (EN/IT ru
 | `services-assurance` | services hub row 6 | security & third-party assurance heritage |
 | `services-digital` | services hub row 7 | digital GRC: organised data over shiny platforms |
 | `services-fractional` | services hub row 8 | fractional GRC officer: a trusted presence |
+| `detail-governance` … `detail-fractional`, `detail-csrd` | services/* hero (one per detail page) | hero portrait for each service detail page; currently reuse the matching `services-*` hub files — repoint to dedicated shots when available |
 | `cases-erm` | case studies | ERM framework expansion (logistics, Southern Europe) |
 | `cases-audit` | case studies | third-party audit programme redesign (30+ suppliers) |
 | `cases-loss-prevention` | case studies | loss prevention across a multi-site network |

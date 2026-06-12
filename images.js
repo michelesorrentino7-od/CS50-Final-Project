@@ -87,6 +87,16 @@
             'services-digital':         'images/middle/services-digital.jpg',
             'services-fractional':      'images/middle/services-fractional.jpg',
 
+            /* — Individual service detail pages — */
+            'detail-governance':        'images/middle/services-governance.jpg',
+            'detail-privacy':           'images/middle/services-privacy.jpg',
+            'detail-esg':               'images/middle/services-esg.jpg',
+            'detail-csrd':              'images/middle/services-supply-chain.jpg',
+            'detail-compliance':        'images/middle/services-compliance.jpg',
+            'detail-assurance':         'images/middle/services-assurance.jpg',
+            'detail-digital':           'images/middle/services-digital.jpg',
+            'detail-fractional':        'images/middle/services-fractional.jpg',
+
             /* — Case studies page — */
             'cases-erm':                'images/middle/cases-erm.jpg',
             'cases-audit':              'images/middle/cases-audit.jpg',
