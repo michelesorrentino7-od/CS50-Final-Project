@@ -89,6 +89,9 @@
     --fs-lg:   1.3rem;    /* card titles, sub-headings */
     --fs-xl:   1.6rem;    /* small display, stat numbers */
     --fs-2xl:  2rem;      /* stats, compact section titles */
+
+    /* Vertical rhythm — shared padding for full-width section bands */
+    --space-section: clamp(3.5rem, 7vw, 5.5rem);
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -839,7 +842,7 @@ footer {
     background: rgba(219, 214, 204, 0.82);
     background-image: none;
     color: var(--stone-ink);
-    padding: 4.5rem 0;
+    padding: var(--space-section) 0;
     backdrop-filter: blur(8px);
 }
 
@@ -1081,7 +1084,7 @@ textarea:focus {
     overflow: hidden;
     border: none;
     background: rgba(255, 255, 255, 0.86);
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 8px 24px rgba(26, 24, 20, 0.08);
 }
 
 .case-image-strip {
@@ -1261,7 +1264,7 @@ textarea:focus {
 .areas-index {
     background: rgba(255, 255, 255, 0.68);
     color: var(--stone-ink);
-    padding: 4rem 0 4.5rem;
+    padding: var(--space-section) 0;
     backdrop-filter: blur(8px);
 }
 
@@ -1381,7 +1384,7 @@ textarea:focus {
             rgba(232, 228, 220, 0.78) 52%,
             rgba(244, 241, 235, 0.74) 100%);
     border-bottom: 3px solid var(--stone-rule);
-    padding: 4rem 0 3.5rem;
+    padding: var(--space-section) 0;
     text-align: center;
     color: var(--stone-ink);
     backdrop-filter: blur(8px);
@@ -1428,7 +1431,7 @@ textarea:focus {
 .masthead-lead {
     max-width: 40rem;
     margin: 1rem auto 0;
-    color: rgba(17, 24, 39, 0.9);
+    color: rgba(26, 24, 20, 0.9);
     font-size: var(--fs-base);
     line-height: 1.65;
 }
@@ -1439,7 +1442,7 @@ textarea:focus {
 }
 
 .homepage-masthead .cover-rule {
-    background: rgba(17, 24, 39, 0.35);
+    background: rgba(26, 24, 20, 0.35);
 }
 
 .masthead-cta {
@@ -1460,6 +1463,7 @@ textarea:focus {
     background: rgba(244, 241, 235, 0.70);
     border-bottom: 1px solid var(--stone-rule);
     backdrop-filter: blur(8px);
+    padding: var(--space-section) 0;
 }
 
 .homepage-lead {
@@ -1482,6 +1486,7 @@ textarea:focus {
     border-top: 1px solid var(--stone-rule);
     border-bottom: 1px solid var(--stone-rule);
     backdrop-filter: blur(8px);
+    padding: var(--space-section) 0;
 }
 
 .principle-number {
