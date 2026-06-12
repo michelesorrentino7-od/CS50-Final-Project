@@ -1147,6 +1147,11 @@
         }
 
         saveLang(lang);
+        try {
+            window.dispatchEvent(new CustomEvent('service-languagechange', {
+                detail: { language: lang }
+            }));
+        } catch (_) {}
     }
 
     /* ── F3. toggleLanguage() — public API, exposed on window ── */
