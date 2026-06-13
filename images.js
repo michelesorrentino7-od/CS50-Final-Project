@@ -102,6 +102,14 @@
             'cases-audit':              'images/middle/cases-audit.jpg',
             'cases-loss-prevention':    'images/middle/cases-loss-prevention.jpg',
             'cases-gdpr':               'images/middle/cases-gdpr.jpg',
+            /* New cluster slots — files arrive later; frames hide via onerror
+               until the JPGs are dropped in (see case-studies-analysis.md). */
+            'cases-multi-country':      'images/middle/cases-multi-country.jpg',
+            'cases-supplier-coi':       'images/middle/cases-supplier-coi.jpg',
+            'cases-incident':           'images/middle/cases-incident.jpg',
+            'cases-dawn-raid':          'images/middle/cases-dawn-raid.jpg',
+            'cases-3pl':                'images/middle/cases-3pl.jpg',
+            'cases-friction':           'images/middle/cases-friction.jpg',
 
             /* — Contact page — */
             'contact-desk':             'images/middle/contact-desk.jpg'

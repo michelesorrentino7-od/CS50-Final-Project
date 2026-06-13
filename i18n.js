@@ -564,6 +564,110 @@
         'cases.title':    'Case Study',
         'cases.lead':     'Esempi anonimizzati di lavori GRC, compliance e security governance in ambienti logistici complessi.',
 
+        /* — Cluster / filter labels (badge text reuses the same keys) — */
+        'cl.all':          'Tutti',
+        'cl.riskgov':      'Enterprise Risk Governance',
+        'cl.multisite':    'Security Governance Multi-Sito',
+        'cl.audit':        'Audit & Assurance',
+        'cl.thirdparty':   'Third-Party & Supply-Chain Risk',
+        'cl.incident':     'Crisis & Incident Management',
+        'cl.data':         'Risk Reporting Data-Driven',
+        'cl.behavioural':  'Behavioural Risk & Security Culture',
+        'cl.privacy':      'Privacy & Compliance Readiness',
+
+        /* — Service-link chip labels (business terms kept in English) — */
+        'svc.gov':         'Governance & Risk',
+        'svc.compliance':  'Compliance & Regulation',
+        'svc.privacy':     'Privacy',
+        'svc.csrd':        'CSRD / Supply Chain',
+        'svc.assurance':   'Assurance & Security',
+        'svc.digital':     'Digital GRC',
+        'svc.fractional':  'Fractional GRC',
+
+        'cases.linkedservices': 'Servizi collegati',
+        'cases.cta.text':  'Hai una sfida simile? Ogni engagement inizia con una conversazione.',
+        'cases.cta.link':  'Inizia una conversazione →',
+
+        /* — Card A · ERM Framework Expansion (Enterprise Risk Governance) — */
+        'cs.A.meta':      'Logistica e-commerce, Sud Europa · 2023',
+        'cs.A.title':     'Espansione del framework ERM',
+        'cs.A.context':   '<strong>Contesto:</strong> Una rete logistica ad alta velocità aveva bisogno di maggiore visibilità sull\'enterprise risk.',
+        'cs.A.challenge': '<strong>Sfida:</strong> Rischi operativi, QHSSE e strategici erano tracciati separatamente, senza una vista unica.',
+        'cs.A.steps':     '<li>Espansione della risk taxonomy e del modello di ownership.</li><li>Introduzione di routine KRI e aspettative di controllo.</li><li>Allineamento del remediation tracking con il management reporting.</li>',
+        'cs.A.result':    '<strong>Risultato:</strong> <strong>Copertura dei rischi ampliata del 40%</strong> e <strong>chiusura del 25% dei compliance gap</strong> entro 18 mesi.',
+
+        /* — Card C · Multi-Country Security Governance (Multi-Site Security Governance) — */
+        'cs.C.meta':      'Rete logistica multi-country',
+        'cs.C.title':     'Costruire un framework di Security Governance multi-country',
+        'cs.C.context':   '<strong>Contesto:</strong> Un\'operazione logistica distribuita su più paesi gestiva la security a livello locale, sito per sito, senza una vista condivisa del rischio sulla rete.',
+        'cs.C.challenge': '<strong>Sfida:</strong> Aspettative di audit, controlli sui third-party e risk reporting differivano per regione, rendendo difficili oversight e confronto.',
+        'cs.C.steps':     '<li>Progettazione di un unico framework di security governance per tutte le operations regionali.</li><li>Armonizzazione di risk visibility, aspettative di audit e controlli sui third-party.</li><li>Definizione di linee di reporting condivise verso il management.</li>',
+        'cs.C.result':    '<strong>Risultato:</strong> Compliance più coerente tra le regioni, follow-up degli audit più rapido e accountability più chiara sui controlli dei fornitori.',
+
+        /* — Card D · Security Audit Programme (Audit & Assurance) — */
+        'cs.D.meta':      'Operations interne & oltre 30 provider',
+        'cs.D.title':     'Progettare un Security Audit Programme dalla metodologia alla remediation',
+        'cs.D.context':   '<strong>Contesto:</strong> Una rete di operations interne e oltre 30 provider third-party aveva bisogno di assurance affidabile, ma gli audit erano incoerenti e i finding restavano aperti.',
+        'cs.D.challenge': '<strong>Sfida:</strong> Mancavano una metodologia condivisa, uno standard di evidence e un percorso accountable dal finding alla closure verificata.',
+        'cs.D.steps':     '<li>Costruzione di una metodologia di audit end-to-end con requisiti di evidence chiari.</li><li>Traduzione dei finding in remediation plan con owner e closure verificata.</li><li>Aggiunta di routine di escalation e supplier performance.</li>',
+        'cs.D.result':    '<strong>Risultato:</strong> <strong>1,2M € di savings</strong>, closure dei finding dal <strong>25% al 55%</strong> e cicli di audit <strong>più brevi del 30%</strong>.',
+
+        /* — Card I · Security Data into Decisions (Data-Driven Risk Reporting) — */
+        'cs.I.meta':      'Loss prevention & security operations',
+        'cs.I.title':     'Trasformare i dati di security in decisioni di management',
+        'cs.I.context':   '<strong>Contesto:</strong> I dati di security e loss prevention erano sparsi tra log e fogli di calcolo, troppo frammentati per guidare le decisioni.',
+        'cs.I.challenge': '<strong>Sfida:</strong> Incident, evidence di audit, supplier performance e remediation non erano mai collegati in un\'unica vista.',
+        'cs.I.steps':     '<li>Standardizzazione dei dati in dashboard decision-grade.</li><li>Collegamento di incident, evidence di audit, supplier performance e remediation.</li><li>Trasformazione del reporting in routine di management azionabili.</li>',
+        'cs.I.result':    '<strong>Risultato:</strong> <strong>15% di incident in meno</strong>, <strong>20% di shrinkage in meno</strong> e circa <strong>2,3M €</strong> di perdite annue prevenute.',
+
+        /* — Card E · Supplier Conflict of Interest (Third-Party & Supply-Chain Risk) — */
+        'cs.E.meta':      'Contratto fornitore critico',
+        'cs.E.title':     'Individuare un conflitto di interesse di un fornitore in un contratto critico',
+        'cs.E.context':   '<strong>Contesto:</strong> Un contratto critico mostrava irregolarità di procurement che non tornavano, sollevando dubbi sull\'integrità del fornitore.',
+        'cs.E.challenge': '<strong>Sfida:</strong> I segnali erano sparsi tra record di procurement, dati di ownership e accordi di subappalto, senza un quadro chiaro.',
+        'cs.E.steps':     '<li>Revisione evidence-led che collegava deviazioni di procurement, verifiche di ownership e rischio di subappalto.</li><li>Documentazione dei finding in un escalation package chiaro e difendibile.</li><li>Definizione dei punti decisionali per management e legal.</li>',
+        'cs.E.result':    '<strong>Risultato:</strong> Un conflitto di interesse nascosto è emerso ed è stato escalato con le evidenze necessarie per agire.',
+
+        /* — Card H · 3PL Launch Security (Third-Party & Supply-Chain Risk) — */
+        'cs.H.meta':      'Go-live di logistica 3PL',
+        'cs.H.title':     'Standardizzare i security requirement per i go-live 3PL',
+        'cs.H.context':   '<strong>Contesto:</strong> I nuovi siti di logistica third-party (3PL) andavano in go-live con security requirement interpretati ogni volta in modo diverso.',
+        'cs.H.challenge': '<strong>Sfida:</strong> Le aspettative sui controlli non erano misurabili prima del go-live, così le non-conformità emergevano dopo il lancio.',
+        'cs.H.steps':     '<li>Creazione di un protocollo di security implementation per i 3PL.</li><li>Aspettative sui controlli dei fornitori rese misurabili prima del go-live.</li><li>Integrazione di check di launch-readiness nell\'onboarding.</li>',
+        'cs.H.result':    '<strong>Risultato:</strong> Maggiore launch readiness e meno non-conformità nei nuovi siti 3PL.',
+
+        /* — Card F · Incident Management (Crisis & Incident Management) — */
+        'cs.F.meta':      'Rete logistica multi-sito',
+        'cs.F.title':     'Standardizzare l\'incident management su una rete logistica',
+        'cs.F.context':   '<strong>Contesto:</strong> Su una rete logistica, ogni sito gestiva gli incident a modo suo, quindi escalation, evidence e qualità delle investigation variavano molto.',
+        'cs.F.challenge': '<strong>Sfida:</strong> Senza un modello condiviso, gli eventi gravi venivano gestiti in modo incoerente e la closure era difficile da governare.',
+        'cs.F.steps':     '<li>Progettazione di una guideline di incident management di rete su escalation ed evidence.</li><li>Standardizzazione dei workflow di investigation e della closure governance.</li><li>Allineamento del modello al reporting operativo.</li>',
+        'cs.F.result':    '<strong>Risultato:</strong> Gestione degli incident coerente su tutta la rete e un percorso verso la closure più chiaro e accountable.',
+
+        /* — Card G · Dawn Raid Readiness (Crisis & Incident Management) — */
+        'cs.G.meta':      '35 siti · 7 paesi',
+        'cs.G.title':     'Costruire la dawn raid readiness su 35 siti',
+        'cs.G.context':   '<strong>Contesto:</strong> Un gruppo con 35 siti in 7 paesi non aveva un modo coerente di rispondere a una dawn raid o a un\'ispezione legale analoga.',
+        'cs.G.challenge': '<strong>Sfida:</strong> Procedure poco chiare rischiavano notifiche lente ed escalation errate nel momento più critico.',
+        'cs.G.steps':     '<li>Implementazione di procedure di dawn raid readiness su tutti i 35 siti.</li><li>Definizione dei percorsi di notifica ed escalation.</li><li>Formazione dei team locali per rispondere con sicurezza.</li>',
+        'cs.G.result':    '<strong>Risultato:</strong> Notifiche più rapide e meno escalation errate, con readiness coerente in <strong>7 paesi</strong>.',
+
+        /* — Card J · Security Friction (Behavioural Risk & Security Culture) — */
+        'cs.J.meta':      'Security operations e personale',
+        'cs.J.title':     'Ridurre la security friction con dati e stakeholder engagement',
+        'cs.J.context':   '<strong>Contesto:</strong> Le regole di security creavano friction con i dipendenti, abbassando l\'accettazione e alimentando dispute sul posto di lavoro.',
+        'cs.J.challenge': '<strong>Sfida:</strong> I controlli erano visti come ostacoli più che come pratica condivisa, con scarso feedback loop.',
+        'cs.J.steps':     '<li>Combinazione di incident analytics con feedback dei dipendenti e workshop.</li><li>Uso di dashboard live per rendere visibile il ragionamento.</li><li>Riprogettazione delle regole attorno a come le persone lavorano davvero.</li>',
+        'cs.J.result':    '<strong>Risultato:</strong> Maggiore accettazione delle regole e meno dispute sul lavoro, con la security percepita come pratica condivisa.',
+
+        /* — Card B · GDPR Readiness (Privacy & Compliance Readiness) — */
+        'cs.B.meta':      'Operations logistiche multinazionali · 2024',
+        'cs.B.title':     'GDPR Readiness',
+        'cs.B.context':   '<strong>Contesto:</strong> Le operations richiedevano readiness su dati, sostenibilità ed evidence di compliance.',
+        'cs.B.challenge': '<strong>Sfida:</strong> Evidence owner e controlli operativi non erano mappati in modo coerente.',
+        'cs.B.steps':     '<li>Mappatura dei readiness gap rispetto ai processi operativi.</li><li>Definizione delle aspettative di evidence per gli owner interni.</li><li>Collegamento delle routine di privacy e supplier assurance.</li>',
+        'cs.B.result':    '<strong>Risultato:</strong> Vista di readiness più solida, evidence ownership più chiara e routine di compliance riutilizzabili.',
+
         /* ══════════════════════════════════════
            CONTACT
         ══════════════════════════════════════ */

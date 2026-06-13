@@ -1132,6 +1132,44 @@ textarea:focus {
     letter-spacing: 0.06em;
 }
 
+/* Linked-services row on each case card — hairline-separated chips
+   that deep-link to the matching services/*.html detail page. */
+.case-services {
+    margin-top: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--stone-rule);
+}
+
+.case-services-label {
+    display: block;
+    font-size: var(--fs-2xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.case-service-link {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    background-color: var(--paper);
+    border: 1px solid var(--stone-rule);
+    color: var(--stone-deep);
+    border-radius: 0;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.case-service-link:hover,
+.case-service-link:focus {
+    border-color: var(--stone-accent);
+    color: var(--stone-accent);
+    text-decoration: none;
+}
+
 /* ══════════════════════════════════════════════════════════
    §24 CV PAGE — experience items, education year badges,
    certification accordion (.cert-card / .cert-header / .cert-body)

@@ -2,7 +2,8 @@
   ============================================================
   CASE STUDIES PAGE — case-studies.html
   ============================================================
-  Portfolio of anonymised GRC engagements with category filtering.
+  Portfolio of anonymised GRC engagements, grouped into industry/
+  challenge CLUSTERS, with per-card links to the relevant services.
   Linked from: navbar on all pages
 
   PAGE STRUCTURE:
@@ -12,27 +13,34 @@
   │                    + links to services pages      │
   ├─────────────────────────────────────────────────┤
   │  §1 MASTHEAD     — hero headline                 │
-  │  §2 PORTFOLIO    — filter buttons + case grid    │
-  │     ├ Filters: All | Governance | Compliance |   │
-  │     │           Security                         │
-  │     └ #caseGrid — 6 .case-card articles          │
-  │        ├ ERM Framework (governance)              │
-  │        ├ Third-Party Audit (security)            │
-  │        ├ Loss Prevention (security)              │
-  │        ├ GDPR Readiness (compliance)             │
-  │        ├ GRC Framework [coming soon] (governance)│
-  │        └ Mod. 231 [coming soon] (compliance)     │
+  │  §2 PORTFOLIO    — cluster filter + case grid    │
+  │     ├ Filters: All + 8 clusters (data-filter)    │
+  │     └ #caseGrid — 10 .case-card articles         │
+  │        + closing "start a conversation" CTA       │
   ├─────────────────────────────────────────────────┤
   │  FOOTER                                          │
   └─────────────────────────────────────────────────┘
 
+  CLUSTERS (data-category slug → label):
+    risk-governance   → Enterprise Risk Governance        (A)
+    multi-site        → Multi-Site Security Governance     (C)
+    audit-assurance   → Audit & Assurance                  (D)
+    third-party       → Third-Party & Supply-Chain Risk    (E, H)
+    incident-crisis   → Crisis & Incident Management       (F, G)
+    data-reporting    → Data-Driven Risk Reporting         (I)
+    behavioural       → Behavioural Risk & Security Culture (J)
+    privacy-compliance→ Privacy & Compliance Readiness     (B)
+
   Filtering: data-filter on buttons, data-category on .case-item divs.
   JS toggles .d-none (Bootstrap utility) to show/hide cards.
 
+  Each card also carries a .case-services row of <a.case-service-link>
+  chips pointing at the relevant services/*.html detail pages.
+
   BODY CLASS: page-cases  →  background: bg-cases.jpg + glassmorphism
-  CSS:   styles.css  (.case-card at ~line 919)
-  JS:    Inline  — category filter via classList.toggle('d-none')
-         i18n.js — EN/IT translation engine
+  CSS:   styles.css  §18 (.filter-btn) · §23 (.case-card, .case-service-link)
+  JS:    Inline  — cluster filter via classList.toggle('d-none')
+         i18n.js — EN/IT translation engine (data-i18n / data-i18n-html)
   ============================================================
 -->
 <!DOCTYPE html>
@@ -41,7 +49,7 @@
     <!-- ── Meta & SEO ── -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Selected anonymised GRC, compliance and security governance case studies from Sorrentino Consultancy.">
+    <meta name="description" content="Selected anonymised GRC, compliance and security governance case studies from Sorrentino Consultancy, grouped by challenge cluster and linked to services.">
 
     <!-- ── Stylesheets ── -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -105,75 +113,287 @@
         </section>
 
         <!-- ══════════════════════════════════════════════
-             §2 PORTFOLIO — filter buttons + case card grid
-             Filter buttons use data-filter attribute.
-             Case items use data-category attribute.
+             §2 PORTFOLIO — cluster filter + case card grid
+             Filter buttons use data-filter (cluster slug).
+             Case items use data-category (cluster slug).
              JS toggles Bootstrap .d-none to show/hide cards.
              ══════════════════════════════════════════════ -->
         <section class="container my-5" aria-labelledby="cases-title">
             <h2 id="cases-title" class="section-title text-center">Engagement Portfolio</h2>
             <hr class="title-line mx-auto">
 
-            <!-- Filter button group -->
-            <div class="d-flex flex-wrap gap-2 mb-4 justify-content-center" role="group" aria-label="Case study filters">
-                <button class="btn btn-sm filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
-                <button class="btn btn-sm filter-btn" type="button" data-filter="governance" aria-pressed="false">Governance &amp; Risk</button>
-                <button class="btn btn-sm filter-btn" type="button" data-filter="compliance" aria-pressed="false">Compliance &amp; Regulation</button>
-                <button class="btn btn-sm filter-btn" type="button" data-filter="security" aria-pressed="false">Security &amp; Operations</button>
+            <!-- Cluster filter button group -->
+            <div class="d-flex flex-wrap gap-2 mb-4 justify-content-center" role="group" aria-label="Case study cluster filters">
+                <button class="btn btn-sm filter-btn active" type="button" data-filter="all" data-i18n="cl.all" aria-pressed="true">All</button>
+                <button class="btn btn-sm filter-btn" type="button" data-filter="risk-governance" data-i18n="cl.riskgov" aria-pressed="false">Enterprise Risk Governance</button>
+                <button class="btn btn-sm filter-btn" type="button" data-filter="multi-site" data-i18n="cl.multisite" aria-pressed="false">Multi-Site Security Governance</button>
+                <button class="btn btn-sm filter-btn" type="button" data-filter="audit-assurance" data-i18n="cl.audit" aria-pressed="false">Audit &amp; Assurance</button>
+                <button class="btn btn-sm filter-btn" type="button" data-filter="third-party" data-i18n="cl.thirdparty" aria-pressed="false">Third-Party &amp; Supply-Chain Risk</button>
+                <button class="btn btn-sm filter-btn" type="button" data-filter="incident-crisis" data-i18n="cl.incident" aria-pressed="false">Crisis &amp; Incident Management</button>
+                <button class="btn btn-sm filter-btn" type="button" data-filter="data-reporting" data-i18n="cl.data" aria-pressed="false">Data-Driven Risk Reporting</button>
+                <button class="btn btn-sm filter-btn" type="button" data-filter="behavioural" data-i18n="cl.behavioural" aria-pressed="false">Behavioural Risk &amp; Security Culture</button>
+                <button class="btn btn-sm filter-btn" type="button" data-filter="privacy-compliance" data-i18n="cl.privacy" aria-pressed="false">Privacy &amp; Compliance Readiness</button>
             </div>
 
-            <!-- Case card grid — 2 columns on lg, each .case-item has data-category -->
+            <!-- Case card grid — 2 columns on lg, each .case-item has data-category (cluster slug) -->
             <div class="row g-4" id="caseGrid">
 
-                <!-- Case 1: ERM Framework Expansion (governance) -->
-                <div class="col-lg-6 case-item" data-category="governance">
+                <!-- Card A: ERM Framework Expansion — Enterprise Risk Governance -->
+                <div class="col-lg-6 case-item" data-category="risk-governance">
                     <article class="case-card h-100">
                         <figure class="case-image-strip">
                             <img data-img="cases-erm" alt="Container port at dusk seen across the water" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
                         </figure>
-                        <div class="case-card-header"><span class="case-cluster-badge">Governance &amp; Risk</span><p class="small mb-1">E-commerce logistics, Southern Europe · 2023</p><h3 class="h4 mb-0">ERM Framework Expansion</h3></div>
-                        <div class="card-body"><p><strong>Context:</strong> A fast-moving logistics network needed better enterprise risk visibility.</p><p><strong>Challenge:</strong> Operational, QHSSE and strategic risks were tracked separately.</p><ul><li>Expanded the risk taxonomy and ownership model.</li><li>Introduced KRI routines and control expectations.</li><li>Aligned remediation tracking with management reporting.</li></ul><p><strong>Result:</strong> <strong>40% broader risk coverage</strong> and <strong>25% compliance gap closure</strong> within 18 months.</p><div class="d-flex flex-wrap gap-1"><span class="skill-badge">ERM</span><span class="skill-badge">KRI</span><span class="skill-badge">Control Governance</span></div></div>
+                        <div class="case-card-header"><span class="case-cluster-badge" data-i18n="cl.riskgov">Enterprise Risk Governance</span><p class="small mb-1" data-i18n="cs.A.meta">E-commerce logistics, Southern Europe · 2023</p><h3 class="h4 mb-0" data-i18n="cs.A.title">ERM Framework Expansion</h3></div>
+                        <div class="card-body">
+                            <p data-i18n-html="cs.A.context"><strong>Context:</strong> A fast-moving logistics network needed better enterprise risk visibility.</p>
+                            <p data-i18n-html="cs.A.challenge"><strong>Challenge:</strong> Operational, QHSSE and strategic risks were tracked separately, with no single view.</p>
+                            <ul data-i18n-html="cs.A.steps"><li>Expanded the risk taxonomy and ownership model.</li><li>Introduced KRI routines and control expectations.</li><li>Aligned remediation tracking with management reporting.</li></ul>
+                            <p data-i18n-html="cs.A.result"><strong>Result:</strong> <strong>40% broader risk coverage</strong> and <strong>25% compliance gap closure</strong> within 18 months.</p>
+                            <div class="d-flex flex-wrap gap-1"><span class="skill-badge">ERM</span><span class="skill-badge">KRI</span><span class="skill-badge">Control Governance</span></div>
+                            <div class="case-services">
+                                <span class="case-services-label" data-i18n="cases.linkedservices">Linked Services</span>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <a class="case-service-link" href="services/governance-risk.html" data-i18n="svc.gov" title="Risk taxonomy">Governance &amp; Risk</a>
+                                    <a class="case-service-link" href="services/digital-grc.html" data-i18n="svc.digital" title="KRI reporting">Digital GRC</a>
+                                    <a class="case-service-link" href="services/assurance-security.html" data-i18n="svc.assurance" title="Control governance">Assurance &amp; Security</a>
+                                </div>
+                            </div>
+                        </div>
                     </article>
                 </div>
 
-                <!-- Case 2: Third-Party Audit Programme Redesign (security) -->
-                <div class="col-lg-6 case-item" data-category="security">
+                <!-- Card C: Multi-Country Security Governance — Multi-Site Security Governance -->
+                <div class="col-lg-6 case-item" data-category="multi-site">
+                    <article class="case-card h-100">
+                        <figure class="case-image-strip">
+                            <img data-img="cases-multi-country" alt="Repeating archways along a long stone colonnade" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <div class="case-card-header"><span class="case-cluster-badge" data-i18n="cl.multisite">Multi-Site Security Governance</span><p class="small mb-1" data-i18n="cs.C.meta">Multi-country logistics network</p><h3 class="h4 mb-0" data-i18n="cs.C.title">Building a Multi-Country Security Governance Framework</h3></div>
+                        <div class="card-body">
+                            <p data-i18n-html="cs.C.context"><strong>Context:</strong> A logistics operation spanning several countries managed security locally, site by site, with no shared view of risk across the network.</p>
+                            <p data-i18n-html="cs.C.challenge"><strong>Challenge:</strong> Audit expectations, third-party controls and risk reporting differed by region, making oversight and comparison difficult.</p>
+                            <ul data-i18n-html="cs.C.steps"><li>Designed a single security governance framework across all regional operations.</li><li>Harmonised risk visibility, audit expectations and third-party controls.</li><li>Established shared reporting lines into management.</li></ul>
+                            <p data-i18n-html="cs.C.result"><strong>Result:</strong> More consistent compliance across regions, faster audit follow-up and clearer accountability for supplier controls.</p>
+                            <div class="d-flex flex-wrap gap-1"><span class="skill-badge">Security Governance</span><span class="skill-badge">Third-Party Oversight</span><span class="skill-badge">Risk Visibility</span></div>
+                            <div class="case-services">
+                                <span class="case-services-label" data-i18n="cases.linkedservices">Linked Services</span>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <a class="case-service-link" href="services/governance-risk.html" data-i18n="svc.gov" title="Risk visibility">Governance &amp; Risk</a>
+                                    <a class="case-service-link" href="services/assurance-security.html" data-i18n="svc.assurance" title="Third-party oversight">Assurance &amp; Security</a>
+                                    <a class="case-service-link" href="services/fractional-grc.html" data-i18n="svc.fractional" title="Advisory model">Fractional GRC</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Card D: Security Audit Programme — Audit & Assurance (folds the Third-Party Audit metrics) -->
+                <div class="col-lg-6 case-item" data-category="audit-assurance">
                     <article class="case-card h-100">
                         <figure class="case-image-strip">
                             <img data-img="cases-audit" alt="Close examination of a carved stone corbel" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
                         </figure>
-                        <div class="case-card-header"><span class="case-cluster-badge">Security &amp; Operations</span><p class="small mb-1">E-commerce logistics, Southern Europe · 2021</p><h3 class="h4 mb-0">Third-Party Audit Programme Redesign</h3></div>
-                        <div class="card-body"><p><strong>Context:</strong> A network of 30+ logistics providers required stronger assurance.</p><p><strong>Challenge:</strong> Findings closed slowly and audit cycles were too long.</p><ul><li>Redesigned audit standards and evidence requirements.</li><li>Built remediation governance with owner accountability.</li><li>Created clearer escalation and supplier performance routines.</li></ul><p><strong>Result:</strong> <strong>€1.2M savings</strong>, closure improvement from <strong>25% to 55%</strong>, and <strong>30% shorter</strong> audit cycles.</p><div class="d-flex flex-wrap gap-1"><span class="skill-badge">Third-Party Assurance</span><span class="skill-badge">CAPA</span><span class="skill-badge">Audit</span></div></div>
+                        <div class="case-card-header"><span class="case-cluster-badge" data-i18n="cl.audit">Audit &amp; Assurance</span><p class="small mb-1" data-i18n="cs.D.meta">Internal operations &amp; 30+ providers</p><h3 class="h4 mb-0" data-i18n="cs.D.title">Designing a Security Audit Programme from Methodology to Remediation</h3></div>
+                        <div class="card-body">
+                            <p data-i18n-html="cs.D.context"><strong>Context:</strong> A network of internal operations and 30+ third-party providers needed dependable assurance, but audits were inconsistent and findings lingered.</p>
+                            <p data-i18n-html="cs.D.challenge"><strong>Challenge:</strong> There was no shared methodology, evidence standard or accountable path from finding to verified closure.</p>
+                            <ul data-i18n-html="cs.D.steps"><li>Built an end-to-end audit methodology with clear evidence requirements.</li><li>Translated findings into owned remediation plans with verified closure.</li><li>Added escalation and supplier-performance routines.</li></ul>
+                            <p data-i18n-html="cs.D.result"><strong>Result:</strong> <strong>€1.2M savings</strong>, finding closure up from <strong>25% to 55%</strong>, and <strong>30% shorter</strong> audit cycles.</p>
+                            <div class="d-flex flex-wrap gap-1"><span class="skill-badge">Audit Methodology</span><span class="skill-badge">CAPA</span><span class="skill-badge">Third-Party Assurance</span></div>
+                            <div class="case-services">
+                                <span class="case-services-label" data-i18n="cases.linkedservices">Linked Services</span>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <a class="case-service-link" href="services/assurance-security.html" data-i18n="svc.assurance" title="Audit programme">Assurance &amp; Security</a>
+                                    <a class="case-service-link" href="services/governance-risk.html" data-i18n="svc.gov" title="Remediation governance">Governance &amp; Risk</a>
+                                    <a class="case-service-link" href="services/compliance-regulation.html" data-i18n="svc.compliance" title="Evidence">Compliance &amp; Regulation</a>
+                                </div>
+                            </div>
+                        </div>
                     </article>
                 </div>
 
-                <!-- Case 3: Loss Prevention Programme (security) -->
-                <div class="col-lg-6 case-item" data-category="security">
+                <!-- Card I: Security Data into Decisions — Data-Driven Risk Reporting (folds the Loss Prevention metrics) -->
+                <div class="col-lg-6 case-item" data-category="data-reporting">
                     <article class="case-card h-100">
                         <figure class="case-image-strip">
                             <img data-img="cases-loss-prevention" alt="Watch window inside a stone tower" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
                         </figure>
-                        <div class="case-card-header"><span class="case-cluster-badge">Security &amp; Operations</span><p class="small mb-1">Multi-site logistics network, 5 countries · 2019-2023</p><h3 class="h4 mb-0">Loss Prevention Programme</h3></div>
-                        <div class="card-body"><p><strong>Context:</strong> A distributed network needed consistent security governance.</p><p><strong>Challenge:</strong> Incident, shrinkage and supplier controls varied by site.</p><ul><li>Introduced performance governance for guarding providers.</li><li>Standardised incident and shrinkage review routines.</li><li>Aligned controls to operational and financial reporting.</li></ul><p><strong>Result:</strong> <strong>15% incident reduction</strong>, <strong>20% shrinkage reduction</strong> and around <strong>€2.3M annual losses prevented</strong>.</p><div class="d-flex flex-wrap gap-1"><span class="skill-badge">Loss Prevention</span><span class="skill-badge">Vendor Governance</span><span class="skill-badge">Security</span></div></div>
+                        <div class="case-card-header"><span class="case-cluster-badge" data-i18n="cl.data">Data-Driven Risk Reporting</span><p class="small mb-1" data-i18n="cs.I.meta">Loss prevention &amp; security operations</p><h3 class="h4 mb-0" data-i18n="cs.I.title">Turning Security Data into Management Decisions</h3></div>
+                        <div class="card-body">
+                            <p data-i18n-html="cs.I.context"><strong>Context:</strong> Security and loss-prevention data sat in scattered logs and spreadsheets, too fragmented to guide decisions.</p>
+                            <p data-i18n-html="cs.I.challenge"><strong>Challenge:</strong> Incidents, audit evidence, supplier performance and remediation were never connected into a single view.</p>
+                            <ul data-i18n-html="cs.I.steps"><li>Standardised the data into decision-grade dashboards.</li><li>Linked incidents, audit evidence, supplier performance and remediation.</li><li>Turned reporting into actionable management routines.</li></ul>
+                            <p data-i18n-html="cs.I.result"><strong>Result:</strong> <strong>15% fewer incidents</strong>, <strong>20% less shrinkage</strong> and around <strong>€2.3M</strong> in annual losses prevented.</p>
+                            <div class="d-flex flex-wrap gap-1"><span class="skill-badge">Dashboards</span><span class="skill-badge">KPI/KRI</span><span class="skill-badge">Loss Prevention</span></div>
+                            <div class="case-services">
+                                <span class="case-services-label" data-i18n="cases.linkedservices">Linked Services</span>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <a class="case-service-link" href="services/digital-grc.html" data-i18n="svc.digital" title="Dashboards">Digital GRC</a>
+                                    <a class="case-service-link" href="services/assurance-security.html" data-i18n="svc.assurance" title="Loss prevention">Assurance &amp; Security</a>
+                                    <a class="case-service-link" href="services/governance-risk.html" data-i18n="svc.gov" title="KPI / KRI">Governance &amp; Risk</a>
+                                </div>
+                            </div>
+                        </div>
                     </article>
                 </div>
 
-                <!-- Case 4: GDPR Readiness (compliance) -->
-                <div class="col-lg-6 case-item" data-category="compliance">
+                <!-- Card E: Supplier Conflict of Interest — Third-Party & Supply-Chain Risk -->
+                <div class="col-lg-6 case-item" data-category="third-party">
+                    <article class="case-card h-100">
+                        <figure class="case-image-strip">
+                            <img data-img="cases-supplier-coi" alt="Two interlocking stone arches meeting at a pier" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <div class="case-card-header"><span class="case-cluster-badge" data-i18n="cl.thirdparty">Third-Party &amp; Supply-Chain Risk</span><p class="small mb-1" data-i18n="cs.E.meta">Critical supplier contract</p><h3 class="h4 mb-0" data-i18n="cs.E.title">Detecting a Supplier Conflict of Interest in a Critical Contract</h3></div>
+                        <div class="card-body">
+                            <p data-i18n-html="cs.E.context"><strong>Context:</strong> A critical contract showed procurement irregularities that did not add up, raising questions about supplier integrity.</p>
+                            <p data-i18n-html="cs.E.challenge"><strong>Challenge:</strong> The signals were scattered across procurement records, ownership data and subcontracting arrangements, with no clear picture.</p>
+                            <ul data-i18n-html="cs.E.steps"><li>Ran an evidence-led review connecting procurement deviations, ownership checks and subcontracting risk.</li><li>Documented the findings into a clear, defensible escalation package.</li><li>Defined the decision points for management and legal.</li></ul>
+                            <p data-i18n-html="cs.E.result"><strong>Result:</strong> A hidden conflict of interest surfaced and escalated with the evidence needed to act.</p>
+                            <div class="d-flex flex-wrap gap-1"><span class="skill-badge">Investigation</span><span class="skill-badge">Procurement Integrity</span><span class="skill-badge">Conflict of Interest</span></div>
+                            <div class="case-services">
+                                <span class="case-services-label" data-i18n="cases.linkedservices">Linked Services</span>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <a class="case-service-link" href="services/assurance-security.html" data-i18n="svc.assurance" title="Investigation">Assurance &amp; Security</a>
+                                    <a class="case-service-link" href="services/compliance-regulation.html" data-i18n="svc.compliance" title="Procurement integrity">Compliance &amp; Regulation</a>
+                                    <a class="case-service-link" href="services/governance-risk.html" data-i18n="svc.gov" title="Escalation">Governance &amp; Risk</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Card H: 3PL Launch Security — Third-Party & Supply-Chain Risk -->
+                <div class="col-lg-6 case-item" data-category="third-party">
+                    <article class="case-card h-100">
+                        <figure class="case-image-strip">
+                            <img data-img="cases-3pl" alt="Loading bay openings in a long warehouse wall" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <div class="case-card-header"><span class="case-cluster-badge" data-i18n="cl.thirdparty">Third-Party &amp; Supply-Chain Risk</span><p class="small mb-1" data-i18n="cs.H.meta">Third-party logistics (3PL) go-lives</p><h3 class="h4 mb-0" data-i18n="cs.H.title">Standardising Security Requirements for 3PL Launches</h3></div>
+                        <div class="card-body">
+                            <p data-i18n-html="cs.H.context"><strong>Context:</strong> New third-party logistics (3PL) sites went live with security requirements interpreted differently each time.</p>
+                            <p data-i18n-html="cs.H.challenge"><strong>Challenge:</strong> Control expectations were not measurable before go-live, so non-conformities surfaced after launch.</p>
+                            <ul data-i18n-html="cs.H.steps"><li>Created a 3PL security implementation protocol.</li><li>Made supplier control expectations measurable before go-live.</li><li>Built launch-readiness checks into onboarding.</li></ul>
+                            <p data-i18n-html="cs.H.result"><strong>Result:</strong> Stronger launch readiness and fewer non-conformities at new 3PL sites.</p>
+                            <div class="d-flex flex-wrap gap-1"><span class="skill-badge">Supplier Control</span><span class="skill-badge">Go-Live Readiness</span><span class="skill-badge">Implementation</span></div>
+                            <div class="case-services">
+                                <span class="case-services-label" data-i18n="cases.linkedservices">Linked Services</span>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <a class="case-service-link" href="services/csrd-supply-chain.html" data-i18n="svc.csrd" title="Supplier control">CSRD / Supply Chain</a>
+                                    <a class="case-service-link" href="services/assurance-security.html" data-i18n="svc.assurance" title="Go-live readiness">Assurance &amp; Security</a>
+                                    <a class="case-service-link" href="services/governance-risk.html" data-i18n="svc.gov" title="Implementation governance">Governance &amp; Risk</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Card F: Incident Management — Crisis & Incident Management -->
+                <div class="col-lg-6 case-item" data-category="incident-crisis">
+                    <article class="case-card h-100">
+                        <figure class="case-image-strip">
+                            <img data-img="cases-incident" alt="Stone watchtower standing against a clear sky" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <div class="case-card-header"><span class="case-cluster-badge" data-i18n="cl.incident">Crisis &amp; Incident Management</span><p class="small mb-1" data-i18n="cs.F.meta">Multi-site logistics network</p><h3 class="h4 mb-0" data-i18n="cs.F.title">Standardising Incident Management Across a Logistics Network</h3></div>
+                        <div class="card-body">
+                            <p data-i18n-html="cs.F.context"><strong>Context:</strong> Across a logistics network, sites handled incidents their own way, so escalation, evidence and investigation quality varied widely.</p>
+                            <p data-i18n-html="cs.F.challenge"><strong>Challenge:</strong> Without a shared model, serious events were handled inconsistently and closure was hard to govern.</p>
+                            <ul data-i18n-html="cs.F.steps"><li>Designed a network incident-management guideline covering escalation and evidence.</li><li>Standardised investigation workflows and closure governance.</li><li>Aligned the model to operational reporting.</li></ul>
+                            <p data-i18n-html="cs.F.result"><strong>Result:</strong> Consistent incident handling across the network and a clearer, more accountable path to closure.</p>
+                            <div class="d-flex flex-wrap gap-1"><span class="skill-badge">Incident Management</span><span class="skill-badge">Investigations</span><span class="skill-badge">Operating Model</span></div>
+                            <div class="case-services">
+                                <span class="case-services-label" data-i18n="cases.linkedservices">Linked Services</span>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <a class="case-service-link" href="services/assurance-security.html" data-i18n="svc.assurance" title="Incident operations">Assurance &amp; Security</a>
+                                    <a class="case-service-link" href="services/governance-risk.html" data-i18n="svc.gov" title="Operating model">Governance &amp; Risk</a>
+                                    <a class="case-service-link" href="services/compliance-regulation.html" data-i18n="svc.compliance" title="Policy design">Compliance &amp; Regulation</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Card G: Dawn Raid Readiness — Crisis & Incident Management -->
+                <div class="col-lg-6 case-item" data-category="incident-crisis">
+                    <article class="case-card h-100">
+                        <figure class="case-image-strip">
+                            <img data-img="cases-dawn-raid" alt="Fortified stone gateway at first light" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <div class="case-card-header"><span class="case-cluster-badge" data-i18n="cl.incident">Crisis &amp; Incident Management</span><p class="small mb-1" data-i18n="cs.G.meta">35 sites · 7 countries</p><h3 class="h4 mb-0" data-i18n="cs.G.title">Building Dawn Raid Readiness Across 35 Sites</h3></div>
+                        <div class="card-body">
+                            <p data-i18n-html="cs.G.context"><strong>Context:</strong> A group operating 35 sites across 7 countries had no consistent way to respond to a dawn raid or comparable legal inspection.</p>
+                            <p data-i18n-html="cs.G.challenge"><strong>Challenge:</strong> Unclear procedures risked slow notification and wrong escalations at the moment they mattered most.</p>
+                            <ul data-i18n-html="cs.G.steps"><li>Implemented dawn raid readiness procedures across all 35 sites.</li><li>Defined notification and escalation paths.</li><li>Trained local teams to respond with confidence.</li></ul>
+                            <p data-i18n-html="cs.G.result"><strong>Result:</strong> Faster notification and fewer wrong escalations, with consistent readiness across <strong>7 countries</strong>.</p>
+                            <div class="d-flex flex-wrap gap-1"><span class="skill-badge">Crisis Readiness</span><span class="skill-badge">Legal Response</span><span class="skill-badge">Training</span></div>
+                            <div class="case-services">
+                                <span class="case-services-label" data-i18n="cases.linkedservices">Linked Services</span>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <a class="case-service-link" href="services/compliance-regulation.html" data-i18n="svc.compliance" title="Legal response">Compliance &amp; Regulation</a>
+                                    <a class="case-service-link" href="services/assurance-security.html" data-i18n="svc.assurance" title="Readiness &amp; training">Assurance &amp; Security</a>
+                                    <a class="case-service-link" href="services/fractional-grc.html" data-i18n="svc.fractional" title="Advisory">Fractional GRC</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Card J: Security Friction — Behavioural Risk & Security Culture -->
+                <div class="col-lg-6 case-item" data-category="behavioural">
+                    <article class="case-card h-100">
+                        <figure class="case-image-strip">
+                            <img data-img="cases-friction" alt="Worn stone steps smoothed by long use" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
+                        </figure>
+                        <div class="case-card-header"><span class="case-cluster-badge" data-i18n="cl.behavioural">Behavioural Risk &amp; Security Culture</span><p class="small mb-1" data-i18n="cs.J.meta">Workforce security operations</p><h3 class="h4 mb-0" data-i18n="cs.J.title">Reducing Security Friction Through Data and Stakeholder Engagement</h3></div>
+                        <div class="card-body">
+                            <p data-i18n-html="cs.J.context"><strong>Context:</strong> Security rules were creating friction with employees, lowering acceptance and fuelling workplace disputes.</p>
+                            <p data-i18n-html="cs.J.challenge"><strong>Challenge:</strong> Controls were seen as obstacles rather than shared practice, with little feedback loop.</p>
+                            <ul data-i18n-html="cs.J.steps"><li>Combined incident analytics with employee feedback and workshops.</li><li>Used live dashboards to make the reasoning visible.</li><li>Reworked rules around how people actually work.</li></ul>
+                            <p data-i18n-html="cs.J.result"><strong>Result:</strong> Higher rule acceptance and fewer workplace disputes, with security seen as shared practice.</p>
+                            <div class="d-flex flex-wrap gap-1"><span class="skill-badge">Behavioural Risk</span><span class="skill-badge">Stakeholder Engagement</span><span class="skill-badge">Security Culture</span></div>
+                            <div class="case-services">
+                                <span class="case-services-label" data-i18n="cases.linkedservices">Linked Services</span>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <a class="case-service-link" href="services/assurance-security.html" data-i18n="svc.assurance" title="Security culture">Assurance &amp; Security</a>
+                                    <a class="case-service-link" href="services/digital-grc.html" data-i18n="svc.digital" title="Analytics">Digital GRC</a>
+                                    <a class="case-service-link" href="services/fractional-grc.html" data-i18n="svc.fractional" title="Stakeholder engagement">Fractional GRC</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Card B: GDPR Readiness — Privacy & Compliance Readiness -->
+                <div class="col-lg-6 case-item" data-category="privacy-compliance">
                     <article class="case-card h-100">
                         <figure class="case-image-strip">
                             <img data-img="cases-gdpr" alt="Stone threshold opening in a fortified wall" loading="lazy" decoding="async" onerror="this.closest('.case-image-strip').classList.add('is-missing');this.remove();">
                         </figure>
-                        <div class="case-card-header"><span class="case-cluster-badge">Compliance &amp; Regulation</span><p class="small mb-1">Multinational logistics operations · 2024</p><h3 class="h4 mb-0">GDPR Readiness</h3></div>
-                        <div class="card-body"><p><strong>Context:</strong> Operations needed readiness across data, sustainability and compliance evidence.</p><p><strong>Challenge:</strong> Evidence owners and operational controls were not consistently mapped.</p><ul><li>Mapped readiness gaps against operational processes.</li><li>Defined evidence expectations for internal owners.</li><li>Connected privacy and supplier assurance routines.</li></ul><p><strong>Result:</strong> Stronger readiness view, clearer evidence ownership and reusable compliance routines.</p><div class="d-flex flex-wrap gap-1"><span class="skill-badge">CSRD</span><span class="skill-badge">GDPR</span><span class="skill-badge">Evidence</span></div></div>
+                        <div class="case-card-header"><span class="case-cluster-badge" data-i18n="cl.privacy">Privacy &amp; Compliance Readiness</span><p class="small mb-1" data-i18n="cs.B.meta">Multinational logistics operations · 2024</p><h3 class="h4 mb-0" data-i18n="cs.B.title">GDPR Readiness</h3></div>
+                        <div class="card-body">
+                            <p data-i18n-html="cs.B.context"><strong>Context:</strong> Operations needed readiness across data, sustainability and compliance evidence.</p>
+                            <p data-i18n-html="cs.B.challenge"><strong>Challenge:</strong> Evidence owners and operational controls were not consistently mapped.</p>
+                            <ul data-i18n-html="cs.B.steps"><li>Mapped readiness gaps against operational processes.</li><li>Defined evidence expectations for internal owners.</li><li>Connected privacy and supplier assurance routines.</li></ul>
+                            <p data-i18n-html="cs.B.result"><strong>Result:</strong> Stronger readiness view, clearer evidence ownership and reusable compliance routines.</p>
+                            <div class="d-flex flex-wrap gap-1"><span class="skill-badge">CSRD</span><span class="skill-badge">GDPR</span><span class="skill-badge">Evidence</span></div>
+                            <div class="case-services">
+                                <span class="case-services-label" data-i18n="cases.linkedservices">Linked Services</span>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <a class="case-service-link" href="services/privacy.html" data-i18n="svc.privacy" title="Data protection">Privacy</a>
+                                    <a class="case-service-link" href="services/compliance-regulation.html" data-i18n="svc.compliance" title="Evidence">Compliance &amp; Regulation</a>
+                                    <a class="case-service-link" href="services/csrd-supply-chain.html" data-i18n="svc.csrd" title="Supplier assurance">CSRD / Supply Chain</a>
+                                </div>
+                            </div>
+                        </div>
                     </article>
                 </div>
 
-                <!-- Case 5: GRC Framework Design [coming soon] (governance) -->
-                <div class="col-lg-6 case-item" data-category="governance"><article class="case-card coming-soon-overlay h-100"><div class="case-card-header"><span class="case-cluster-badge">Governance &amp; Risk</span><p class="small mb-1">Mid-size manufacturing · Upcoming</p><h3 class="h4 mb-0">GRC Framework Design</h3></div><div class="card-body"><p>Placeholder for a future engagement covering governance structure, risk ownership and control documentation.</p><p><strong>Interested in this type of engagement?</strong> <a href="contact.html" class="text-accent fw-semibold">Get in touch.</a></p><div class="d-flex flex-wrap gap-1"><span class="skill-badge">GRC</span><span class="skill-badge">Risk Framework</span></div></div></article></div>
+            </div>
 
-                <!-- Case 6: Mod. 231 Implementation [coming soon] (compliance) -->
-                <div class="col-lg-6 case-item" data-category="compliance"><article class="case-card coming-soon-overlay h-100"><div class="case-card-header"><span class="case-cluster-badge">Compliance &amp; Regulation</span><p class="small mb-1">Italian SME · Upcoming</p><h3 class="h4 mb-0">Mod. 231 Implementation</h3></div><div class="card-body"><p>Placeholder for a future engagement covering risk areas, procedures, monitoring and control evidence.</p><p><strong>Interested in this type of engagement?</strong> <a href="contact.html" class="text-accent fw-semibold">Get in touch.</a></p><div class="d-flex flex-wrap gap-1"><span class="skill-badge">Mod. 231</span><span class="skill-badge">Compliance</span></div></div></article></div>
+            <!-- Closing CTA — always visible (not a .case-item, so the filter leaves it in place) -->
+            <div class="text-center mt-5 pt-3">
+                <p class="mb-1" data-i18n="cases.cta.text">Have a similar challenge? Every engagement starts with a conversation.</p>
+                <a href="contact.html" class="text-accent fw-semibold" data-i18n="cases.cta.link">Start a conversation →</a>
             </div>
         </section>
     </main>
@@ -185,15 +405,17 @@
 
     <!-- ══════════════════════════════════════════════
          SCRIPTS
-         1. Inline  — Category filter: click handler on .filter-btn
+         1. Inline  — Cluster filter: click handler on .filter-btn
                       toggles .d-none on .case-item elements based on
                       data-filter vs data-category match
-         2. i18n.js — EN/IT translation engine
-         3. Bootstrap JS — navbar collapse
+         2. images.js — Image registry (sets <img data-img> src)
+         3. i18n.js — EN/IT translation engine
+         4. Bootstrap JS — navbar collapse
          ══════════════════════════════════════════════ -->
     <script>
-        /* Category filter: active button style + show/hide case cards.
-           data-filter="all" shows everything; otherwise matches data-category. */
+        /* Cluster filter: active button style + show/hide case cards.
+           data-filter="all" shows everything; otherwise matches data-category.
+           The closing CTA is not a .case-item, so it is never hidden. */
         const filterButtons = document.querySelectorAll('.filter-btn');
         const caseItems = document.querySelectorAll('.case-item');
         filterButtons.forEach((button) => {
